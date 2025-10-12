@@ -10,3 +10,11 @@ F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicente
 F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Infrastructure\obj\Debug\net8.0\refint\Infrastructure.dll
 F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Infrastructure\obj\Debug\net8.0\Infrastructure.pdb
 F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Infrastructure\obj\Debug\net8.0\ref\Infrastructure.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Infrastructure\obj\Debug\net8.0\Infrastructure.csproj.AssemblyReference.cache
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Infrastructure\bin\Debug\net8.0\Infrastructure.runtimeconfig.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Infrastructure\bin\Debug\net8.0\Application.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Infrastructure\bin\Debug\net8.0\Domain.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Infrastructure\bin\Debug\net8.0\Application.pdb
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Infrastructure\bin\Debug\net8.0\Domain.pdb
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Infrastructure\obj\Debug\net8.0\Infrastr.15EFFBFE.Up2Date
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Infrastructure\obj\Debug\net8.0\Infrastructure.genruntimeconfig.cache

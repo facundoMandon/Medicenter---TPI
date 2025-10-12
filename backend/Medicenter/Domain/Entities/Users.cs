@@ -8,9 +8,10 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class Users
+    public abstract class Users
     {
-    public int Id { get; set; }
+        [Required]
+        public int Id { get; set; }
         [Required]
         public string Name { get; set; } = string.Empty;
         [Required]

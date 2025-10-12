@@ -1,0 +1,12 @@
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Domain\bin\Debug\net8.0\Domain.deps.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Domain\bin\Debug\net8.0\Domain.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Domain\bin\Debug\net8.0\Domain.pdb
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Domain\obj\Debug\net8.0\Domain.GeneratedMSBuildEditorConfig.editorconfig
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Domain\obj\Debug\net8.0\Domain.AssemblyInfoInputs.cache
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Domain\obj\Debug\net8.0\Domain.AssemblyInfo.cs
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Domain\obj\Debug\net8.0\Domain.csproj.CoreCompileInputs.cache
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Domain\obj\Debug\net8.0\Domain.sourcelink.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Domain\obj\Debug\net8.0\Domain.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Domain\obj\Debug\net8.0\refint\Domain.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Domain\obj\Debug\net8.0\Domain.pdb
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Domain\obj\Debug\net8.0\ref\Domain.dll
