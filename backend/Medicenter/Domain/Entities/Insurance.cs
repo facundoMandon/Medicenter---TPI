@@ -14,6 +14,10 @@ namespace Domain.Entities
         public string Description { get; set; }
         public MedicalCoverageType CoverageType { get; set; }
 
+        //Relaciones
+
+        public ICollection<Professionals> Professionals { get; set; } = new List<Professionals>();
+        public ICollection<Patients> Patients { get; set; } = new List<Patients>();
         //Métodos
     }
 }

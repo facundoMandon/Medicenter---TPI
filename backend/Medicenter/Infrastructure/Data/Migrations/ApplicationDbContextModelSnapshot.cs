@@ -52,7 +52,7 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasIndex("ProfessionalId");
 
-                    b.ToTable("Appointments");
+                    b.ToTable("Appointments", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Hospitals", b =>
@@ -73,7 +73,7 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Hospitals");
+                    b.ToTable("Hospitals", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Insurance", b =>
@@ -97,37 +97,7 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Insurance");
-                });
-
-            modelBuilder.Entity("Domain.Entities.Relations.ProfessionalHospital", b =>
-                {
-                    b.Property<int>("ProfessionalId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("HospitalId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ProfessionalId", "HospitalId");
-
-                    b.HasIndex("HospitalId");
-
-                    b.ToTable("ProfessionalHospitals");
-                });
-
-            modelBuilder.Entity("Domain.Entities.Relations.ProfessionalSpecialty", b =>
-                {
-                    b.Property<int>("ProfessionalId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("SpecialtyId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ProfessionalId", "SpecialtyId");
-
-                    b.HasIndex("SpecialtyId");
-
-                    b.ToTable("ProfessionalSpecialties");
+                    b.ToTable("Insurance", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Specialties", b =>
@@ -148,7 +118,7 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Specialties");
+                    b.ToTable("Specialties", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Users", b =>
@@ -188,6 +158,36 @@ namespace Infrastructure.Data.Migrations
                     b.UseTptMappingStrategy();
                 });
 
+            modelBuilder.Entity("HospitalsProfessionals", b =>
+                {
+                    b.Property<int>("HospitalsId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProfessionalsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("HospitalsId", "ProfessionalsId");
+
+                    b.HasIndex("ProfessionalsId");
+
+                    b.ToTable("HospitalsProfessionals");
+                });
+
+            modelBuilder.Entity("InsuranceProfessionals", b =>
+                {
+                    b.Property<int>("InsurancesId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProfessionalsId")
+                        .HasColumnType("int");
+
+                    b.HasKey("InsurancesId", "ProfessionalsId");
+
+                    b.HasIndex("ProfessionalsId");
+
+                    b.ToTable("InsuranceProfessionals");
+                });
+
             modelBuilder.Entity("Domain.Entities.Administrators", b =>
                 {
                     b.HasBaseType("Domain.Entities.Users");
@@ -199,8 +199,13 @@ namespace Infrastructure.Data.Migrations
                 {
                     b.HasBaseType("Domain.Entities.Users");
 
+                    b.Property<int>("InsuranceId")
+                        .HasColumnType("int");
+
                     b.Property<int>("affiliate_number")
                         .HasColumnType("int");
+
+                    b.HasIndex("InsuranceId");
 
                     b.ToTable("Patients", (string)null);
                 });
@@ -209,8 +214,13 @@ namespace Infrastructure.Data.Migrations
                 {
                     b.HasBaseType("Domain.Entities.Users");
 
+                    b.Property<int>("SpecialtyId")
+                        .HasColumnType("int");
+
                     b.Property<int>("n_matricula")
                         .HasColumnType("int");
+
+                    b.HasIndex("SpecialtyId");
 
                     b.ToTable("Professionals", (string)null);
                 });
@@ -218,7 +228,7 @@ namespace Infrastructure.Data.Migrations
             modelBuilder.Entity("Domain.Entities.Appointments", b =>
                 {
                     b.HasOne("Domain.Entities.Patients", "Patient")
-                        .WithMany()
+                        .WithMany("Appointments")
                         .HasForeignKey("PatientId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -234,42 +244,34 @@ namespace Infrastructure.Data.Migrations
                     b.Navigation("Professional");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Relations.ProfessionalHospital", b =>
+            modelBuilder.Entity("HospitalsProfessionals", b =>
                 {
-                    b.HasOne("Domain.Entities.Hospitals", "Hospital")
+                    b.HasOne("Domain.Entities.Hospitals", null)
                         .WithMany()
-                        .HasForeignKey("HospitalId")
+                        .HasForeignKey("HospitalsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Entities.Professionals", "Professional")
-                        .WithMany("HospitalesEnlazados")
-                        .HasForeignKey("ProfessionalId")
+                    b.HasOne("Domain.Entities.Professionals", null)
+                        .WithMany()
+                        .HasForeignKey("ProfessionalsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Hospital");
-
-                    b.Navigation("Professional");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Relations.ProfessionalSpecialty", b =>
+            modelBuilder.Entity("InsuranceProfessionals", b =>
                 {
-                    b.HasOne("Domain.Entities.Professionals", "Professional")
-                        .WithMany("EspecialidadesEnlazadas")
-                        .HasForeignKey("ProfessionalId")
+                    b.HasOne("Domain.Entities.Insurance", null)
+                        .WithMany()
+                        .HasForeignKey("InsurancesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Entities.Specialties", "Specialty")
-                        .WithMany("ProfessionalsEnlazados")
-                        .HasForeignKey("SpecialtyId")
+                    b.HasOne("Domain.Entities.Professionals", null)
+                        .WithMany()
+                        .HasForeignKey("ProfessionalsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Professional");
-
-                    b.Navigation("Specialty");
                 });
 
             modelBuilder.Entity("Domain.Entities.Administrators", b =>
@@ -288,6 +290,14 @@ namespace Infrastructure.Data.Migrations
                         .HasForeignKey("Domain.Entities.Patients", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("Domain.Entities.Insurance", "Insurance")
+                        .WithMany("Patients")
+                        .HasForeignKey("InsuranceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Insurance");
                 });
 
             modelBuilder.Entity("Domain.Entities.Professionals", b =>
@@ -297,20 +307,34 @@ namespace Infrastructure.Data.Migrations
                         .HasForeignKey("Domain.Entities.Professionals", "Id")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("Domain.Entities.Specialties", "Specialty")
+                        .WithMany("Professionals")
+                        .HasForeignKey("SpecialtyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Specialty");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Insurance", b =>
+                {
+                    b.Navigation("Patients");
                 });
 
             modelBuilder.Entity("Domain.Entities.Specialties", b =>
                 {
-                    b.Navigation("ProfessionalsEnlazados");
+                    b.Navigation("Professionals");
+                });
+
+            modelBuilder.Entity("Domain.Entities.Patients", b =>
+                {
+                    b.Navigation("Appointments");
                 });
 
             modelBuilder.Entity("Domain.Entities.Professionals", b =>
                 {
                     b.Navigation("Appointments");
-
-                    b.Navigation("EspecialidadesEnlazadas");
-
-                    b.Navigation("HospitalesEnlazados");
                 });
 #pragma warning restore 612, 618
         }

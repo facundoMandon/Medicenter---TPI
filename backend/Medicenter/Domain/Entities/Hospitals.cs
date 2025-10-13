@@ -17,6 +17,11 @@ namespace Domain.Entities
         [Required]
         public string Adress { get; set; }
 
+        //relaciones
+        public ICollection<Professionals> Professionals { get; set; }
+
+        //Métodos
+
         public void registerProfessionals(Professionals professional) 
         {
             //logica

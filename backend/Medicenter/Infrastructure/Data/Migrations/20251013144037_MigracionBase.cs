@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Infrastructure.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class HerenciaTPT : Migration
+    public partial class MigracionBase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -113,11 +113,18 @@ namespace Infrastructure.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false),
-                    affiliate_number = table.Column<int>(type: "int", nullable: false)
+                    affiliate_number = table.Column<int>(type: "int", nullable: false),
+                    InsuranceId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Patients", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Patients_Insurance_InsuranceId",
+                        column: x => x.InsuranceId,
+                        principalTable: "Insurance",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Patients_Users_Id",
                         column: x => x.Id,
@@ -132,11 +139,18 @@ namespace Infrastructure.Data.Migrations
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false),
-                    n_matricula = table.Column<int>(type: "int", nullable: false)
+                    n_matricula = table.Column<int>(type: "int", nullable: false),
+                    SpecialtyId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Professionals", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Professionals_Specialties_SpecialtyId",
+                        column: x => x.SpecialtyId,
+                        principalTable: "Specialties",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Professionals_Users_Id",
                         column: x => x.Id,
@@ -178,24 +192,24 @@ namespace Infrastructure.Data.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "ProfessionalHospitals",
+                name: "HospitalsProfessionals",
                 columns: table => new
                 {
-                    ProfessionalId = table.Column<int>(type: "int", nullable: false),
-                    HospitalId = table.Column<int>(type: "int", nullable: false)
+                    HospitalsId = table.Column<int>(type: "int", nullable: false),
+                    ProfessionalsId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProfessionalHospitals", x => new { x.ProfessionalId, x.HospitalId });
+                    table.PrimaryKey("PK_HospitalsProfessionals", x => new { x.HospitalsId, x.ProfessionalsId });
                     table.ForeignKey(
-                        name: "FK_ProfessionalHospitals_Hospitals_HospitalId",
-                        column: x => x.HospitalId,
+                        name: "FK_HospitalsProfessionals_Hospitals_HospitalsId",
+                        column: x => x.HospitalsId,
                         principalTable: "Hospitals",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ProfessionalHospitals_Professionals_ProfessionalId",
-                        column: x => x.ProfessionalId,
+                        name: "FK_HospitalsProfessionals_Professionals_ProfessionalsId",
+                        column: x => x.ProfessionalsId,
                         principalTable: "Professionals",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -203,25 +217,25 @@ namespace Infrastructure.Data.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "ProfessionalSpecialties",
+                name: "InsuranceProfessionals",
                 columns: table => new
                 {
-                    ProfessionalId = table.Column<int>(type: "int", nullable: false),
-                    SpecialtyId = table.Column<int>(type: "int", nullable: false)
+                    InsurancesId = table.Column<int>(type: "int", nullable: false),
+                    ProfessionalsId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProfessionalSpecialties", x => new { x.ProfessionalId, x.SpecialtyId });
+                    table.PrimaryKey("PK_InsuranceProfessionals", x => new { x.InsurancesId, x.ProfessionalsId });
                     table.ForeignKey(
-                        name: "FK_ProfessionalSpecialties_Professionals_ProfessionalId",
-                        column: x => x.ProfessionalId,
-                        principalTable: "Professionals",
+                        name: "FK_InsuranceProfessionals_Insurance_InsurancesId",
+                        column: x => x.InsurancesId,
+                        principalTable: "Insurance",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ProfessionalSpecialties_Specialties_SpecialtyId",
-                        column: x => x.SpecialtyId,
-                        principalTable: "Specialties",
+                        name: "FK_InsuranceProfessionals_Professionals_ProfessionalsId",
+                        column: x => x.ProfessionalsId,
+                        principalTable: "Professionals",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
@@ -238,13 +252,23 @@ namespace Infrastructure.Data.Migrations
                 column: "ProfessionalId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProfessionalHospitals_HospitalId",
-                table: "ProfessionalHospitals",
-                column: "HospitalId");
+                name: "IX_HospitalsProfessionals_ProfessionalsId",
+                table: "HospitalsProfessionals",
+                column: "ProfessionalsId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ProfessionalSpecialties_SpecialtyId",
-                table: "ProfessionalSpecialties",
+                name: "IX_InsuranceProfessionals_ProfessionalsId",
+                table: "InsuranceProfessionals",
+                column: "ProfessionalsId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Patients_InsuranceId",
+                table: "Patients",
+                column: "InsuranceId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Professionals_SpecialtyId",
+                table: "Professionals",
                 column: "SpecialtyId");
         }
 
@@ -258,13 +282,10 @@ namespace Infrastructure.Data.Migrations
                 name: "Appointments");
 
             migrationBuilder.DropTable(
-                name: "Insurance");
+                name: "HospitalsProfessionals");
 
             migrationBuilder.DropTable(
-                name: "ProfessionalHospitals");
-
-            migrationBuilder.DropTable(
-                name: "ProfessionalSpecialties");
+                name: "InsuranceProfessionals");
 
             migrationBuilder.DropTable(
                 name: "Patients");
@@ -274,6 +295,9 @@ namespace Infrastructure.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Professionals");
+
+            migrationBuilder.DropTable(
+                name: "Insurance");
 
             migrationBuilder.DropTable(
                 name: "Specialties");

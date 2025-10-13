@@ -1,5 +1,4 @@
-﻿using Domain.Entities.Relations;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,8 +12,9 @@ namespace Domain.Entities
         public string Type { get; set; } // Tipo: string
         public string Description { get; set; } // Descripción: string
 
-        // Propiedad de Navegación de Colección para M:M (con ProfessionalSpecialty)
-        public ICollection<ProfessionalSpecialty> ProfessionalsEnlazados { get; private set; } = new HashSet<ProfessionalSpecialty>();
+        //Relaciones
+
+        public ICollection<Professionals> Professionals { get; set; }
 
         // Métodos del diagrama
         public void AddSpecialty() { /* Lógica */ }
