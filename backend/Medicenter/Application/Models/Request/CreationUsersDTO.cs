@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Application.Models.Request
 {
-    public class CreationUserDTO
+    public class CreationUsersDTO
     {
         [Required]
         public string Name { get; set; }
@@ -26,7 +26,7 @@ namespace Application.Models.Request
         [Required]
         [MinLength(8)] // Para validación de seguridad
         public string Password { get; set; }
-
+                                       
         [Required]
         public Roles rol { get; set; }
     }

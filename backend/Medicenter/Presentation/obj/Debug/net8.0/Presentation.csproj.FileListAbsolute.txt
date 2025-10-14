@@ -254,3 +254,15 @@ C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presen
 C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.pdb
 C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.genruntimeconfig.cache
 C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\ref\Presentation.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.csproj.AssemblyReference.cache
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\rpswa.dswa.cache.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.GeneratedMSBuildEditorConfig.editorconfig
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.AssemblyInfoInputs.cache
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.AssemblyInfo.cs
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.csproj.CoreCompileInputs.cache
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.MvcApplicationPartsAssemblyInfo.cs
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.MvcApplicationPartsAssemblyInfo.cache
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.sourcelink.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\refint\Presentation.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.pdb

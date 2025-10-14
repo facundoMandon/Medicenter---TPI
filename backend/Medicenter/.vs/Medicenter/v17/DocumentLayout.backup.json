@@ -1,30 +1,58 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter\\backend\\Medicenter\\",
+  "WorkspaceRootPath": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BB66288C-1186-45AE-B857-D468AD19AA0D}|Infrastructure\\Infrastructure.csproj|f:\\documentos-f\\utn\\4to cuatri\\programaci\u00F3n iv\\tpi\\medicenter\\backend\\medicenter\\infrastructure\\infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{BB66288C-1186-45AE-B857-D468AD19AA0D}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{92B22CA1-4291-4E0E-BB17-661594DF2A2F}|Presentation\\Presentation.csproj|f:\\documentos-f\\utn\\4to cuatri\\programaci\u00F3n iv\\tpi\\medicenter---tpi\\backend\\medicenter\\presentation\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92B22CA1-4291-4E0E-BB17-661594DF2A2F}|Presentation\\Presentation.csproj|solutionrelative:presentation\\controllers\\appointmentcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{726FDD4E-0DD3-4F93-87A8-8BE7AB8B8B42}|Domain\\Domain.csproj|f:\\documentos-f\\utn\\4to cuatri\\programaci\u00F3n iv\\tpi\\medicenter\\backend\\medicenter\\domain\\domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{726FDD4E-0DD3-4F93-87A8-8BE7AB8B8B42}|Domain\\Domain.csproj|solutionrelative:domain\\domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{92B22CA1-4291-4E0E-BB17-661594DF2A2F}|Presentation\\Presentation.csproj|f:\\documentos-f\\utn\\4to cuatri\\programaci\u00F3n iv\\tpi\\medicenter---tpi\\backend\\medicenter\\presentation\\controllers\\userscontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92B22CA1-4291-4E0E-BB17-661594DF2A2F}|Presentation\\Presentation.csproj|solutionrelative:presentation\\controllers\\userscontrollers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F757918-229F-4B67-9736-3158D128FEC2}|Application\\Application.csproj|f:\\documentos-f\\utn\\4to cuatri\\programaci\u00F3n iv\\tpi\\medicenter\\backend\\medicenter\\application\\application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{8F757918-229F-4B67-9736-3158D128FEC2}|Application\\Application.csproj|solutionrelative:application\\application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+      "AbsoluteMoniker": "D:0:0:{92B22CA1-4291-4E0E-BB17-661594DF2A2F}|Presentation\\Presentation.csproj|f:\\documentos-f\\utn\\4to cuatri\\programaci\u00F3n iv\\tpi\\medicenter---tpi\\backend\\medicenter\\presentation\\controllers\\specialtiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92B22CA1-4291-4E0E-BB17-661594DF2A2F}|Presentation\\Presentation.csproj|solutionrelative:presentation\\controllers\\specialtiescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{726FDD4E-0DD3-4F93-87A8-8BE7AB8B8B42}|Domain\\Domain.csproj|f:\\documentos-f\\utn\\4to cuatri\\programaci\u00F3n iv\\tpi\\medicenter\\backend\\medicenter\\domain\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{726FDD4E-0DD3-4F93-87A8-8BE7AB8B8B42}|Domain\\Domain.csproj|solutionrelative:domain\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{92B22CA1-4291-4E0E-BB17-661594DF2A2F}|Presentation\\Presentation.csproj|f:\\documentos-f\\utn\\4to cuatri\\programaci\u00F3n iv\\tpi\\medicenter---tpi\\backend\\medicenter\\presentation\\controllers\\professionalscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92B22CA1-4291-4E0E-BB17-661594DF2A2F}|Presentation\\Presentation.csproj|solutionrelative:presentation\\controllers\\professionalscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BB66288C-1186-45AE-B857-D468AD19AA0D}|Infrastructure\\Infrastructure.csproj|f:\\documentos-f\\utn\\4to cuatri\\programaci\u00F3n iv\\tpi\\medicenter\\backend\\medicenter\\infrastructure\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{BB66288C-1186-45AE-B857-D468AD19AA0D}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{92B22CA1-4291-4E0E-BB17-661594DF2A2F}|Presentation\\Presentation.csproj|f:\\documentos-f\\utn\\4to cuatri\\programaci\u00F3n iv\\tpi\\medicenter---tpi\\backend\\medicenter\\presentation\\controllers\\patientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92B22CA1-4291-4E0E-BB17-661594DF2A2F}|Presentation\\Presentation.csproj|solutionrelative:presentation\\controllers\\patientscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F757918-229F-4B67-9736-3158D128FEC2}|Application\\Application.csproj|f:\\documentos-f\\utn\\4to cuatri\\programaci\u00F3n iv\\tpi\\medicenter\\backend\\medicenter\\application\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8F757918-229F-4B67-9736-3158D128FEC2}|Application\\Application.csproj|solutionrelative:application\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{92B22CA1-4291-4E0E-BB17-661594DF2A2F}|Presentation\\Presentation.csproj|f:\\documentos-f\\utn\\4to cuatri\\programaci\u00F3n iv\\tpi\\medicenter---tpi\\backend\\medicenter\\presentation\\controllers\\insurancecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92B22CA1-4291-4E0E-BB17-661594DF2A2F}|Presentation\\Presentation.csproj|solutionrelative:presentation\\controllers\\insurancecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92B22CA1-4291-4E0E-BB17-661594DF2A2F}|Presentation\\Presentation.csproj|f:\\documentos-f\\utn\\4to cuatri\\programaci\u00F3n iv\\tpi\\medicenter---tpi\\backend\\medicenter\\presentation\\controllers\\hospitalscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92B22CA1-4291-4E0E-BB17-661594DF2A2F}|Presentation\\Presentation.csproj|solutionrelative:presentation\\controllers\\hospitalscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{92B22CA1-4291-4E0E-BB17-661594DF2A2F}|Presentation\\Presentation.csproj|f:\\documentos-f\\utn\\4to cuatri\\programaci\u00F3n iv\\tpi\\medicenter---tpi\\backend\\medicenter\\presentation\\controllers\\administratorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{92B22CA1-4291-4E0E-BB17-661594DF2A2F}|Presentation\\Presentation.csproj|solutionrelative:presentation\\controllers\\administratorscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F757918-229F-4B67-9736-3158D128FEC2}|Application\\Application.csproj|f:\\documentos-f\\utn\\4to cuatri\\programaci\u00F3n iv\\tpi\\medicenter---tpi\\backend\\medicenter\\application\\models\\request\\creationadministratorsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F757918-229F-4B67-9736-3158D128FEC2}|Application\\Application.csproj|solutionrelative:application\\models\\request\\creationadministratorsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F757918-229F-4B67-9736-3158D128FEC2}|Application\\Application.csproj|f:\\documentos-f\\utn\\4to cuatri\\programaci\u00F3n iv\\tpi\\medicenter---tpi\\backend\\medicenter\\application\\models\\request\\creationprofessionalsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F757918-229F-4B67-9736-3158D128FEC2}|Application\\Application.csproj|solutionrelative:application\\models\\request\\creationprofessionalsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F757918-229F-4B67-9736-3158D128FEC2}|Application\\Application.csproj|f:\\documentos-f\\utn\\4to cuatri\\programaci\u00F3n iv\\tpi\\medicenter---tpi\\backend\\medicenter\\application\\models\\request\\creationappointmentsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F757918-229F-4B67-9736-3158D128FEC2}|Application\\Application.csproj|solutionrelative:application\\models\\request\\creationappointmentsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F757918-229F-4B67-9736-3158D128FEC2}|Application\\Application.csproj|f:\\documentos-f\\utn\\4to cuatri\\programaci\u00F3n iv\\tpi\\medicenter---tpi\\backend\\medicenter\\application\\models\\request\\creationhospitalsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F757918-229F-4B67-9736-3158D128FEC2}|Application\\Application.csproj|solutionrelative:application\\models\\request\\creationhospitalsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F757918-229F-4B67-9736-3158D128FEC2}|Application\\Application.csproj|f:\\documentos-f\\utn\\4to cuatri\\programaci\u00F3n iv\\tpi\\medicenter---tpi\\backend\\medicenter\\application\\models\\request\\creationpatientsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F757918-229F-4B67-9736-3158D128FEC2}|Application\\Application.csproj|solutionrelative:application\\models\\request\\creationpatientsdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,84 +62,175 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Application",
-              "DocumentMoniker": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter\\backend\\Medicenter\\Application\\Application.csproj",
-              "RelativeDocumentMoniker": "Application\\Application.csproj",
-              "ToolTip": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter\\backend\\Medicenter\\Application\\Application.csproj",
-              "RelativeToolTip": "Application\\Application.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-07T13:36:29.041Z",
+              "DocumentIndex": 0,
+              "Title": "AppointmentController.cs",
+              "DocumentMoniker": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Presentation\\Controllers\\AppointmentController.cs",
+              "RelativeDocumentMoniker": "Presentation\\Controllers\\AppointmentController.cs",
+              "ToolTip": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Presentation\\Controllers\\AppointmentController.cs",
+              "RelativeToolTip": "Presentation\\Controllers\\AppointmentController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T14:28:24.651Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Domain",
-              "DocumentMoniker": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter\\backend\\Medicenter\\Domain\\Domain.csproj",
-              "RelativeDocumentMoniker": "Domain\\Domain.csproj",
-              "ToolTip": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter\\backend\\Medicenter\\Domain\\Domain.csproj",
-              "RelativeToolTip": "Domain\\Domain.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-07T13:36:09.58Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Infrastructure",
-              "DocumentMoniker": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter\\backend\\Medicenter\\Infrastructure\\Infrastructure.csproj",
-              "RelativeDocumentMoniker": "Infrastructure\\Infrastructure.csproj",
-              "ToolTip": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter\\backend\\Medicenter\\Infrastructure\\Infrastructure.csproj",
-              "RelativeToolTip": "Infrastructure\\Infrastructure.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-07T13:35:24.945Z",
+              "Title": "UsersControllers.cs",
+              "DocumentMoniker": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Presentation\\Controllers\\UsersControllers.cs",
+              "RelativeDocumentMoniker": "Presentation\\Controllers\\UsersControllers.cs",
+              "ToolTip": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Presentation\\Controllers\\UsersControllers.cs",
+              "RelativeToolTip": "Presentation\\Controllers\\UsersControllers.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T14:28:20.983Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter\\backend\\Medicenter\\Domain\\Class1.cs",
-              "RelativeDocumentMoniker": "Domain\\Class1.cs",
-              "ToolTip": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter\\backend\\Medicenter\\Domain\\Class1.cs",
-              "RelativeToolTip": "Domain\\Class1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Title": "ProfessionalsController.cs",
+              "DocumentMoniker": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Presentation\\Controllers\\ProfessionalsController.cs",
+              "RelativeDocumentMoniker": "Presentation\\Controllers\\ProfessionalsController.cs",
+              "ToolTip": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Presentation\\Controllers\\ProfessionalsController.cs",
+              "RelativeToolTip": "Presentation\\Controllers\\ProfessionalsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-07T13:34:41.984Z",
+              "WhenOpened": "2025-10-14T14:28:18.262Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SpecialtiesController.cs",
+              "DocumentMoniker": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Presentation\\Controllers\\SpecialtiesController.cs",
+              "RelativeDocumentMoniker": "Presentation\\Controllers\\SpecialtiesController.cs",
+              "ToolTip": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Presentation\\Controllers\\SpecialtiesController.cs",
+              "RelativeToolTip": "Presentation\\Controllers\\SpecialtiesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T14:28:15.535Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter\\backend\\Medicenter\\Infrastructure\\Class1.cs",
-              "RelativeDocumentMoniker": "Infrastructure\\Class1.cs",
-              "ToolTip": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter\\backend\\Medicenter\\Infrastructure\\Class1.cs",
-              "RelativeToolTip": "Infrastructure\\Class1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "PatientsController.cs",
+              "DocumentMoniker": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Presentation\\Controllers\\PatientsController.cs",
+              "RelativeDocumentMoniker": "Presentation\\Controllers\\PatientsController.cs",
+              "ToolTip": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Presentation\\Controllers\\PatientsController.cs",
+              "RelativeToolTip": "Presentation\\Controllers\\PatientsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-07T13:34:26.003Z",
+              "WhenOpened": "2025-10-14T14:28:12.97Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "Class1.cs",
-              "DocumentMoniker": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter\\backend\\Medicenter\\Application\\Class1.cs",
-              "RelativeDocumentMoniker": "Application\\Class1.cs",
-              "ToolTip": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter\\backend\\Medicenter\\Application\\Class1.cs",
-              "RelativeToolTip": "Application\\Class1.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "InsuranceController.cs",
+              "DocumentMoniker": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Presentation\\Controllers\\InsuranceController.cs",
+              "RelativeDocumentMoniker": "Presentation\\Controllers\\InsuranceController.cs",
+              "ToolTip": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Presentation\\Controllers\\InsuranceController.cs",
+              "RelativeToolTip": "Presentation\\Controllers\\InsuranceController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAABBAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-07T13:34:02.856Z",
+              "WhenOpened": "2025-10-14T14:28:08.838Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "HospitalsController.cs",
+              "DocumentMoniker": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Presentation\\Controllers\\HospitalsController.cs",
+              "RelativeDocumentMoniker": "Presentation\\Controllers\\HospitalsController.cs",
+              "ToolTip": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Presentation\\Controllers\\HospitalsController.cs",
+              "RelativeToolTip": "Presentation\\Controllers\\HospitalsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T14:28:05.294Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AdministratorsController.cs",
+              "DocumentMoniker": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Presentation\\Controllers\\AdministratorsController.cs",
+              "RelativeDocumentMoniker": "Presentation\\Controllers\\AdministratorsController.cs",
+              "ToolTip": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Presentation\\Controllers\\AdministratorsController.cs",
+              "RelativeToolTip": "Presentation\\Controllers\\AdministratorsController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T14:26:20.323Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "CreationHospitalsDTO.cs",
+              "DocumentMoniker": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Application\\Models\\Request\\CreationHospitalsDTO.cs",
+              "RelativeDocumentMoniker": "Application\\Models\\Request\\CreationHospitalsDTO.cs",
+              "ToolTip": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Application\\Models\\Request\\CreationHospitalsDTO.cs",
+              "RelativeToolTip": "Application\\Models\\Request\\CreationHospitalsDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T14:26:12.649Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "CreationAppointmentsDTO.cs",
+              "DocumentMoniker": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Application\\Models\\Request\\CreationAppointmentsDTO.cs",
+              "RelativeDocumentMoniker": "Application\\Models\\Request\\CreationAppointmentsDTO.cs",
+              "ToolTip": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Application\\Models\\Request\\CreationAppointmentsDTO.cs",
+              "RelativeToolTip": "Application\\Models\\Request\\CreationAppointmentsDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T14:26:06.584Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CreationProfessionalsDTO.cs",
+              "DocumentMoniker": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Application\\Models\\Request\\CreationProfessionalsDTO.cs",
+              "RelativeDocumentMoniker": "Application\\Models\\Request\\CreationProfessionalsDTO.cs",
+              "ToolTip": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Application\\Models\\Request\\CreationProfessionalsDTO.cs",
+              "RelativeToolTip": "Application\\Models\\Request\\CreationProfessionalsDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T14:25:58.43Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "CreationPatientsDTO.cs",
+              "DocumentMoniker": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Application\\Models\\Request\\CreationPatientsDTO.cs",
+              "RelativeDocumentMoniker": "Application\\Models\\Request\\CreationPatientsDTO.cs",
+              "ToolTip": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Application\\Models\\Request\\CreationPatientsDTO.cs",
+              "RelativeToolTip": "Application\\Models\\Request\\CreationPatientsDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T14:25:52.183Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CreationAdministratorsDTO.cs",
+              "DocumentMoniker": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Application\\Models\\Request\\CreationAdministratorsDTO.cs",
+              "RelativeDocumentMoniker": "Application\\Models\\Request\\CreationAdministratorsDTO.cs",
+              "ToolTip": "F:\\Documentos-F\\UTN\\4to cuatri\\Programaci\u00F3n IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Application\\Models\\Request\\CreationAdministratorsDTO.cs",
+              "RelativeToolTip": "Application\\Models\\Request\\CreationAdministratorsDTO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-14T14:25:41.777Z",
               "EditorCaption": ""
             }
           ]

@@ -30,3 +30,12 @@ C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Applic
 C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\refint\Application.dll
 C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.pdb
 C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\ref\Application.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.csproj.AssemblyReference.cache
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.GeneratedMSBuildEditorConfig.editorconfig
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.AssemblyInfoInputs.cache
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.AssemblyInfo.cs
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.csproj.CoreCompileInputs.cache
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.sourcelink.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\refint\Application.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.pdb
