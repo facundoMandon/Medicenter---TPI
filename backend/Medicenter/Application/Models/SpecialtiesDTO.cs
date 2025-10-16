@@ -9,18 +9,8 @@ namespace Application.Models
 {
     public class SpecialtiesDTO
     {
-        public int Id { get; set; } 
-        public string Type { get; set; }
-        public string Description { get; set; } 
-
-        public static SpecialtiesDTO FromEntity(Specialties specialty)
-        {
-            return new SpecialtiesDTO
-            {
-                Id = specialty.Id,
-                Type = specialty.Type,
-                Description = specialty.Description,
-            };
-        }
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
     }
 }

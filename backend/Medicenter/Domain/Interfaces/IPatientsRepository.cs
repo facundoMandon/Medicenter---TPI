@@ -9,5 +9,6 @@ namespace Domain.Interfaces
 {
     public interface IPatientsRepository : IRepositoryBase<Patients>
     {
+        Task<List<Appointments>> GetAppointmentsByPatientIdAsync(int patientId);
     }
 }

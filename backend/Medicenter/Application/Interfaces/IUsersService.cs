@@ -6,15 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Services
+namespace Application.Interfaces
 {
     // Reemplaza 'UserDTO' y 'CreationUsersDTO' con tus nombres reales de DTOs
     public interface IUsersService
     {
-        Task<UserDTO> CreateAsync(CreationUsersDTO dto);
-        Task<UserDTO> GetByIdAsync(int id);
-        Task<IEnumerable<UserDTO>> GetAllAsync();
-        Task<UserDTO> UpdateAsync(int id, CreationUsersDTO dto);
+        Task<UsersDTO?> GetByIdAsync(int id);
+        Task<IEnumerable<UsersDTO>> GetAllAsync();
+        Task<UsersDTO?> UpdateAsync(int id, CreationUsersDTO dto);
         Task DeleteAsync(int id);
+
+        // Métodos de cuenta (del diagrama)
+        Task RecoverPasswordAsync(string email); // recuperarContraseña()
+        Task DeleteAccountAsync(int userId); // eliminarCuenta()
     }
 }

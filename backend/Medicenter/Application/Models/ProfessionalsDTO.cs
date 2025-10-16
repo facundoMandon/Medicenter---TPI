@@ -7,18 +7,10 @@ using Domain.Entities;
 
 namespace Application.Models
 {
-    internal class ProfessionalsDTO
+    public class ProfessionalsDTO : UsersDTO
     {
-        public int n_matricula { get; set; }
-        public int SpecialtyId { get; set; }
-
-        public static ProfessionalsDTO FromEntity(Professionals professional)
-        {
-            return new ProfessionalsDTO
-            {
-                n_matricula = professional.n_matricula,
-                SpecialtyId = professional.SpecialtyId
-            };
-        }
+        public int LicenseNumber { get; set; } // n_matrícula
+        // Propiedad opcional para mostrar el nombre de la especialidad
+        public string SpecialtyName { get; set; } = string.Empty;
     }
 }

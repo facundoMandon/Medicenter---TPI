@@ -1,10 +1,11 @@
 ﻿using Application.Models;
+using Domain.Entities;
+using Domain.Enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Domain.Entities;
 
 namespace Application.Models
 {
@@ -12,23 +13,14 @@ namespace Application.Models
     {
         public int Id { get; set; }
         public DateTime Date { get; set; }
-        public TimeSpan Time { get; set; }
-        public string Description { get; set; }
-        public int ProfessionalId { get; set; }
+        public string Description { get; set; } = string.Empty;
+        public AppointmentStatus Status { get; set; }
+
         public int PatientId { get; set; }
+        public int ProfessionalId { get; set; }
 
-
-        public static AppointmentsDTO FromEntity(Appointments appointment)
-        {
-            return new AppointmentsDTO
-            {
-                Id = appointment.Id,
-                Date = appointment.Date,
-                Time = appointment.Time,
-                Description = appointment.Description,
-                ProfessionalId = appointment.ProfessionalId,
-                PatientId = appointment.PatientId,
-            };
-        }
+        // Opcional: para mostrar información en lugar de solo IDs
+        public string PatientName { get; set; } = string.Empty;
+        public string ProfessionalName { get; set; } = string.Empty;
     }
 }

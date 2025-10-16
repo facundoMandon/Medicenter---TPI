@@ -58,3 +58,23 @@ F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Med
 F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Infrastructure\obj\Debug\net8.0\Infrastructure.pdb
 F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Infrastructure\obj\Debug\net8.0\Infrastructure.genruntimeconfig.cache
 F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Infrastructure\obj\Debug\net8.0\ref\Infrastructure.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Infrastructure\bin\Debug\net8.0\Infrastructure.deps.json
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Infrastructure\bin\Debug\net8.0\Infrastructure.runtimeconfig.json
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Infrastructure\bin\Debug\net8.0\Infrastructure.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Infrastructure\bin\Debug\net8.0\Infrastructure.pdb
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Infrastructure\bin\Debug\net8.0\Application.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Infrastructure\bin\Debug\net8.0\Domain.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Infrastructure\bin\Debug\net8.0\Application.pdb
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Infrastructure\bin\Debug\net8.0\Domain.pdb
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Infrastructure\obj\Debug\net8.0\Infrastructure.csproj.AssemblyReference.cache
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Infrastructure\obj\Debug\net8.0\Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Infrastructure\obj\Debug\net8.0\Infrastructure.AssemblyInfoInputs.cache
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Infrastructure\obj\Debug\net8.0\Infrastructure.AssemblyInfo.cs
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Infrastructure\obj\Debug\net8.0\Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Infrastructure\obj\Debug\net8.0\Infrastructure.sourcelink.json
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Infrastructure\obj\Debug\net8.0\Infrastr.15EFFBFE.Up2Date
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Infrastructure\obj\Debug\net8.0\Infrastructure.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Infrastructure\obj\Debug\net8.0\refint\Infrastructure.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Infrastructure\obj\Debug\net8.0\Infrastructure.pdb
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Infrastructure\obj\Debug\net8.0\Infrastructure.genruntimeconfig.cache
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Infrastructure\obj\Debug\net8.0\ref\Infrastructure.dll

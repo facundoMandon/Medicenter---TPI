@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,19 +9,16 @@ namespace Domain.Entities
 {
     public class Specialties
     {
-        public int Id { get; set; } // ID: int
-        public string Type { get; set; } // Tipo: string
-        public string Description { get; set; } // Descripción: string
+        [Required] public int Id { get; set; }
 
-        //Relaciones
+        // Mapeado de Tipo: string (nombre de la especialidad)
+        [Required, MaxLength(100)]
+        public string Name { get; set; } = string.Empty;
 
-        public ICollection<Professionals> Professionals { get; set; }
+        // Mapeado de Descripción: string
+        public string Description { get; set; } = string.Empty;
 
-        // Métodos del diagrama
-        public void AddSpecialty() { /* Lógica */ }
-        public void AsignSpecialty() { /* Lógica */ }
-        public void RevoqueSpecialty() { /* Lógica */ }
-        public void DeleteSpecialty() { /* Lógica */ }
-        public void ModifySpecialty() { /* Lógica */ }
+        // Relaciones (opcional: lista de profesionales con esta especialidad)
+        public ICollection<Professionals> Professionals { get; set; } = new List<Professionals>();
     }
 }

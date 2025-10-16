@@ -266,3 +266,15 @@ F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Med
 F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.dll
 F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\refint\Presentation.dll
 F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.pdb
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.csproj.AssemblyReference.cache
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.AssemblyInfoInputs.cache
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.AssemblyInfo.cs
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.csproj.CoreCompileInputs.cache
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.sourcelink.json
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\refint\Presentation.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.pdb

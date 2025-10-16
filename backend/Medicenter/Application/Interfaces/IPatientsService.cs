@@ -1,18 +1,22 @@
-﻿using System;
+﻿using Application.Models;
+using Application.Models.Request;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Services
+namespace Application.Interfaces
 {
     // Reemplaza 'PatientDTO' y 'CreationPatientDTO' con tus nombres reales de DTOs
     public interface IPatientsService
     {
-        Task<PatientDTO> CreateAsync(CreationPatientDTO dto);
-        Task<PatientDTO> GetByIdAsync(int id);
-        Task<IEnumerable<PatientDTO>> GetAllAsync();
-        Task<PatientDTO> UpdateAsync(int id, CreationPatientDTO dto);
-        Task DeleteAsync(int id);
+        // Creación del rol
+        Task<PatientsDTO> CreatePatientAsync(CreationPatientsDTO dto);
+
+        // Métodos de negocio (del diagrama)
+        Task<IEnumerable<AppointmentsDTO>> ViewAppointmentsAsync(int patientId); // verTurnos
+        Task CancelAppointmentAsync(int patientId, int appointmentId); // cancelarTurno
+        Task<AppointmentsDTO> RequestAppointmentAsync(int patientId, AppointmentRequestDTO request); // pedirTurno
     }
 }

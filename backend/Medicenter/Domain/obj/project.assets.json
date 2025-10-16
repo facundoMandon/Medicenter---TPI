@@ -8,23 +8,23 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\Facundo PC (Feti)\\.nuget\\packages\\": {},
-    "F:\\Equipo\\Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\tizia\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Documentos-F\\UTN\\4to cuatri\\Programación IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Domain\\Domain.csproj",
+      "projectUniqueName": "C:\\Users\\tizia\\Source\\Repos\\Medicenter---TPI\\backend\\Medicenter\\Domain\\Domain.csproj",
       "projectName": "Domain",
-      "projectPath": "F:\\Documentos-F\\UTN\\4to cuatri\\Programación IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Domain\\Domain.csproj",
-      "packagesPath": "C:\\Users\\Facundo PC (Feti)\\.nuget\\packages\\",
-      "outputPath": "F:\\Documentos-F\\UTN\\4to cuatri\\Programación IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Domain\\obj\\",
+      "projectPath": "C:\\Users\\tizia\\Source\\Repos\\Medicenter---TPI\\backend\\Medicenter\\Domain\\Domain.csproj",
+      "packagesPath": "C:\\Users\\tizia\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tizia\\Source\\Repos\\Medicenter---TPI\\backend\\Medicenter\\Domain\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "F:\\Equipo\\Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Facundo PC (Feti)\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\tizia\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],

@@ -10,38 +10,16 @@ namespace Domain.Entities
 {
     public class Hospitals
     {
-        [Required]
-        public int Id { get; set; }
-        [Required]
-        public string Name { get; set; }
-        [Required]
-        public string Adress { get; set; }
+        [Required] public int Id { get; set; } // ID: int
 
-        //relaciones
-        public ICollection<Professionals> Professionals { get; set; }
+        [Required, MaxLength(150)]
+        public string Name { get; set; } = string.Empty; // Nombre: string
 
-        //Métodos
+        [Required, MaxLength(250)]
+        public string Address { get; set; } = string.Empty; // Dirección: string
 
-        public void registerProfessionals(Professionals professional) 
-        {
-            //logica
-        }
-
-        public void updateProfessionals(Professionals professional)
-        {
-            //logica
-        }
-
-        public List<Professionals> HospitalStaff() 
-        { 
-            //logica 
-            return new List<Professionals>();
-        }
-
-        public void DeleteProfessionals(Professionals professional)
-        {
-            //lógica
-        }
-
+        // Relación N:M con Professionals (asumiendo que un profesional trabaja en varios hospitales)
+        // Necesaria para los métodos registrarProfesional, listarProfesionales, etc.
+        public ICollection<Professionals> Professionals { get; set; } = new List<Professionals>();
     }
 }

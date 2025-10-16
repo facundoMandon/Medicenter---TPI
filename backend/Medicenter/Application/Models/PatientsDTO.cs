@@ -7,18 +7,10 @@ using Domain.Entities;
 
 namespace Application.Models
 {
-    internal class PatientsDTO
+    public class PatientsDTO : UsersDTO
     {
-        public int affiliate_number { get; set; }
-        public int InsuranceId { get; set; }
-
-        public static PatientsDTO FromEntity(Patients patient)
-        {
-            return new PatientsDTO
-            {
-                affiliate_number = patient.affiliate_number,
-                InsuranceId = patient.InsuranceId,
-            };
-        }
+        public int AffiliateNumber { get; set; } // n_Afiliado
+        // Propiedad opcional para mostrar el nombre de la obra social
+        public string InsuranceName { get; set; } = string.Empty;
     }
 }

@@ -1,53 +1,96 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Application.Interfaces;
+using Application.Models;
 using Application.Models.Request;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Presentation.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("[controller]")] // Ruta: /Specialties
     public class SpecialtiesController : ControllerBase
     {
-        private readonly ISpecialtiesService _service;
+        private readonly ISpecialtiesService _specialtiesService;
 
-        public SpecialtiesController(ISpecialtiesService service)
+        public SpecialtiesController(ISpecialtiesService specialtiesService)
         {
-            _service = service;
+            _specialtiesService = specialtiesService;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CreationSpecialtiesDTO dto)
-        {
-            var result = await _service.CreateAsync(dto);
-            return CreatedAtAction(nameof(GetById), new { id = result.ID }, result);
-        }
-
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int id)
-        {
-            var result = await _service.GetByIdAsync(id);
-            return Ok(result);
-        }
-
+        // GET /Specialties
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<ActionResult<IEnumerable<SpecialtiesDTO>>> GetAll()
         {
-            var result = await _service.GetAllAsync();
-            return Ok(result);
+            var specialties = await _specialtiesService.GetAllAsync();
+            return Ok(specialties);
         }
 
+        // GET /Specialties/{id}
+        [HttpGet("{id}")]
+        public async Task<ActionResult<SpecialtiesDTO>> GetById([FromRoute] int id)
+        {
+            try
+            {
+                var specialty = await _specialtiesService.GetByIdAsync(id);
+                return Ok(specialty);
+            }
+            catch (KeyNotFoundException)
+            {
+                return NotFound();
+            }
+        }
+
+        // POST /Specialties (añadirEspecialidad)
+        [HttpPost]
+        public async Task<ActionResult<SpecialtiesDTO>> CreateSpecialty([FromBody] CreationSpecialtiesDTO dto)
+        {
+            var created = await _specialtiesService.CreateSpecialtyAsync(dto);
+            return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
+        }
+
+        // PUT /Specialties/{id} (modificarEspecialidad)
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, [FromBody] CreationSpecialtiesDTO dto)
+        public async Task<ActionResult<SpecialtiesDTO>> UpdateSpecialty([FromRoute] int id, [FromBody] CreationSpecialtiesDTO dto)
         {
-            var result = await _service.UpdateAsync(id, dto);
-            return Ok(result);
+            try
+            {
+                var updated = await _specialtiesService.UpdateSpecialtyAsync(id, dto);
+                return Ok(updated);
+            }
+            catch (KeyNotFoundException)
+            {
+                return NotFound();
+            }
         }
 
+        // DELETE /Specialties/{id} (eliminarEspecialidad)
         [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<ActionResult> DeleteSpecialty([FromRoute] int id)
         {
-            await _service.DeleteAsync(id);
-            return NoContent();
+            try
+            {
+                await _specialtiesService.DeleteSpecialtyAsync(id);
+                return NoContent();
+            }
+            catch (KeyNotFoundException)
+            {
+                return NotFound();
+            }
+        }
+
+        // POST /Specialties/{specialtyId}/assign/{professionalId} (asignarEspecialidad)
+        [HttpPost("{specialtyId}/assign/{professionalId}")]
+        public async Task<ActionResult> AssignSpecialtyToProfessional([FromRoute] int specialtyId, [FromRoute] int professionalId)
+        {
+            try
+            {
+                await _specialtiesService.AssignSpecialtyToProfessionalAsync(specialtyId, professionalId);
+                return NoContent();
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
         }
     }
 }

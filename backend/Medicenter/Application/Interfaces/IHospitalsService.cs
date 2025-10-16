@@ -1,18 +1,27 @@
-﻿using System;
+﻿using Application.Models;
+using Application.Models.Request;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.Services
+namespace Application.Interfaces
 {
     // Reemplaza 'HospitalDTO' y 'CreationHospitalDTO' con tus nombres reales de DTOs
     public interface IHospitalsService
     {
-        Task<HospitalDTO> CreateAsync(CreationHospitalDTO dto);
-        Task<HospitalDTO> GetByIdAsync(int id);
-        Task<IEnumerable<HospitalDTO>> GetAllAsync();
-        Task<HospitalDTO> UpdateAsync(int id, CreationHospitalDTO dto);
-        Task DeleteAsync(int id);
+        // CRUD
+        Task<HospitalsDTO> GetByIdAsync(int id);
+        Task<IEnumerable<HospitalsDTO>> GetAllAsync();
+        Task<HospitalsDTO> CreateHospitalAsync(CreationHospitalsDTO dto);
+        Task<HospitalsDTO> UpdateHospitalAsync(int id, CreationHospitalsDTO dto);
+        Task DeleteHospitalAsync(int id);
+
+        // Métodos de Relación basados en el diagrama
+        Task RegisterProfessionalAsync(int hospitalId, int professionalId); // registrarProfesional
+        Task EditProfessionalAsync(int hospitalId, int professionalId); // editarProfesional (se usa UpdateUser en UsersService)
+        Task<IEnumerable<ProfessionalsDTO>> ListProfessionalsAsync(int hospitalId); // listarProfesionales
+        Task RemoveProfessionalAsync(int hospitalId, int professionalId); // eliminarProfesionales
     }
 }

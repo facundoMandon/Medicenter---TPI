@@ -1,56 +1,65 @@
-﻿using Application.Interfaces;
+﻿using Application.Models;
 using Application.Models.Request;
-using Microsoft.AspNetCore.Http;
+using Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic; 
+using System.Threading.Tasks;
 
 namespace Presentation.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class UsersController : ControllerBase
     {
-        private readonly IUsersService _service;
+        private readonly IUsersService _usersService;
 
-        public UsersController(IUsersService service)
+        public UsersController(IUsersService usersService)
         {
-            _service = service;
+            _usersService = usersService;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CreationUsersDTO dto)
-        {
-            var result = await _service.CreateAsync(dto);
-            return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
-        }
-
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int id)
-        {
-            var result = await _service.GetByIdAsync(id);
-            if (result == null) return NotFound();
-            return Ok(result);
-        }
-
+        // GET /Users
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<ActionResult<List<UsersDTO>>> GetAll()
         {
-            var result = await _service.GetAllAsync();
-            return Ok(result);
+            // Corrige el error de compilación CS1061
+            var users = await _usersService.GetAllAsync();
+            return Ok(users.ToList());
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, [FromBody] CreationUsersDTO dto)
+        // GET /Users/{id}
+        [HttpGet("{id}")]
+        public async Task<ActionResult<UsersDTO>> GetById([FromRoute] int id)
         {
-            var result = await _service.UpdateAsync(id, dto);
-            if (result == null) return NotFound();
-            return Ok(result);
+            var user = await _usersService.GetByIdAsync(id);
+            // Corrige CS8604: maneja explícitamente el nulo antes de devolver Ok(user)
+            if (user == null) return NotFound("User not found.");
+            return Ok(user);
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        // PUT /Users/profile (editarPerfil)
+        [HttpPut("profile/{userId}")]
+        public async Task<ActionResult<UsersDTO>> EditProfile([FromRoute] int userId, [FromBody] CreationUsersDTO dto)
         {
-            await _service.DeleteAsync(id);
+            var updated = await _usersService.UpdateAsync(userId, dto);
+            if (updated == null) return NotFound("User not found.");
+            return Ok(updated);
+        }
+
+        // DELETE /Users/account/{userId} (eliminarCuenta)
+        [HttpDelete("account/{userId}")]
+        public async Task<ActionResult> DeleteAccount([FromRoute] int userId)
+        {
+            await _usersService.DeleteAccountAsync(userId);
             return NoContent();
+        }
+
+        // POST /Users/password/recover (recuperarContraseña)
+        [HttpPost("password/recover")]
+        public async Task<ActionResult> RecoverPassword([FromBody] string email)
+        {
+            await _usersService.RecoverPasswordAsync(email);
+            return Accepted(); // 202 Accepted
         }
     }
 }

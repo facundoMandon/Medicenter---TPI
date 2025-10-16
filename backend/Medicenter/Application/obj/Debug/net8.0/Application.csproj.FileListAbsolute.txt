@@ -39,3 +39,12 @@ F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Med
 F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.dll
 F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\refint\Application.dll
 F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.pdb
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.csproj.AssemblyReference.cache
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.AssemblyInfoInputs.cache
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.AssemblyInfo.cs
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.csproj.CoreCompileInputs.cache
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.sourcelink.json
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\refint\Application.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.pdb

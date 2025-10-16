@@ -1,23 +1,29 @@
-﻿using System;
+﻿using Domain.Enums;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Domain.Enums;
 
 namespace Domain.Entities
 {
     public class Insurance
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public MedicalCoverageType CoverageType { get; set; }
+        [Required] public int Id { get; set; } // ID: int
 
-        //Relaciones
+        [Required, MaxLength(100)]
+        public string Name { get; set; } = string.Empty; // Nombre: string
 
-        public ICollection<Professionals> Professionals { get; set; } = new List<Professionals>();
+        [Required, MaxLength(50)]
+        public string Plan { get; set; } = string.Empty; // Mapea TipoCobertura: enum(común, media, premium)
+
+        public string Description { get; set; } = string.Empty; // Mapea Descripción: text
+
+        // Relación 1:N con Patients (Afiliados). El FK está en Patients.
         public ICollection<Patients> Patients { get; set; } = new List<Patients>();
-        //Métodos
+
+        // Relación N:M con Professionals (quiénes la aceptan).
+        public ICollection<Professionals> Professionals { get; set; } = new List<Professionals>();
     }
 }

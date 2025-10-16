@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Domain.Enums;
+using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,23 +10,18 @@ namespace Domain.Entities
 {
     public class Appointments
     {
-        public int Id { get; set; }
-        public DateTime Date { get; set; } // Fecha
-        public TimeSpan Time { get; set; } // Hora
-        public string Description { get; set; }
+        [Required] public int Id { get; set; }
+        [Required] public DateTime Date { get; set; } // Fecha y Hora del Turno
+        public string Description { get; set; } = string.Empty;
 
-        // Claves Foráneas (FK)
-        public int ProfessionalId { get; set; }
-        public int PatientId { get; set; }
+        // Estado del Turno
+        [Required] public AppointmentStatus Status { get; set; } = AppointmentStatus.Requested;
 
-        // Propiedades de Navegación de Referencia (N:1)
-        public Professionals Professional { get; set; }
-        public Patients Patient { get; set; }
+        // Relaciones (Foreign Keys)
+        [Required] public int PatientId { get; set; }
+        public Patients Patient { get; set; } = null!;
 
-        // Métodos del diagrama
-        public void AssignProfessional() { /* Lógica */ }
-        public void CancelAppointment() { /* Lógica */ } //posible bool
-        public void ConfirmAppointment() { /* Lógica */ } //posible bool
-        public void ModifyAppointment() { /* Lógica */ }
+        [Required] public int ProfessionalId { get; set; }
+        public Professionals Professional { get; set; } = null!;
     }
 }

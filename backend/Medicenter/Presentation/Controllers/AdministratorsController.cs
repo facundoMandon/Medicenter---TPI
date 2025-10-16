@@ -1,58 +1,64 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Application.Interfaces;
+using Application.Models;
 using Application.Models.Request;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Presentation.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("admin")]
     public class AdministratorsController : ControllerBase
     {
-        // Asegúrate de definir IAdministratorsService y CreationAdministratorsDTO en tus capas correspondientes.
-        private readonly IAdministratorsService _service;
+        private readonly IAdministratorsService _adminsService;
 
-        public AdministratorsController(IAdministratorsService service)
+        public AdministratorsController(IAdministratorsService adminsService)
         {
-            _service = service;
+            _adminsService = adminsService;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CreationAdministratorsDTO dto)
+        // POST /admin/administrators (Creación de Administrador)
+        [HttpPost("administrators")]
+        public async Task<ActionResult<AdministratorsDTO>> CreateAdministrator([FromBody] CreationUsersDTO dto)
         {
-            // Asumiendo que el resultado de la creación tiene una propiedad 'Id'
-            var result = await _service.CreateAsync(dto);
-            return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
+            if (dto.rol != Domain.Enums.Roles.Administrator)
+            {
+                return BadRequest("Invalid role for this endpoint.");
+            }
+            var created = await _adminsService.CreateAdministratorAsync(dto);
+            // Redirige al método GetById del controlador Users
+            return CreatedAtAction(nameof(UsersController.GetById), "Users", new { id = created.Id }, created);
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int id)
+        // PUT /admin/users/{userId} (ModificarUsuario)
+        [HttpPut("users/{userId}")]
+        public async Task<ActionResult> UpdateUser([FromRoute] int userId, [FromBody] CreationUsersDTO dto)
         {
-            var result = await _service.GetByIdAsync(id);
-            if (result == null) return NotFound();
-            return Ok(result);
+            try
+            {
+                await _adminsService.UpdateUserAsync(userId, dto);
+                return NoContent();
+            }
+            catch (KeyNotFoundException)
+            {
+                return NotFound($"User with ID {userId} not found.");
+            }
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetAll()
+        // DELETE /admin/users/{userId} (EliminarUsuario)
+        [HttpDelete("users/{userId}")]
+        public async Task<ActionResult> DeleteUser([FromRoute] int userId)
         {
-            var result = await _service.GetAllAsync();
-            return Ok(result);
+            await _adminsService.DeleteUserAsync(userId);
+            return NoContent();
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, [FromBody] CreationAdministratorsDTO dto)
+        // GET /admin/professionals (verProfesionales)
+        [HttpGet("professionals")]
+        public async Task<ActionResult<IEnumerable<ProfessionalsDTO>>> ViewProfessionals()
         {
-            var result = await _service.UpdateAsync(id, dto);
-            if (result == null) return NotFound();
-            return Ok(result);
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
-        {
-            // Deberías manejar la lógica para verificar si existe y si se borró
-            await _service.DeleteAsync(id);
-            return NoContent(); // 204 No Content para borrado exitoso
+            var professionals = await _adminsService.ViewProfessionalsAsync();
+            return Ok(professionals);
         }
     }
 }

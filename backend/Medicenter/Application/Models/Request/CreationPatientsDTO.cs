@@ -1,14 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Application.Models.Request
 {
-    public class CreationPatientsDTO
+    public class CreationPatientsDTO : CreationUsersDTO
     {
-        public int affiliate_number { get; set; }
-        public int InsuranceId { get; set; }
+        [Required] public int AffiliateNumber { get; set; } // n_Afiliado
+        [Required] public int InsuranceId { get; set; } // FK a Obra Social
     }
 }
