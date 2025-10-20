@@ -7,8 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Presentation.Controllers
 {
     [ApiController]
-    [Route("[controller]")] // Ruta base: /Hospitals
-    // Nota: Se asume que este controlador estaría protegido con autorización para el rol de Administrador.
+    [Route("[controller]")]
     public class HospitalsController : ControllerBase
     {
         private readonly IHospitalsService _hospitalsService;
@@ -18,7 +17,7 @@ namespace Presentation.Controllers
             _hospitalsService = hospitalsService;
         }
 
-        // 1. GET /Hospitals (Listar todos los hospitales)
+        // GET /Hospitals
         [HttpGet]
         public async Task<ActionResult<IEnumerable<HospitalsDTO>>> GetAll()
         {
@@ -26,7 +25,7 @@ namespace Presentation.Controllers
             return Ok(hospitals);
         }
 
-        // 2. GET /Hospitals/{id} (Obtener hospital por ID)
+        // GET /Hospitals/{id}
         [HttpGet("{id}")]
         public async Task<ActionResult<HospitalsDTO>> GetById([FromRoute] int id)
         {
@@ -35,22 +34,21 @@ namespace Presentation.Controllers
                 var hospital = await _hospitalsService.GetByIdAsync(id);
                 return Ok(hospital);
             }
-            catch (KeyNotFoundException)
+            catch (KeyNotFoundException ex)
             {
-                return NotFound();
+                return NotFound(ex.Message);
             }
         }
 
-        // 3. POST /Hospitals (Crear un nuevo hospital)
+        // POST /Hospitals
         [HttpPost]
         public async Task<ActionResult<HospitalsDTO>> CreateHospital([FromBody] CreationHospitalsDTO dto)
         {
             var created = await _hospitalsService.CreateHospitalAsync(dto);
-            // Devuelve 201 Created y la ubicación del nuevo recurso
             return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
         }
 
-        // 4. PUT /Hospitals/{id} (Modificar hospital)
+        // PUT /Hospitals/{id}
         [HttpPut("{id}")]
         public async Task<ActionResult<HospitalsDTO>> UpdateHospital([FromRoute] int id, [FromBody] CreationHospitalsDTO dto)
         {
@@ -59,73 +57,56 @@ namespace Presentation.Controllers
                 var updated = await _hospitalsService.UpdateHospitalAsync(id, dto);
                 return Ok(updated);
             }
-            catch (KeyNotFoundException)
+            catch (KeyNotFoundException ex)
             {
-                return NotFound();
+                return NotFound(ex.Message);
             }
         }
 
-        // 5. DELETE /Hospitals/{id} (Eliminar hospital)
+        // DELETE /Hospitals/{id}
         [HttpDelete("{id}")]
         public async Task<ActionResult> DeleteHospital([FromRoute] int id)
         {
             try
             {
                 await _hospitalsService.DeleteHospitalAsync(id);
-                return NoContent(); // 204 No Content
+                return NoContent();
             }
-            catch (KeyNotFoundException)
+            catch (KeyNotFoundException ex)
             {
-                return NotFound();
+                return NotFound(ex.Message);
             }
         }
 
-        // --- MÉTODOS DE GESTIÓN DE PROFESIONALES (Diagrama HOSPITALES) ---
-
-        // 6. POST /Hospitals/{hospitalId}/professionals/{professionalId} (registrarProfesional)
+        // POST /Hospitals/{hospitalId}/professionals/{professionalId} (registrarProfesional)
         [HttpPost("{hospitalId}/professionals/{professionalId}")]
         public async Task<ActionResult> RegisterProfessional([FromRoute] int hospitalId, [FromRoute] int professionalId)
         {
             try
             {
                 await _hospitalsService.RegisterProfessionalAsync(hospitalId, professionalId);
-                return NoContent(); // 204 No Content
+                return NoContent();
             }
             catch (KeyNotFoundException ex)
             {
                 return NotFound(ex.Message);
             }
-            // NOTA: Para editarProfesional, se asume que el administrador usa el endpoint PUT de UsersController.
         }
 
-        // 7. GET /Hospitals/{hospitalId}/professionals (listarProfesionales)
+        // GET /Hospitals/{hospitalId}/professionals (listarProfesionales)
         [HttpGet("{hospitalId}/professionals")]
         public async Task<ActionResult<IEnumerable<ProfessionalsDTO>>> ListProfessionals([FromRoute] int hospitalId)
         {
-            try
-            {
-                var professionals = await _hospitalsService.ListProfessionalsAsync(hospitalId);
-                return Ok(professionals);
-            }
-            catch (KeyNotFoundException)
-            {
-                return NotFound($"Hospital ID {hospitalId} not found.");
-            }
+            var professionals = await _hospitalsService.ListProfessionalsAsync(hospitalId);
+            return Ok(professionals);
         }
 
-        // 8. DELETE /Hospitals/{hospitalId}/professionals/{professionalId} (eliminarProfesionales)
+        // DELETE /Hospitals/{hospitalId}/professionals/{professionalId} (eliminarProfesionales)
         [HttpDelete("{hospitalId}/professionals/{professionalId}")]
         public async Task<ActionResult> RemoveProfessional([FromRoute] int hospitalId, [FromRoute] int professionalId)
         {
-            try
-            {
-                await _hospitalsService.RemoveProfessionalAsync(hospitalId, professionalId);
-                return NoContent(); // 204 No Content
-            }
-            catch (KeyNotFoundException ex)
-            {
-                return NotFound(ex.Message);
-            }
+            await _hospitalsService.RemoveProfessionalAsync(hospitalId, professionalId);
+            return NoContent();
         }
     }
 }

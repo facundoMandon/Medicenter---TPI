@@ -1,13 +1,12 @@
 ﻿using Application.Interfaces;
 using Application.Models;
 using Application.Models.Request;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Presentation.Controllers
 {
     [ApiController]
-    [Route("[controller]")] // Ruta: /Appointments
+    [Route("[controller]")]
     public class AppointmentsController : ControllerBase
     {
         private readonly IAppointmentsService _appointmentsService;
@@ -44,8 +43,15 @@ namespace Presentation.Controllers
         [HttpPost]
         public async Task<ActionResult<AppointmentsDTO>> AssignAppointment([FromBody] CreationAppointmentDTO dto)
         {
-            var created = await _appointmentsService.AssignAppointmentAsync(dto);
-            return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
+            try
+            {
+                var created = await _appointmentsService.AssignAppointmentAsync(dto);
+                return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         // PUT /Appointments/{id} (modificarTurno)
@@ -63,7 +69,22 @@ namespace Presentation.Controllers
             }
         }
 
-        // DELETE /Appointments/{id} (cancelarTurno - cancelacion administrativa)
+        // POST /Appointments/{id}/confirm (confirmarTurno)
+        [HttpPost("{id}/confirm")]
+        public async Task<ActionResult<AppointmentsDTO>> ConfirmAppointment([FromRoute] int id)
+        {
+            try
+            {
+                var confirmed = await _appointmentsService.ConfirmAppointmentAsync(id);
+                return Ok(confirmed);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
+
+        // DELETE /Appointments/{id} (cancelarTurno)
         [HttpDelete("{id}")]
         public async Task<ActionResult> CancelAppointment([FromRoute] int id)
         {

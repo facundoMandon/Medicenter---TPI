@@ -8,10 +8,10 @@ namespace Domain.Enums
 {
     public enum AppointmentStatus
     {
-        Requested, // Solicitado por el paciente, pendiente de revisión
-        Confirmed, // Aceptado por el profesional
-        Rejected,  // Rechazado por el profesional
-        CancelledByPatient, // Cancelado por el paciente
-        CancelledByProfessional // Cancelado por el profesional
+        Requested,      // Solicitado (pedirTurno)
+        Confirmed,      // Confirmado (confirmarTurno)
+        Accepted,       // Aceptado por profesional (aceptarTurno)
+        Rejected,       // Rechazado por profesional (rechazarTurno)
+        Cancelled       // Cancelado (cancelarTurno)
     }
 }

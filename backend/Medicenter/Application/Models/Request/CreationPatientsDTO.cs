@@ -9,7 +9,10 @@ namespace Application.Models.Request
 {
     public class CreationPatientsDTO : CreationUsersDTO
     {
-        [Required] public int AffiliateNumber { get; set; } // n_Afiliado
-        [Required] public int InsuranceId { get; set; } // FK a Obra Social
+        [Required]
+        public int AffiliateNumber { get; set; }
+
+        [Required]
+        public int InsuranceId { get; set; }
     }
 }

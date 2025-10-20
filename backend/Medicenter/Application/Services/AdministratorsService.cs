@@ -16,19 +16,26 @@ namespace Application.Services
         private readonly IAdministratorsRepository _adminsRepository;
         private readonly IUsersRepository _usersRepository;
         private readonly IProfessionalsRepository _professionalsRepository;
+        private readonly ISpecialtiesRepository _specialtiesRepository;
+        private readonly IAppointmentsRepository _appointmentsRepository;
+        private readonly IInsuranceRepository _insuranceRepository;
 
         public AdministratorsService(
             IAdministratorsRepository adminsRepository,
             IUsersRepository usersRepository,
-            IProfessionalsRepository professionalsRepository
-        )
+            IProfessionalsRepository professionalsRepository,
+            ISpecialtiesRepository specialtiesRepository,
+            IAppointmentsRepository appointmentsRepository,
+            IInsuranceRepository insuranceRepository)
         {
             _adminsRepository = adminsRepository;
             _usersRepository = usersRepository;
             _professionalsRepository = professionalsRepository;
+            _specialtiesRepository = specialtiesRepository;
+            _appointmentsRepository = appointmentsRepository;
+            _insuranceRepository = insuranceRepository;
         }
 
-        // 1. Creación de Administrador (crearUsuario)
         public async Task<AdministratorsDTO> CreateAdministratorAsync(CreationUsersDTO dto)
         {
             var admin = new Administrators
@@ -38,81 +45,82 @@ namespace Application.Services
                 DNI = dto.DNI,
                 Email = dto.Email,
                 Password = dto.Password,
-                Rol = dto.rol
+                Rol = dto.Rol
             };
 
             var created = await _adminsRepository.CreateAsync(admin);
-            return (AdministratorsDTO)UsersDTO.FromEntity(created);
+            return AdministratorsDTO.FromEntity(created);
         }
 
-        // 2. ModificarUsuario
         public async Task UpdateUserAsync(int userId, CreationUsersDTO dto)
         {
             var user = await _usersRepository.GetByIdAsync(userId);
-            if (user == null) throw new KeyNotFoundException($"User with ID {userId} not found.");
+            if (user == null)
+                throw new KeyNotFoundException($"User with ID {userId} not found.");
 
-            // Lógica para actualizar campos comunes
             user.Name = dto.Name;
             user.LastName = dto.LastName;
             user.DNI = dto.DNI;
             user.Email = dto.Email;
+            if (!string.IsNullOrEmpty(dto.Password))
+                user.Password = dto.Password;
 
             await _usersRepository.UpdateAsync(user);
         }
 
-        // 3. EliminarUsuario
         public async Task DeleteUserAsync(int userId)
         {
             var user = await _usersRepository.GetByIdAsync(userId);
-            if (user != null)
-            {
-                await _usersRepository.DeleteAsync(user);
-            }
+            if (user == null)
+                throw new KeyNotFoundException($"User with ID {userId} not found.");
+
+            await _usersRepository.DeleteAsync(user);
         }
 
-        // 4. verProfesionales
         public async Task<IEnumerable<ProfessionalsDTO>> ViewProfessionalsAsync()
         {
             var professionals = await _professionalsRepository.GetAllAsync();
 
-            return professionals.Select(p => new ProfessionalsDTO
+            return professionals.Select(p => ProfessionalsDTO.FromEntity(p));
+        }
+
+        public async Task<IEnumerable<SpecialtiesDTO>> ViewSpecialtiesAsync()
+        {
+            var specialties = await _specialtiesRepository.GetAllAsync();
+
+            return specialties.Select(s => new SpecialtiesDTO
             {
-                Id = p.Id,
-                Name = p.Name,
-                LastName = p.LastName,
-                DNI = p.DNI,
-                Email = p.Email,
-                Rol = p.Rol,
-                LicenseNumber = p.LicenseNumber,
+                Id = s.Id,
+                Tipo = s.Tipo, // CORREGIDO: Tipo en vez de Name
+                Descripcion = s.Descripcion // CORREGIDO
             });
         }
 
-        // 5. EliminarEspecialidad
-        public Task DeleteSpecialtyAsync(int specialtyId)
+        public async Task DeleteSpecialtyAsync(int specialtyId)
         {
-            // Requiere ISpecialtiesRepository
-            throw new NotImplementedException("Delete Specialty logic requires ISpecialtiesRepository.");
+            var specialty = await _specialtiesRepository.GetByIdAsync(specialtyId);
+            if (specialty == null)
+                throw new KeyNotFoundException($"Specialty with ID {specialtyId} not found.");
+
+            await _specialtiesRepository.DeleteAsync(specialty);
         }
 
-        // 6. EliminarTurnos
-        public Task DeleteAppointmentAsync(int appointmentId)
+        public async Task DeleteAppointmentAsync(int appointmentId)
         {
-            // Requiere IAppointmentsRepository
-            throw new NotImplementedException("Delete Appointment logic requires IAppointmentsRepository.");
+            var appointment = await _appointmentsRepository.GetByIdAsync(appointmentId);
+            if (appointment == null)
+                throw new KeyNotFoundException($"Appointment with ID {appointmentId} not found.");
+
+            await _appointmentsRepository.DeleteAsync(appointment);
         }
 
-        // 7. EliminarObraSocial
-        public Task DeleteInsuranceAsync(int insuranceId)
+        public async Task DeleteInsuranceAsync(int insuranceId)
         {
-            // Requiere IInsuranceRepository
-            throw new NotImplementedException("Delete Insurance logic requires IInsuranceRepository.");
-        }
+            var insurance = await _insuranceRepository.GetByIdAsync(insuranceId);
+            if (insurance == null)
+                throw new KeyNotFoundException($"Insurance with ID {insuranceId} not found.");
 
-        // 8. verEspecialidades
-        public Task<IEnumerable<SpecialtiesDTO>> ViewSpecialtiesAsync()
-        {
-            // Requiere ISpecialtiesRepository
-            throw new NotImplementedException("View Specialties logic requires ISpecialtiesRepository.");
+            await _insuranceRepository.DeleteAsync(insurance);
         }
     }
 }

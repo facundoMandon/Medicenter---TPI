@@ -10,12 +10,20 @@ namespace Application.Models.Request
 {
     public class CreationAppointmentDTO
     {
-        [Required] public int PatientId { get; set; }
-        [Required] public int ProfessionalId { get; set; }
-        [Required] public DateTime Date { get; set; }
-        public string Description { get; set; } = string.Empty;
+        [Required]
+        public int PatientId { get; set; }
 
-        // Opcionalmente, permitir que el Admin o el sistema definan el estado inicial
-        [Required] public AppointmentStatus Status { get; set; } = AppointmentStatus.Requested;
+        [Required]
+        public int ProfessionalId { get; set; }
+
+        [Required]
+        public DateTime Fecha { get; set; }
+
+        [Required]
+        public string Hora { get; set; } = string.Empty; // Ej: "14:30"
+
+        public string Descripcion { get; set; } = string.Empty;
+
+        // El estado inicial se define en el servicio, no en el DTO de entrada
     }
 }

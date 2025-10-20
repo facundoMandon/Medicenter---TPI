@@ -11,13 +11,14 @@ namespace Application.Interfaces
     // Reemplaza 'AppointmentsDTO' y 'CreationAppointmentsDTO' con tus nombres reales de DTOs
     public interface IAppointmentsService
     {
-        // CRUD Base para el Administrador
+        // CRUD Base
         Task<AppointmentsDTO> GetByIdAsync(int id);
         Task<IEnumerable<AppointmentsDTO>> GetAllAsync();
 
-        // Métodos de negocio (del diagrama y gestión)
-        Task<AppointmentsDTO> AssignAppointmentAsync(CreationAppointmentDTO dto); // asignarTurno
-        Task<AppointmentsDTO> UpdateAppointmentAsync(int appointmentId, CreationAppointmentDTO dto); // modificarTurno
-        Task CancelAppointmentAsync(int appointmentId); // cancelarTurno
+        // Métodos de negocio (según diagrama)
+        Task<AppointmentsDTO> AssignAppointmentAsync(CreationAppointmentDTO dto); // asignarTurno()
+        Task<AppointmentsDTO> UpdateAppointmentAsync(int appointmentId, CreationAppointmentDTO dto); // modificarTurno()
+        Task CancelAppointmentAsync(int appointmentId); // cancelarTurno()
+        Task<AppointmentsDTO> ConfirmAppointmentAsync(int appointmentId); // confirmarTurno() - AGREGADO
     }
 }

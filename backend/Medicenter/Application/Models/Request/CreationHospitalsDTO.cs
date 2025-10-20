@@ -9,7 +9,10 @@ namespace Application.Models.Request
 {
     public class CreationHospitalsDTO
     {
-        [Required] public string Name { get; set; } = string.Empty;
-        [Required] public string Address { get; set; } = string.Empty;
+        [Required]
+        public string Nombre { get; set; } = string.Empty;
+
+        [Required]
+        public string Direccion { get; set; } = string.Empty;
     }
 }

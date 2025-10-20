@@ -15,92 +15,121 @@ namespace Application.Services
     public class AppointmentsService : IAppointmentsService
     {
         private readonly IAppointmentsRepository _appointmentsRepository;
-        // Asumimos IUsersRepository para lookups de nombres, etc.
-        private readonly IUsersRepository _usersRepository;
+        private readonly IPatientsRepository _patientsRepository;
+        private readonly IProfessionalsRepository _professionalsRepository;
 
-        public AppointmentsService(IAppointmentsRepository appointmentsRepository, IUsersRepository usersRepository)
+        public AppointmentsService(
+            IAppointmentsRepository appointmentsRepository,
+            IPatientsRepository patientsRepository,
+            IProfessionalsRepository professionalsRepository)
         {
             _appointmentsRepository = appointmentsRepository;
-            _usersRepository = usersRepository;
+            _patientsRepository = patientsRepository;
+            _professionalsRepository = professionalsRepository;
         }
 
-        // --- CRUD Base ---
         public async Task<AppointmentsDTO> GetByIdAsync(int id)
         {
             var appointment = await _appointmentsRepository.GetByIdAsync(id);
-            return appointment != null ? MapToDto(appointment) : throw new KeyNotFoundException("Appointment not found.");
+            if (appointment == null)
+                throw new KeyNotFoundException("Appointment not found.");
+
+            return await MapToDtoAsync(appointment);
         }
 
         public async Task<IEnumerable<AppointmentsDTO>> GetAllAsync()
         {
             var appointments = await _appointmentsRepository.GetAllAsync();
-            return appointments.Select(MapToDto);
+            var dtos = new List<AppointmentsDTO>();
+
+            foreach (var appointment in appointments)
+            {
+                dtos.Add(await MapToDtoAsync(appointment));
+            }
+
+            return dtos;
         }
 
-        // --- Métodos de Negocio ---
-
-        // asignarTurno
         public async Task<AppointmentsDTO> AssignAppointmentAsync(CreationAppointmentDTO dto)
         {
-            // Lógica de validación (ej: el profesional está disponible?)
+            var patient = await _patientsRepository.GetByIdAsync(dto.PatientId);
+            if (patient == null)
+                throw new KeyNotFoundException($"Patient with ID {dto.PatientId} not found.");
+
+            var professional = await _professionalsRepository.GetByIdAsync(dto.ProfessionalId);
+            if (professional == null)
+                throw new KeyNotFoundException($"Professional with ID {dto.ProfessionalId} not found.");
 
             var appointment = new Appointments
             {
                 PatientId = dto.PatientId,
                 ProfessionalId = dto.ProfessionalId,
-                Date = dto.Date,
-                Description = dto.Description,
-                Status = dto.Status // Permitimos al Admin definir el estado inicial
+                Fecha = dto.Fecha,
+                Hora = dto.Hora,
+                Descripcion = dto.Descripcion,
+                Status = AppointmentStatus.Requested
             };
 
             var created = await _appointmentsRepository.CreateAsync(appointment);
-            return MapToDto(created);
+            return await MapToDtoAsync(created);
         }
 
-        // modificarTurno
         public async Task<AppointmentsDTO> UpdateAppointmentAsync(int appointmentId, CreationAppointmentDTO dto)
         {
             var existing = await _appointmentsRepository.GetByIdAsync(appointmentId);
-            if (existing == null) throw new KeyNotFoundException("Appointment not found.");
+            if (existing == null)
+                throw new KeyNotFoundException("Appointment not found.");
 
             existing.PatientId = dto.PatientId;
             existing.ProfessionalId = dto.ProfessionalId;
-            existing.Date = dto.Date;
-            existing.Description = dto.Description;
-            existing.Status = dto.Status;
+            existing.Fecha = dto.Fecha;
+            existing.Hora = dto.Hora;
+            existing.Descripcion = dto.Descripcion;
 
             await _appointmentsRepository.UpdateAsync(existing);
-            return MapToDto(existing);
+            return await MapToDtoAsync(existing);
         }
 
-        // cancelarTurno
+        public async Task<AppointmentsDTO> ConfirmAppointmentAsync(int appointmentId)
+        {
+            var existing = await _appointmentsRepository.GetByIdAsync(appointmentId);
+            if (existing == null)
+                throw new KeyNotFoundException("Appointment not found.");
+
+            existing.Status = AppointmentStatus.Confirmed;
+            await _appointmentsRepository.UpdateAsync(existing);
+
+            return await MapToDtoAsync(existing);
+        }
+
         public async Task CancelAppointmentAsync(int appointmentId)
         {
             var existing = await _appointmentsRepository.GetByIdAsync(appointmentId);
-            if (existing == null) throw new KeyNotFoundException("Appointment not found.");
+            if (existing == null)
+                throw new KeyNotFoundException("Appointment not found.");
 
-            // Asumimos que esta cancelación es administrativa, o la lógica se maneja en Patients/ProfessionalsService
-            existing.Status = AppointmentStatus.CancelledByProfessional;
-
+            existing.Status = AppointmentStatus.Cancelled;
             await _appointmentsRepository.UpdateAsync(existing);
         }
 
-        // --- Método de Mapeo Interno ---
-        private AppointmentsDTO MapToDto(Appointments appointment)
+        private async Task<AppointmentsDTO> MapToDtoAsync(Appointments appointment)
         {
-            // En una implementación real, aquí buscarías los nombres del paciente y profesional
-            // usando _usersRepository para enriquecer el DTO.
-            return new AppointmentsDTO
+            string patientName = "";
+            string professionalName = "";
+            string specialtyName = "";
+
+            var patient = await _patientsRepository.GetByIdAsync(appointment.PatientId);
+            if (patient != null)
+                patientName = $"{patient.Name} {patient.LastName}";
+
+            var professional = await _professionalsRepository.GetByIdAsync(appointment.ProfessionalId);
+            if (professional != null)
             {
-                Id = appointment.Id,
-                Date = appointment.Date,
-                Description = appointment.Description,
-                Status = appointment.Status,
-                PatientId = appointment.PatientId,
-                ProfessionalId = appointment.ProfessionalId,
-                PatientName = $"Patient #{appointment.PatientId}", // Simulación
-                ProfessionalName = $"Prof #{appointment.ProfessionalId}" // Simulación
-            };
+                professionalName = $"{professional.Name} {professional.LastName}";
+                specialtyName = professional.Specialty?.Tipo ?? ""; // CORREGIDO: Tipo
+            }
+
+            return AppointmentsDTO.FromEntity(appointment, patientName, professionalName, specialtyName);
         }
     }
 }

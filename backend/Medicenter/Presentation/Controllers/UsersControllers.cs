@@ -22,7 +22,6 @@ namespace Presentation.Controllers
         [HttpGet]
         public async Task<ActionResult<List<UsersDTO>>> GetAll()
         {
-            // Corrige el error de compilación CS1061
             var users = await _usersService.GetAllAsync();
             return Ok(users.ToList());
         }
@@ -32,17 +31,20 @@ namespace Presentation.Controllers
         public async Task<ActionResult<UsersDTO>> GetById([FromRoute] int id)
         {
             var user = await _usersService.GetByIdAsync(id);
-            // Corrige CS8604: maneja explícitamente el nulo antes de devolver Ok(user)
-            if (user == null) return NotFound("User not found.");
+            if (user == null)
+                return NotFound("User not found.");
+
             return Ok(user);
         }
 
-        // PUT /Users/profile (editarPerfil)
+        // PUT /Users/profile/{userId} (editarPerfil)
         [HttpPut("profile/{userId}")]
         public async Task<ActionResult<UsersDTO>> EditProfile([FromRoute] int userId, [FromBody] CreationUsersDTO dto)
         {
             var updated = await _usersService.UpdateAsync(userId, dto);
-            if (updated == null) return NotFound("User not found.");
+            if (updated == null)
+                return NotFound("User not found.");
+
             return Ok(updated);
         }
 
@@ -59,7 +61,7 @@ namespace Presentation.Controllers
         public async Task<ActionResult> RecoverPassword([FromBody] string email)
         {
             await _usersService.RecoverPasswordAsync(email);
-            return Accepted(); // 202 Accepted
+            return Accepted();
         }
     }
 }

@@ -9,7 +9,9 @@ namespace Application.Models.Request
 {
     public class CreationSpecialtiesDTO
     {
-        [Required] public string Name { get; set; } = string.Empty;
-        public string Description { get; set; } = string.Empty;
+        [Required]
+        public string Tipo { get; set; } = string.Empty;
+
+        public string Descripcion { get; set; } = string.Empty;
     }
 }

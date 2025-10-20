@@ -14,7 +14,6 @@ namespace Application.Services
     public class SpecialtiesService : ISpecialtiesService
     {
         private readonly ISpecialtiesRepository _specialtiesRepository;
-        // Se asume IProfessionalsRepository para las validaciones
         private readonly IProfessionalsRepository _professionalsRepository;
 
         public SpecialtiesService(ISpecialtiesRepository specialtiesRepository, IProfessionalsRepository professionalsRepository)
@@ -23,91 +22,83 @@ namespace Application.Services
             _professionalsRepository = professionalsRepository;
         }
 
-        // --- Mapeo Interno ---
-        private SpecialtiesDTO MapToDto(Specialties specialty)
-        {
-            return new SpecialtiesDTO
-            {
-                Id = specialty.Id,
-                Name = specialty.Name,
-                Description = specialty.Description
-            };
-        }
-
-        // --- CRUD Básico ---
         public async Task<SpecialtiesDTO> GetByIdAsync(int id)
         {
             var specialty = await _specialtiesRepository.GetByIdAsync(id);
-            return specialty != null ? MapToDto(specialty) : throw new KeyNotFoundException($"Specialty with ID {id} not found.");
+            if (specialty == null)
+                throw new KeyNotFoundException($"Specialty with ID {id} not found.");
+
+            return SpecialtiesDTO.FromEntity(specialty);
         }
 
         public async Task<IEnumerable<SpecialtiesDTO>> GetAllAsync()
         {
             var specialties = await _specialtiesRepository.GetAllAsync();
-            return specialties.Select(MapToDto);
+            return specialties.Select(SpecialtiesDTO.FromEntity);
         }
 
-        // añadirEspecialidad
+        // añadirEspecialidad()
         public async Task<SpecialtiesDTO> CreateSpecialtyAsync(CreationSpecialtiesDTO dto)
         {
             var specialty = new Specialties
             {
-                Name = dto.Name,
-                Description = dto.Description
+                Tipo = dto.Tipo,
+                Descripcion = dto.Descripcion
             };
+
             var created = await _specialtiesRepository.CreateAsync(specialty);
-            return MapToDto(created);
+            return SpecialtiesDTO.FromEntity(created);
         }
 
-        // modificarEspecialidad
+        // modificarEspecialidad()
         public async Task<SpecialtiesDTO> UpdateSpecialtyAsync(int id, CreationSpecialtiesDTO dto)
         {
             var existing = await _specialtiesRepository.GetByIdAsync(id);
-            if (existing == null) throw new KeyNotFoundException($"Specialty with ID {id} not found.");
+            if (existing == null)
+                throw new KeyNotFoundException($"Specialty with ID {id} not found.");
 
-            existing.Name = dto.Name;
-            existing.Description = dto.Description;
+            existing.Tipo = dto.Tipo;
+            existing.Descripcion = dto.Descripcion;
 
             await _specialtiesRepository.UpdateAsync(existing);
-            return MapToDto(existing);
+            return SpecialtiesDTO.FromEntity(existing);
         }
 
-        // eliminarEspecialidad
+        // eliminarEspecialidad()
         public async Task DeleteSpecialtyAsync(int id)
         {
             var existing = await _specialtiesRepository.GetByIdAsync(id);
-            if (existing == null) throw new KeyNotFoundException($"Specialty with ID {id} not found.");
+            if (existing == null)
+                throw new KeyNotFoundException($"Specialty with ID {id} not found.");
 
             await _specialtiesRepository.DeleteAsync(existing);
         }
 
-        // --- Métodos de Relación ---
-
-        // asignarEspecialidad
+        // asignarEspecialidad(profesional)
         public async Task AssignSpecialtyToProfessionalAsync(int specialtyId, int professionalId)
         {
-            // Lógica de negocio: 
-            // 1. Verificar si la especialidad y el profesional existen.
-            // 2. Usar el repositorio para manejar la relación N:M o 1:N (según tu modelo).
+            var specialty = await _specialtiesRepository.GetByIdAsync(specialtyId);
+            if (specialty == null)
+                throw new KeyNotFoundException($"Specialty with ID {specialtyId} not found.");
 
-            // Suponiendo una relación 1:N (un profesional tiene una SpecialtyId FK)
             var professional = await _professionalsRepository.GetByIdAsync(professionalId);
-            if (professional == null) throw new KeyNotFoundException($"Professional ID {professionalId} not found.");
+            if (professional == null)
+                throw new KeyNotFoundException($"Professional with ID {professionalId} not found.");
 
-            professional.SpecialtyId = specialtyId; // Asignación de FK
+            professional.SpecialtyId = specialtyId;
             await _professionalsRepository.UpdateAsync(professional);
         }
 
-        // quitarEspecialidad
+        // quitarEspecialidad(profesional)
         public async Task RemoveSpecialtyFromProfessionalAsync(int specialtyId, int professionalId)
         {
             var professional = await _professionalsRepository.GetByIdAsync(professionalId);
-            if (professional == null) throw new KeyNotFoundException($"Professional ID {professionalId} not found.");
+            if (professional == null)
+                throw new KeyNotFoundException($"Professional with ID {professionalId} not found.");
 
-            // Asumiendo que 0 o null representa "sin especialidad"
             if (professional.SpecialtyId == specialtyId)
             {
-                professional.SpecialtyId = 0;
+                professional.SpecialtyId = 0; // O null si es nullable
                 await _professionalsRepository.UpdateAsync(professional);
             }
         }

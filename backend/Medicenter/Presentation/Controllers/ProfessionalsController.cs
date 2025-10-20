@@ -1,13 +1,12 @@
 ﻿using Application.Interfaces;
 using Application.Models;
 using Application.Models.Request;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Presentation.Controllers
 {
     [ApiController]
-    [Route("[controller]")] // Ruta: /Professionals
+    [Route("[controller]")]
     public class ProfessionalsController : ControllerBase
     {
         private readonly IProfessionalsService _professionalsService;
@@ -22,7 +21,6 @@ namespace Presentation.Controllers
         public async Task<ActionResult<ProfessionalsDTO>> CreateProfessional([FromBody] CreationProfessionalsDTO dto)
         {
             var created = await _professionalsService.CreateProfessionalAsync(dto);
-            // Redirige al método GetById del controlador Users
             return CreatedAtAction(nameof(UsersController.GetById), "Users", new { id = created.Id }, created);
         }
 
@@ -38,10 +36,18 @@ namespace Presentation.Controllers
         [HttpPost("appointments/{appointmentId}/accept")]
         public async Task<ActionResult> AcceptAppointment([FromRoute] int appointmentId)
         {
-            // En una aplicación real, el ID del profesional se obtiene del token de autenticación.
-            int professionalId = 1; // ID simulado
+            int professionalId = 1; // TODO: Obtener del token JWT
             bool success = await _professionalsService.AcceptAppointmentAsync(professionalId, appointmentId);
-            return success ? NoContent() : BadRequest("Cannot accept appointment or appointment not found.");
+            return success ? NoContent() : BadRequest("Cannot accept appointment.");
+        }
+
+        // POST /Professionals/appointments/{appointmentId}/reject (rechazarTurno)
+        [HttpPost("appointments/{appointmentId}/reject")]
+        public async Task<ActionResult> RejectAppointment([FromRoute] int appointmentId)
+        {
+            int professionalId = 1; // TODO: Obtener del token JWT
+            bool success = await _professionalsService.RejectAppointmentAsync(professionalId, appointmentId);
+            return success ? NoContent() : BadRequest("Cannot reject appointment.");
         }
 
         // GET /Professionals/{professionalId}/patients (listarPacientes)

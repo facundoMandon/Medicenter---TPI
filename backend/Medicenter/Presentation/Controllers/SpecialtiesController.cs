@@ -1,13 +1,12 @@
 ﻿using Application.Interfaces;
 using Application.Models;
 using Application.Models.Request;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Presentation.Controllers
 {
     [ApiController]
-    [Route("[controller]")] // Ruta: /Specialties
+    [Route("[controller]")]
     public class SpecialtiesController : ControllerBase
     {
         private readonly ISpecialtiesService _specialtiesService;
@@ -34,9 +33,9 @@ namespace Presentation.Controllers
                 var specialty = await _specialtiesService.GetByIdAsync(id);
                 return Ok(specialty);
             }
-            catch (KeyNotFoundException)
+            catch (KeyNotFoundException ex)
             {
-                return NotFound();
+                return NotFound(ex.Message);
             }
         }
 
@@ -57,9 +56,9 @@ namespace Presentation.Controllers
                 var updated = await _specialtiesService.UpdateSpecialtyAsync(id, dto);
                 return Ok(updated);
             }
-            catch (KeyNotFoundException)
+            catch (KeyNotFoundException ex)
             {
-                return NotFound();
+                return NotFound(ex.Message);
             }
         }
 
@@ -72,9 +71,9 @@ namespace Presentation.Controllers
                 await _specialtiesService.DeleteSpecialtyAsync(id);
                 return NoContent();
             }
-            catch (KeyNotFoundException)
+            catch (KeyNotFoundException ex)
             {
-                return NotFound();
+                return NotFound(ex.Message);
             }
         }
 
@@ -85,6 +84,21 @@ namespace Presentation.Controllers
             try
             {
                 await _specialtiesService.AssignSpecialtyToProfessionalAsync(specialtyId, professionalId);
+                return NoContent();
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
+
+        // DELETE /Specialties/{specialtyId}/remove/{professionalId} (quitarEspecialidad)
+        [HttpDelete("{specialtyId}/remove/{professionalId}")]
+        public async Task<ActionResult> RemoveSpecialtyFromProfessional([FromRoute] int specialtyId, [FromRoute] int professionalId)
+        {
+            try
+            {
+                await _specialtiesService.RemoveSpecialtyFromProfessionalAsync(specialtyId, professionalId);
                 return NoContent();
             }
             catch (KeyNotFoundException ex)

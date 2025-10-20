@@ -10,20 +10,21 @@ namespace Domain.Entities
 {
     public class Insurance
     {
-        [Required] public int Id { get; set; } // ID: int
+        [Required]
+        public int Id { get; set; }
 
         [Required, MaxLength(100)]
-        public string Name { get; set; } = string.Empty; // Nombre: string
+        public string Nombre { get; set; } = string.Empty; // Nombre: string
 
-        [Required, MaxLength(50)]
-        public string Plan { get; set; } = string.Empty; // Mapea TipoCobertura: enum(común, media, premium)
+        public string Descripcion { get; set; } = string.Empty; // Descripción: text
 
-        public string Description { get; set; } = string.Empty; // Mapea Descripción: text
+        [Required]
+        public MedicalCoverageType TipoCobertura { get; set; } // enum(común, media, premium)
 
-        // Relación 1:N con Patients (Afiliados). El FK está en Patients.
+        // Relación 1:N con Patients (Afiliados)
         public ICollection<Patients> Patients { get; set; } = new List<Patients>();
 
-        // Relación N:M con Professionals (quiénes la aceptan).
+        // Relación N:M con Professionals
         public ICollection<Professionals> Professionals { get; set; } = new List<Professionals>();
     }
 }

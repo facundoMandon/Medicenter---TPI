@@ -15,18 +15,22 @@ namespace Infrastructure.Data
 
         public async Task<List<Appointments>> GetByPatientIdAsync(int patientId)
         {
-            // Implementación real con EF Core
             return await _context.Set<Appointments>()
-                                 .Where(a => a.PatientId == patientId)
-                                 .ToListAsync();
+                .Include(a => a.Professional)
+                    .ThenInclude(p => p.Specialty)
+                .Include(a => a.Patient)
+                .Where(a => a.PatientId == patientId)
+                .ToListAsync();
         }
 
         public async Task<List<Appointments>> GetByProfessionalIdAsync(int professionalId)
         {
-            // Implementación real con EF Core
             return await _context.Set<Appointments>()
-                                 .Where(a => a.ProfessionalId == professionalId)
-                                 .ToListAsync();
+                .Include(a => a.Patient)
+                    .ThenInclude(p => p.Insurance)
+                .Include(a => a.Professional)
+                .Where(a => a.ProfessionalId == professionalId)
+                .ToListAsync();
         }
     }
 }

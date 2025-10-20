@@ -1,5 +1,7 @@
 ﻿using Domain.Entities;
+using Domain.Enums;
 using Domain.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,38 +14,46 @@ namespace Infrastructure.Data
     {
         public InsuranceRepository(ApplicationDbContext context) : base(context) { }
 
-        // --- Gestión de Afiliados ---
-
-        public Task AddPatientToInsuranceAsync(int insuranceId, int patientId) // añadirAfiliado
+        // añadirAfiliado
+        public async Task AddPatientToInsuranceAsync(int insuranceId, int patientId)
         {
-            // Lógica EF Core: Buscar Patient y asignar InsuranceId.
-            return Task.CompletedTask;
+            var patient = await _context.Set<Patients>().FindAsync(patientId);
+            if (patient == null)
+                throw new KeyNotFoundException($"Patient with ID {patientId} not found.");
+
+            patient.InsuranceId = insuranceId;
+            await _context.SaveChangesAsync();
         }
 
-        public Task RemovePatientFromInsuranceAsync(int insuranceId, int patientId) // eliminarAfiliado
+        // eliminarAfiliado
+        public async Task RemovePatientFromInsuranceAsync(int insuranceId, int patientId)
         {
-            // Lógica EF Core: Buscar Patient y establecer InsuranceId a null/0.
-            return Task.CompletedTask;
+            var patient = await _context.Set<Patients>().FindAsync(patientId);
+            if (patient == null)
+                throw new KeyNotFoundException($"Patient with ID {patientId} not found.");
+
+            if (patient.InsuranceId == insuranceId)
+            {
+                patient.InsuranceId = 0; // O null si permites nullable
+                await _context.SaveChangesAsync();
+            }
         }
 
-        public Task ChangePatientCoverageAsync(int patientId, string newPlan) // cambiarCobertura
+        // cambiarCobertura
+        public async Task ChangePatientCoverageAsync(int patientId, MedicalCoverageType newCoverage)
         {
-            // Lógica EF Core: Buscar Patient y actualizar su Plan (o el campo que vincule la cobertura).
-            return Task.CompletedTask;
-        }
+            var patient = await _context.Set<Patients>()
+                .Include(p => p.Insurance)
+                .FirstOrDefaultAsync(p => p.Id == patientId);
 
-        // --- Gestión de Profesionales ---
+            if (patient == null)
+                throw new KeyNotFoundException($"Patient with ID {patientId} not found.");
 
-        public Task AssignProfessionalToInsuranceAsync(int insuranceId, int professionalId)
-        {
-            // Lógica EF Core: Añadir la entrada en la tabla intermedia N:M.
-            return Task.CompletedTask;
-        }
-
-        public Task RemoveProfessionalFromInsuranceAsync(int insuranceId, int professionalId)
-        {
-            // Lógica EF Core: Eliminar la entrada en la tabla intermedia N:M.
-            return Task.CompletedTask;
+            if (patient.Insurance != null)
+            {
+                patient.Insurance.TipoCobertura = newCoverage;
+                await _context.SaveChangesAsync();
+            }
         }
     }
 }

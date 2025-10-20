@@ -14,22 +14,22 @@ namespace Application.Services
     public class PatientsService : IPatientsService
     {
         private readonly IPatientsRepository _patientsRepository;
-        // Repositorios auxiliares requeridos para la lógica de negocio del paciente
         private readonly IAppointmentsRepository _appointmentsRepository;
         private readonly IInsuranceRepository _insuranceRepository;
+        private readonly IProfessionalsRepository _professionalsRepository;
 
         public PatientsService(
             IPatientsRepository patientsRepository,
             IAppointmentsRepository appointmentsRepository,
-            IInsuranceRepository insuranceRepository
-        )
+            IInsuranceRepository insuranceRepository,
+            IProfessionalsRepository professionalsRepository)
         {
             _patientsRepository = patientsRepository;
             _appointmentsRepository = appointmentsRepository;
             _insuranceRepository = insuranceRepository;
+            _professionalsRepository = professionalsRepository;
         }
 
-        // 1. Creación de Paciente (crearUsuario)
         public async Task<PatientsDTO> CreatePatientAsync(CreationPatientsDTO dto)
         {
             var patient = new Patients
@@ -39,71 +39,75 @@ namespace Application.Services
                 DNI = dto.DNI,
                 Email = dto.Email,
                 Password = dto.Password,
-                Rol = dto.rol,
-                AffiliateNumber = dto.AffiliateNumber, // n_Afiliado
-                InsuranceId = dto.InsuranceId // FK a Obra Social
+                Rol = dto.Rol,
+                AffiliateNumber = dto.AffiliateNumber,
+                InsuranceId = dto.InsuranceId
             };
 
             var created = await _patientsRepository.CreateAsync(patient);
 
-            // Simulación de búsqueda de nombre de obra social para el DTO de salida
-            string insuranceName = "Insurance Name (lookup simulated)";
+            var insurance = await _insuranceRepository.GetByIdAsync(dto.InsuranceId);
+            string insuranceName = insurance?.Nombre ?? "";
 
-            var patientDto = new PatientsDTO
-            {
-                Id = created.Id,
-                Name = created.Name,
-                LastName = created.LastName,
-                DNI = created.DNI,
-                Email = created.Email,
-                Rol = created.Rol,
-                AffiliateNumber = created.AffiliateNumber,
-                InsuranceName = insuranceName
-            };
-            return patientDto;
+            return PatientsDTO.FromEntity(created, insuranceName);
         }
 
-        // 2. verTurnos (ViewAppointmentsAsync)
-        public Task<IEnumerable<AppointmentsDTO>> ViewAppointmentsAsync(int patientId)
+        public async Task<IEnumerable<AppointmentsDTO>> ViewAppointmentsAsync(int patientId)
         {
-            // Lógica: await _appointmentsRepository.GetByPatientIdAsync(patientId);
-            // Simulación
-            var appointments = new List<AppointmentsDTO>
-            {
-                new AppointmentsDTO { Id = 201 },
-                new AppointmentsDTO { Id = 202 }
-            };
-            return Task.FromResult<IEnumerable<AppointmentsDTO>>(appointments);
+            var appointments = await _appointmentsRepository.GetByPatientIdAsync(patientId);
+
+            return appointments.Select(a => AppointmentsDTO.FromEntity(
+                a,
+                $"{a.Patient.Name} {a.Patient.LastName}",
+                $"{a.Professional.Name} {a.Professional.LastName}",
+                a.Professional.Specialty?.Tipo ?? "" // CORREGIDO: Tipo en vez de Name
+            ));
         }
 
-        // 3. cancelarTurno (CancelAppointmentAsync)
-        public Task CancelAppointmentAsync(int patientId, int appointmentId)
+        public async Task CancelAppointmentAsync(int patientId, int appointmentId)
         {
-            // Lógica de negocio:
-            // 1. Buscar turno por appointmentId.
-            // 2. Verificar que el turno pertenece a este patientId.
-            // 3. Actualizar el estado del turno (Status = Cancelled).
+            var appointment = await _appointmentsRepository.GetByIdAsync(appointmentId);
 
-            // Simulación
-            return Task.CompletedTask;
+            if (appointment == null)
+                throw new KeyNotFoundException($"Appointment with ID {appointmentId} not found.");
+
+            if (appointment.PatientId != patientId)
+                throw new UnauthorizedAccessException("This appointment does not belong to the patient.");
+
+            appointment.Status = Domain.Enums.AppointmentStatus.Cancelled;
+            await _appointmentsRepository.UpdateAsync(appointment);
         }
 
-        // 4. pedirTurno (RequestAppointmentAsync)
-        public Task<AppointmentsDTO> RequestAppointmentAsync(int patientId, AppointmentRequestDTO request)
+        public async Task<AppointmentsDTO> RequestAppointmentAsync(int patientId, AppointmentRequestDTO request)
         {
-            // Lógica de negocio:
-            // 1. Verificar disponibilidad del profesional/horario.
-            // 2. Crear nueva entidad Appointment (usando patientId, request.ProfessionalId, request.AppointmentDate).
-            // 3. Establecer el estado inicial a "Pending" o "Requested".
-            // 4. Guardar en el repositorio (_appointmentsRepository.CreateAsync).
+            var professional = await _professionalsRepository.GetByIdAsync(request.ProfessionalId);
+            if (professional == null)
+                throw new KeyNotFoundException($"Professional with ID {request.ProfessionalId} not found.");
 
-            // Simulación: Asumimos la creación exitosa y devolvemos un DTO con ID generado
-            var newAppointment = new AppointmentsDTO
+            var appointment = new Appointments
             {
-                Id = new Random().Next(300, 999),
-                // ... campos mapeados de la request
+                PatientId = patientId,
+                ProfessionalId = request.ProfessionalId,
+                Fecha = request.Fecha,
+                Hora = request.Hora,
+                Descripcion = request.Descripcion,
+                Status = Domain.Enums.AppointmentStatus.Requested
             };
-            return Task.FromResult(newAppointment);
+
+            var created = await _appointmentsRepository.CreateAsync(appointment);
+
+            var appointments = await _appointmentsRepository.GetByPatientIdAsync(patientId);
+            var appointmentWithData = appointments.FirstOrDefault(a => a.Id == created.Id);
+
+            if (appointmentWithData == null)
+                throw new KeyNotFoundException("Could not retrieve created appointment.");
+
+            return AppointmentsDTO.FromEntity(
+                appointmentWithData,
+                $"{appointmentWithData.Patient.Name} {appointmentWithData.Patient.LastName}",
+                $"{appointmentWithData.Professional.Name} {appointmentWithData.Professional.LastName}",
+                appointmentWithData.Professional.Specialty?.Tipo ?? "" // CORREGIDO: Tipo
+            );
         }
     }
 }

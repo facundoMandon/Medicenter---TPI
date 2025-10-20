@@ -21,12 +21,12 @@ namespace Presentation.Controllers
         [HttpPost("administrators")]
         public async Task<ActionResult<AdministratorsDTO>> CreateAdministrator([FromBody] CreationUsersDTO dto)
         {
-            if (dto.rol != Domain.Enums.Roles.Administrator)
+            if (dto.Rol != Domain.Enums.Roles.Administrator)
             {
                 return BadRequest("Invalid role for this endpoint.");
             }
+
             var created = await _adminsService.CreateAdministratorAsync(dto);
-            // Redirige al método GetById del controlador Users
             return CreatedAtAction(nameof(UsersController.GetById), "Users", new { id = created.Id }, created);
         }
 
@@ -39,9 +39,9 @@ namespace Presentation.Controllers
                 await _adminsService.UpdateUserAsync(userId, dto);
                 return NoContent();
             }
-            catch (KeyNotFoundException)
+            catch (KeyNotFoundException ex)
             {
-                return NotFound($"User with ID {userId} not found.");
+                return NotFound(ex.Message);
             }
         }
 
@@ -49,8 +49,15 @@ namespace Presentation.Controllers
         [HttpDelete("users/{userId}")]
         public async Task<ActionResult> DeleteUser([FromRoute] int userId)
         {
-            await _adminsService.DeleteUserAsync(userId);
-            return NoContent();
+            try
+            {
+                await _adminsService.DeleteUserAsync(userId);
+                return NoContent();
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
         }
 
         // GET /admin/professionals (verProfesionales)
@@ -59,6 +66,59 @@ namespace Presentation.Controllers
         {
             var professionals = await _adminsService.ViewProfessionalsAsync();
             return Ok(professionals);
+        }
+
+        // GET /admin/specialties (verEspecialidades)
+        [HttpGet("specialties")]
+        public async Task<ActionResult<IEnumerable<SpecialtiesDTO>>> ViewSpecialties()
+        {
+            var specialties = await _adminsService.ViewSpecialtiesAsync();
+            return Ok(specialties);
+        }
+
+        // DELETE /admin/specialties/{specialtyId} (eliminarEspecialidad)
+        [HttpDelete("specialties/{specialtyId}")]
+        public async Task<ActionResult> DeleteSpecialty([FromRoute] int specialtyId)
+        {
+            try
+            {
+                await _adminsService.DeleteSpecialtyAsync(specialtyId);
+                return NoContent();
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
+
+        // DELETE /admin/appointments/{appointmentId} (eliminarTurno)
+        [HttpDelete("appointments/{appointmentId}")]
+        public async Task<ActionResult> DeleteAppointment([FromRoute] int appointmentId)
+        {
+            try
+            {
+                await _adminsService.DeleteAppointmentAsync(appointmentId);
+                return NoContent();
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+        }
+
+        // DELETE /admin/insurance/{insuranceId} (eliminarObraSocial)
+        [HttpDelete("insurance/{insuranceId}")]
+        public async Task<ActionResult> DeleteInsurance([FromRoute] int insuranceId)
+        {
+            try
+            {
+                await _adminsService.DeleteInsuranceAsync(insuranceId);
+                return NoContent();
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
         }
     }
 }

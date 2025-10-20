@@ -14,25 +14,25 @@ namespace Application.Services
     public class ProfessionalsService : IProfessionalsService
     {
         private readonly IProfessionalsRepository _professionalsRepository;
-        // Repositorios auxiliares inyectados (ya no están comentados)
         private readonly IAppointmentsRepository _appointmentsRepository;
         private readonly IPatientsRepository _patientsRepository;
         private readonly ISpecialtiesRepository _specialtiesRepository;
+        private readonly IInsuranceRepository _insuranceRepository;
 
         public ProfessionalsService(
             IProfessionalsRepository professionalsRepository,
             IAppointmentsRepository appointmentsRepository,
             IPatientsRepository patientsRepository,
-            ISpecialtiesRepository specialtiesRepository
-        )
+            ISpecialtiesRepository specialtiesRepository,
+            IInsuranceRepository insuranceRepository)
         {
             _professionalsRepository = professionalsRepository;
             _appointmentsRepository = appointmentsRepository;
             _patientsRepository = patientsRepository;
             _specialtiesRepository = specialtiesRepository;
+            _insuranceRepository = insuranceRepository;
         }
 
-        // 1. Creación de Profesional
         public async Task<ProfessionalsDTO> CreateProfessionalAsync(CreationProfessionalsDTO dto)
         {
             var professional = new Professionals
@@ -42,67 +42,73 @@ namespace Application.Services
                 DNI = dto.DNI,
                 Email = dto.Email,
                 Password = dto.Password,
-                Rol = dto.rol,
+                Rol = dto.Rol,
                 LicenseNumber = dto.LicenseNumber,
                 SpecialtyId = dto.SpecialtyId
             };
 
             var created = await _professionalsRepository.CreateAsync(professional);
 
-            // Simulación de búsqueda de nombre de especialidad para el DTO de salida
-            string specialtyName = "Specialty Name (lookup simulated)";
+            var specialty = await _specialtiesRepository.GetByIdAsync(dto.SpecialtyId);
+            string specialtyName = specialty?.Tipo ?? ""; // CORREGIDO: Tipo en vez de Name
 
-            var professionalDto = new ProfessionalsDTO
+            return ProfessionalsDTO.FromEntity(created, specialtyName);
+        }
+
+        public async Task<IEnumerable<AppointmentsDTO>> ViewAppointmentsAsync(int professionalId)
+        {
+            var appointments = await _appointmentsRepository.GetByProfessionalIdAsync(professionalId);
+
+            return appointments.Select(a => AppointmentsDTO.FromEntity(
+                a,
+                $"{a.Patient.Name} {a.Patient.LastName}",
+                $"{a.Professional.Name} {a.Professional.LastName}",
+                a.Professional.Specialty?.Tipo ?? "" // CORREGIDO: Tipo en vez de Name
+            ));
+        }
+
+        public async Task<bool> AcceptAppointmentAsync(int professionalId, int appointmentId)
+        {
+            var appointment = await _appointmentsRepository.GetByIdAsync(appointmentId);
+
+            if (appointment == null || appointment.ProfessionalId != professionalId)
+                return false;
+
+            appointment.Status = Domain.Enums.AppointmentStatus.Accepted;
+            await _appointmentsRepository.UpdateAsync(appointment);
+            return true;
+        }
+
+        public async Task<bool> RejectAppointmentAsync(int professionalId, int appointmentId)
+        {
+            var appointment = await _appointmentsRepository.GetByIdAsync(appointmentId);
+
+            if (appointment == null || appointment.ProfessionalId != professionalId)
+                return false;
+
+            appointment.Status = Domain.Enums.AppointmentStatus.Rejected;
+            await _appointmentsRepository.UpdateAsync(appointment);
+            return true;
+        }
+
+        public async Task<IEnumerable<PatientsDTO>> ListPatientsAsync(int professionalId)
+        {
+            var appointments = await _appointmentsRepository.GetByProfessionalIdAsync(professionalId);
+
+            var patientIds = appointments.Select(a => a.PatientId).Distinct();
+            var patients = new List<PatientsDTO>();
+
+            foreach (var patientId in patientIds)
             {
-                Id = created.Id,
-                Name = created.Name,
-                LastName = created.LastName,
-                DNI = created.DNI,
-                Email = created.Email,
-                Rol = created.Rol,
-                LicenseNumber = created.LicenseNumber,
-                SpecialtyName = specialtyName
-            };
-            return professionalDto;
-        }
+                var patient = await _patientsRepository.GetByIdAsync(patientId);
+                if (patient != null)
+                {
+                    var insurance = await _insuranceRepository.GetByIdAsync(patient.InsuranceId);
+                    patients.Add(PatientsDTO.FromEntity(patient, insurance?.Nombre ?? ""));
+                }
+            }
 
-        // 2. verTurnos (ViewAppointmentsAsync)
-        public Task<IEnumerable<AppointmentsDTO>> ViewAppointmentsAsync(int professionalId)
-        {
-            // Simulación de uso de repositorio: var appointments = _appointmentsRepository.GetByProfessionalId(professionalId);
-            var appointments = new List<AppointmentsDTO>
-            {
-                new AppointmentsDTO { Id = 101 },
-                new AppointmentsDTO { Id = 102 }
-            };
-            return Task.FromResult<IEnumerable<AppointmentsDTO>>(appointments);
-        }
-
-        // 3. aceptarTurno (AcceptAppointmentAsync)
-        public Task<bool> AcceptAppointmentAsync(int professionalId, int appointmentId)
-        {
-            // Simulación de uso de repositorio: var appointment = await _appointmentsRepository.GetByIdAsync(appointmentId);
-            // Simulación de éxito
-            return Task.FromResult(true);
-        }
-
-        // 4. rechazarTurno (RejectAppointmentAsync)
-        public Task<bool> RejectAppointmentAsync(int professionalId, int appointmentId)
-        {
-            // Simulación de uso de repositorio: var appointment = await _appointmentsRepository.GetByIdAsync(appointmentId);
-            // Simulación de éxito
-            return Task.FromResult(true);
-        }
-
-        // 5. listarPacientes (ListPatientsAsync)
-        public Task<IEnumerable<PatientsDTO>> ListPatientsAsync(int professionalId)
-        {
-            // Simulación de uso de repositorios: var patients = _patientsRepository.GetPatientsByProfessional(professionalId);
-            var patients = new List<PatientsDTO>
-            {
-                new PatientsDTO { Id = 1, Name = "Juan", LastName = "Perez", AffiliateNumber = 12345 },
-            };
-            return Task.FromResult<IEnumerable<PatientsDTO>>(patients);
+            return patients;
         }
     }
 }

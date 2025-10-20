@@ -18,9 +18,9 @@ namespace Application.Interfaces
         Task<HospitalsDTO> UpdateHospitalAsync(int id, CreationHospitalsDTO dto);
         Task DeleteHospitalAsync(int id);
 
-        // Métodos de Relación basados en el diagrama
+        // Métodos del diagrama
         Task RegisterProfessionalAsync(int hospitalId, int professionalId); // registrarProfesional
-        Task EditProfessionalAsync(int hospitalId, int professionalId); // editarProfesional (se usa UpdateUser en UsersService)
+        Task EditProfessionalAsync(int hospitalId, int professionalId); // editarProfesional (no implementado)
         Task<IEnumerable<ProfessionalsDTO>> ListProfessionalsAsync(int hospitalId); // listarProfesionales
         Task RemoveProfessionalAsync(int hospitalId, int professionalId); // eliminarProfesionales
     }

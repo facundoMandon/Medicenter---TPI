@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Presentation.Controllers
 {
     [ApiController]
-    [Route("[controller]")] // Ruta: /Patients
+    [Route("[controller]")]
     public class PatientsController : ControllerBase
     {
         private readonly IPatientsService _patientsService;
@@ -22,7 +22,6 @@ namespace Presentation.Controllers
         public async Task<ActionResult<PatientsDTO>> CreatePatient([FromBody] CreationPatientsDTO dto)
         {
             var created = await _patientsService.CreatePatientAsync(dto);
-            // Redirige al método GetById del controlador Users
             return CreatedAtAction(nameof(UsersController.GetById), "Users", new { id = created.Id }, created);
         }
 
@@ -38,16 +37,34 @@ namespace Presentation.Controllers
         [HttpPost("{patientId}/appointments")]
         public async Task<ActionResult<AppointmentsDTO>> RequestAppointment([FromRoute] int patientId, [FromBody] AppointmentRequestDTO request)
         {
-            var newAppointment = await _patientsService.RequestAppointmentAsync(patientId, request);
-            return CreatedAtAction(nameof(ViewAppointments), new { patientId = patientId }, newAppointment);
+            try
+            {
+                var newAppointment = await _patientsService.RequestAppointmentAsync(patientId, request);
+                return CreatedAtAction(nameof(ViewAppointments), new { patientId = patientId }, newAppointment);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
         }
 
         // DELETE /Patients/{patientId}/appointments/{appointmentId} (cancelarTurno)
         [HttpDelete("{patientId}/appointments/{appointmentId}")]
         public async Task<ActionResult> CancelAppointment([FromRoute] int patientId, [FromRoute] int appointmentId)
         {
-            await _patientsService.CancelAppointmentAsync(patientId, appointmentId);
-            return NoContent();
+            try
+            {
+                await _patientsService.CancelAppointmentAsync(patientId, appointmentId);
+                return NoContent();
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Forbid(ex.Message);
+            }
         }
     }
 }

@@ -10,10 +10,10 @@ namespace Application.Models.Request
     public class CreationProfessionalsDTO : CreationUsersDTO
     {
         [Required]
-        public int LicenseNumber { get; set; } // n_matrícula: int
+        public int LicenseNumber { get; set; }
 
         [Required]
-        public int SpecialtyId { get; set; } // FK a Especialidad
+        public int SpecialtyId { get; set; }
     }
 }
 

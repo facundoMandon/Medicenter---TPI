@@ -9,16 +9,15 @@ namespace Domain.Entities
 {
     public class Specialties
     {
-        [Required] public int Id { get; set; }
+        [Required]
+        public int Id { get; set; }
 
-        // Mapeado de Tipo: string (nombre de la especialidad)
         [Required, MaxLength(100)]
-        public string Name { get; set; } = string.Empty;
+        public string Tipo { get; set; } = string.Empty; // CORREGIDO: Tipo en vez de Name
 
-        // Mapeado de Descripción: string
-        public string Description { get; set; } = string.Empty;
+        public string Descripcion { get; set; } = string.Empty; // CORREGIDO: Descripcion
 
-        // Relaciones (opcional: lista de profesionales con esta especialidad)
+        // Relación 1:N con Professionals
         public ICollection<Professionals> Professionals { get; set; } = new List<Professionals>();
     }
 }

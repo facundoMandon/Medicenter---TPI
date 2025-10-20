@@ -9,8 +9,6 @@ namespace Domain.Interfaces
 {
     public interface ISpecialtiesRepository : IRepositoryBase<Specialties>
     {
-        // Método de negocio (ej: para asignar la especialidad a un profesional)
-        Task AssignToProfessionalAsync(int specialtyId, int professionalId);
-        Task RemoveFromProfessionalAsync(int specialtyId, int professionalId);
+        // No necesita métodos adicionales porque la relación se maneja en ProfessionalsRepository
     }
 }

@@ -16,10 +16,9 @@ namespace Application.Models
         public string LastName { get; set; } = string.Empty;
         public int DNI { get; set; }
         public string Email { get; set; } = string.Empty;
-        // public string Password { get; set; } NO LO MANDAMOS AL FRONTEND
         public Roles Rol { get; set; }
 
-        //ayuda a mappear el Users a formato UsersDTO (le saco el password)
+        // Método para mappear de entidad a DTO
         public static UsersDTO FromEntity(Users user)
         {
             return new UsersDTO

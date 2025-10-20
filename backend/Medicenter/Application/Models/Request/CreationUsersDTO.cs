@@ -10,11 +10,22 @@ namespace Application.Models.Request
 {
     public class CreationUsersDTO
     {
-        [Required] public string Name { get; set; } = string.Empty;
-        [Required] public string LastName { get; set; } = string.Empty;
-        [Required] public int DNI { get; set; }
-        [Required, EmailAddress] public string Email { get; set; } = string.Empty;
-        [Required, MinLength(8)] public string Password { get; set; } = string.Empty;
-        [Required] public Roles rol { get; set; }
+        [Required]
+        public string Name { get; set; } = string.Empty;
+
+        [Required]
+        public string LastName { get; set; } = string.Empty;
+
+        [Required]
+        public int DNI { get; set; }
+
+        [Required, EmailAddress]
+        public string Email { get; set; } = string.Empty;
+
+        [Required, MinLength(8)]
+        public string Password { get; set; } = string.Empty;
+
+        [Required]
+        public Roles Rol { get; set; } // CORREGIDO: Rol con mayúscula
     }
 }

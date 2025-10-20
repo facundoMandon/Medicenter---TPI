@@ -10,15 +10,15 @@ namespace Application.Interfaces
 {
     public interface ISpecialtiesService
     {
-        // CRUD Básico (Añadir, Modificar, Eliminar)
+        // CRUD Básico
         Task<SpecialtiesDTO> GetByIdAsync(int id);
         Task<IEnumerable<SpecialtiesDTO>> GetAllAsync();
-        Task<SpecialtiesDTO> CreateSpecialtyAsync(CreationSpecialtiesDTO dto); // añadirEspecialidad
-        Task<SpecialtiesDTO> UpdateSpecialtyAsync(int id, CreationSpecialtiesDTO dto); // modificarEspecialidad
-        Task DeleteSpecialtyAsync(int id); // eliminarEspecialidad
+        Task<SpecialtiesDTO> CreateSpecialtyAsync(CreationSpecialtiesDTO dto); // añadirEspecialidad()
+        Task<SpecialtiesDTO> UpdateSpecialtyAsync(int id, CreationSpecialtiesDTO dto); // modificarEspecialidad()
+        Task DeleteSpecialtyAsync(int id); // eliminarEspecialidad()
 
         // Métodos de Relación
-        Task AssignSpecialtyToProfessionalAsync(int specialtyId, int professionalId); // asignarEspecialidad
-        Task RemoveSpecialtyFromProfessionalAsync(int specialtyId, int professionalId); // quitarEspecialidad
+        Task AssignSpecialtyToProfessionalAsync(int specialtyId, int professionalId); // asignarEspecialidad(profesional)
+        Task RemoveSpecialtyFromProfessionalAsync(int specialtyId, int professionalId); // quitarEspecialidad(profesional)
     }
 }
