@@ -1,7 +1,9 @@
 ﻿using Application.Interfaces;
 using Application.Models;
 using Application.Models.Request;
+using Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace Presentation.Controllers
 {
@@ -10,19 +12,36 @@ namespace Presentation.Controllers
     public class ProfessionalsController : ControllerBase
     {
         private readonly IProfessionalsService _professionalsService;
+        private readonly ApplicationDbContext _context;
 
-        public ProfessionalsController(IProfessionalsService professionalsService)
+        public ProfessionalsController(IProfessionalsService professionalsService, ApplicationDbContext context)
         {
             _professionalsService = professionalsService;
+            _context = context;
         }
 
         // POST /Professionals (Crear Profesional)
         [HttpPost]
         public async Task<ActionResult<ProfessionalsDTO>> CreateProfessional([FromBody] CreationProfessionalsDTO dto)
         {
+            // Primero validás que el ID sea válido
+            if (dto.SpecialtyId <= 0)
+            {
+                return BadRequest("Debe especificar un ID de especialidad válido.");
+            }
+
+            // Luego verificás si la especialidad existe en la base de datos
+            var specialtyExists = await _context.Specialties.AnyAsync(s => s.Id == dto.SpecialtyId);
+            if (!specialtyExists)
+            {
+                return NotFound($"No existe una especialidad con el ID {dto.SpecialtyId}.");
+            }
+
             var created = await _professionalsService.CreateProfessionalAsync(dto);
+
             return CreatedAtAction(nameof(UsersController.GetById), "Users", new { id = created.Id }, created);
         }
+
 
         // GET /Professionals/{professionalId}/appointments (verTurnos)
         [HttpGet("{professionalId}/appointments")]

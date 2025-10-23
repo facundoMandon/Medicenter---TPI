@@ -8,8 +8,8 @@ namespace Domain.Enums
 {
     public enum MedicalCoverageType
     {
-        Common, 
-        Medium, 
-        Premium
+        Common, // 0 
+        Medium, // 1
+        Premium // 2
     }
 }

@@ -17,15 +17,18 @@ namespace Application.Services
         private readonly IAppointmentsRepository _appointmentsRepository;
         private readonly IPatientsRepository _patientsRepository;
         private readonly IProfessionalsRepository _professionalsRepository;
+        private readonly IHolidaysService _holidaysService;
 
         public AppointmentsService(
             IAppointmentsRepository appointmentsRepository,
             IPatientsRepository patientsRepository,
-            IProfessionalsRepository professionalsRepository)
+            IProfessionalsRepository professionalsRepository,
+            IHolidaysService holidaysService)
         {
             _appointmentsRepository = appointmentsRepository;
             _patientsRepository = patientsRepository;
             _professionalsRepository = professionalsRepository;
+            _holidaysService = holidaysService;
         }
 
         public async Task<AppointmentsDTO> GetByIdAsync(int id)
@@ -60,6 +63,20 @@ namespace Application.Services
             if (professional == null)
                 throw new KeyNotFoundException($"Professional with ID {dto.ProfessionalId} not found.");
 
+            // 🔹 Consultar feriados de Argentina para la fecha del turno
+            string year = dto.Fecha.Year.ToString();
+            string month = dto.Fecha.Month.ToString();
+            string day = dto.Fecha.Day.ToString();
+
+            var holidaysJson = await _holidaysService.GetHolidaysAsync("AR", year, month, day);
+
+            // 🔹 Revisar si hay feriados
+            if (!string.IsNullOrWhiteSpace(holidaysJson) && holidaysJson != "{}" && holidaysJson != "[]")
+            {
+                // Podés hacer un parse más avanzado si querés
+                throw new InvalidOperationException($"La fecha {dto.Fecha:yyyy-MM-dd} es feriado en Argentina. No se puede asignar turno.");
+            }
+
             var appointment = new Appointments
             {
                 PatientId = dto.PatientId,
@@ -80,6 +97,20 @@ namespace Application.Services
             if (existing == null)
                 throw new KeyNotFoundException("Appointment not found.");
 
+
+            // 🔹 Consultar feriados de Argentina para la fecha del turno
+            string year = dto.Fecha.Year.ToString();
+            string month = dto.Fecha.Month.ToString();
+            string day = dto.Fecha.Day.ToString();
+
+            var holidaysJson = await _holidaysService.GetHolidaysAsync("AR", year, month, day);
+
+            // 🔹 Revisar si hay feriados
+            if (!string.IsNullOrWhiteSpace(holidaysJson) && holidaysJson != "{}" && holidaysJson != "[]")
+            {
+                throw new InvalidOperationException($"La fecha {dto.Fecha:yyyy-MM-dd} es feriado en Argentina. No se puede asignar turno.");
+            }
+
             existing.PatientId = dto.PatientId;
             existing.ProfessionalId = dto.ProfessionalId;
             existing.Fecha = dto.Fecha;
@@ -89,6 +120,7 @@ namespace Application.Services
             await _appointmentsRepository.UpdateAsync(existing);
             return await MapToDtoAsync(existing);
         }
+
 
         public async Task<AppointmentsDTO> ConfirmAppointmentAsync(int appointmentId)
         {

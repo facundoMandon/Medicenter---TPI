@@ -14,31 +14,6 @@ namespace Infrastructure.Data
     {
         public InsuranceRepository(ApplicationDbContext context) : base(context) { }
 
-        // añadirAfiliado
-        public async Task AddPatientToInsuranceAsync(int insuranceId, int patientId)
-        {
-            var patient = await _context.Set<Patients>().FindAsync(patientId);
-            if (patient == null)
-                throw new KeyNotFoundException($"Patient with ID {patientId} not found.");
-
-            patient.InsuranceId = insuranceId;
-            await _context.SaveChangesAsync();
-        }
-
-        // eliminarAfiliado
-        public async Task RemovePatientFromInsuranceAsync(int insuranceId, int patientId)
-        {
-            var patient = await _context.Set<Patients>().FindAsync(patientId);
-            if (patient == null)
-                throw new KeyNotFoundException($"Patient with ID {patientId} not found.");
-
-            if (patient.InsuranceId == insuranceId)
-            {
-                patient.InsuranceId = 0; // O null si permites nullable
-                await _context.SaveChangesAsync();
-            }
-        }
-
         // cambiarCobertura
         public async Task ChangePatientCoverageAsync(int patientId, MedicalCoverageType newCoverage)
         {

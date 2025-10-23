@@ -74,30 +74,6 @@ namespace Application.Services
             await _insuranceRepository.DeleteAsync(insurance);
         }
 
-        // añadirAfiliado()
-        public async Task AddAffiliateAsync(int insuranceId, int patientId)
-        {
-            var insurance = await _insuranceRepository.GetByIdAsync(insuranceId);
-            var patient = await _patientsRepository.GetByIdAsync(patientId);
-
-            if (insurance == null)
-                throw new KeyNotFoundException($"Obra Social ID {insuranceId} no encontrada.");
-            if (patient == null)
-                throw new KeyNotFoundException($"Paciente ID {patientId} no encontrado.");
-
-            await _insuranceRepository.AddPatientToInsuranceAsync(insuranceId, patientId);
-        }
-
-        // eliminarAfiliado()
-        public async Task RemoveAffiliateAsync(int insuranceId, int patientId)
-        {
-            var patient = await _patientsRepository.GetByIdAsync(patientId);
-            if (patient == null)
-                throw new KeyNotFoundException($"Paciente ID {patientId} no encontrado.");
-
-            await _insuranceRepository.RemovePatientFromInsuranceAsync(insuranceId, patientId);
-        }
-
         // cambiarCobertura()
         public async Task ChangeCoverageAsync(int patientId, MedicalCoverageType newCoverage)
         {

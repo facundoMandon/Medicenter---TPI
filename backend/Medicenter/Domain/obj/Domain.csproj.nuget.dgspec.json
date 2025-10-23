@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tizia\\source\\repos\\Medicenter---TPI\\backend\\Medicenter\\Domain\\Domain.csproj": {}
+    "F:\\Documentos-F\\UTN\\4to cuatri\\Programación IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Domain\\Domain.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tizia\\source\\repos\\Medicenter---TPI\\backend\\Medicenter\\Domain\\Domain.csproj": {
+    "F:\\Documentos-F\\UTN\\4to cuatri\\Programación IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tizia\\source\\repos\\Medicenter---TPI\\backend\\Medicenter\\Domain\\Domain.csproj",
+        "projectUniqueName": "F:\\Documentos-F\\UTN\\4to cuatri\\Programación IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\tizia\\source\\repos\\Medicenter---TPI\\backend\\Medicenter\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\tizia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tizia\\source\\repos\\Medicenter---TPI\\backend\\Medicenter\\Domain\\obj\\",
+        "projectPath": "F:\\Documentos-F\\UTN\\4to cuatri\\Programación IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\Facundo PC (Feti)\\.nuget\\packages\\",
+        "outputPath": "F:\\Documentos-F\\UTN\\4to cuatri\\Programación IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "F:\\Equipo\\Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\tizia\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Facundo PC (Feti)\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

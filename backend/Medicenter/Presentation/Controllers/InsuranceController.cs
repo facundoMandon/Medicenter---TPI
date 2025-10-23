@@ -78,36 +78,6 @@ namespace Presentation.Controllers
             }
         }
 
-        // POST /Insurance/{insuranceId}/affiliates/{patientId} (añadirAfiliado)
-        [HttpPost("{insuranceId}/affiliates/{patientId}")]
-        public async Task<ActionResult> AddAffiliate([FromRoute] int insuranceId, [FromRoute] int patientId)
-        {
-            try
-            {
-                await _insuranceService.AddAffiliateAsync(insuranceId, patientId);
-                return NoContent();
-            }
-            catch (KeyNotFoundException ex)
-            {
-                return NotFound(ex.Message);
-            }
-        }
-
-        // DELETE /Insurance/{insuranceId}/affiliates/{patientId} (eliminarAfiliado)
-        [HttpDelete("{insuranceId}/affiliates/{patientId}")]
-        public async Task<ActionResult> RemoveAffiliate([FromRoute] int insuranceId, [FromRoute] int patientId)
-        {
-            try
-            {
-                await _insuranceService.RemoveAffiliateAsync(insuranceId, patientId);
-                return NoContent();
-            }
-            catch (KeyNotFoundException ex)
-            {
-                return NotFound(ex.Message);
-            }
-        }
-
         // PUT /Insurance/affiliates/{patientId}/coverage (cambiarCobertura)
         [HttpPut("affiliates/{patientId}/coverage")]
         public async Task<ActionResult> ChangeCoverage([FromRoute] int patientId, [FromBody] MedicalCoverageType newCoverage)

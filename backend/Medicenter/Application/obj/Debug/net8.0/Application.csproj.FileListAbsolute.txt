@@ -55,3 +55,10 @@ C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Application\bin\
 C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Application\bin\Debug\net8.0\Domain.pdb
 C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Applicat.44B5EDA2.Up2Date
 C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\ref\Application.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\bin\Debug\net8.0\Application.deps.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\bin\Debug\net8.0\Application.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\bin\Debug\net8.0\Application.pdb
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\bin\Debug\net8.0\Domain.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\bin\Debug\net8.0\Domain.pdb
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Applicat.44B5EDA2.Up2Date
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\ref\Application.dll
