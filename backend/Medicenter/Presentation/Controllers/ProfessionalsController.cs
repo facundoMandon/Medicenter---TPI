@@ -1,53 +1,61 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Application.Interfaces;
+using Application.Models;
 using Application.Models.Request;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Presentation.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class ProfessionalsController : ControllerBase
     {
-        private readonly IProfessionalsService _service;
+        private readonly IProfessionalsService _professionalsService;
 
-        public ProfessionalsController(IProfessionalsService service)
+        public ProfessionalsController(IProfessionalsService professionalsService)
         {
-            _service = service;
+            _professionalsService = professionalsService;
         }
 
+        // POST /Professionals (Crear Profesional)
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CreationProfessionalsDTO dto)
+        public async Task<ActionResult<ProfessionalsDTO>> CreateProfessional([FromBody] CreationProfessionalsDTO dto)
         {
-            var result = await _service.CreateAsync(dto);
-            return CreatedAtAction(nameof(GetById), new { id = result.n_Matricula }, result);
+            var created = await _professionalsService.CreateProfessionalAsync(dto);
+            return CreatedAtAction(nameof(UsersController.GetById), "Users", new { id = created.Id }, created);
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int id)
+        // GET /Professionals/{professionalId}/appointments (verTurnos)
+        [HttpGet("{professionalId}/appointments")]
+        public async Task<ActionResult<IEnumerable<AppointmentsDTO>>> ViewAppointments([FromRoute] int professionalId)
         {
-            var result = await _service.GetByIdAsync(id);
-            return Ok(result);
+            var appointments = await _professionalsService.ViewAppointmentsAsync(professionalId);
+            return Ok(appointments);
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetAll()
+        // POST /Professionals/appointments/{appointmentId}/accept (aceptarTurno)
+        [HttpPost("appointments/{appointmentId}/accept")]
+        public async Task<ActionResult> AcceptAppointment([FromRoute] int appointmentId)
         {
-            var result = await _service.GetAllAsync();
-            return Ok(result);
+            int professionalId = 1; // TODO: Obtener del token JWT
+            bool success = await _professionalsService.AcceptAppointmentAsync(professionalId, appointmentId);
+            return success ? NoContent() : BadRequest("Cannot accept appointment.");
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, [FromBody] CreationProfessionalsDTO dto)
+        // POST /Professionals/appointments/{appointmentId}/reject (rechazarTurno)
+        [HttpPost("appointments/{appointmentId}/reject")]
+        public async Task<ActionResult> RejectAppointment([FromRoute] int appointmentId)
         {
-            var result = await _service.UpdateAsync(id, dto);
-            return Ok(result);
+            int professionalId = 1; // TODO: Obtener del token JWT
+            bool success = await _professionalsService.RejectAppointmentAsync(professionalId, appointmentId);
+            return success ? NoContent() : BadRequest("Cannot reject appointment.");
         }
 
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
+        // GET /Professionals/{professionalId}/patients (listarPacientes)
+        [HttpGet("{professionalId}/patients")]
+        public async Task<ActionResult<IEnumerable<PatientsDTO>>> ListPatients([FromRoute] int professionalId)
         {
-            await _service.DeleteAsync(id);
-            return NoContent();
+            var patients = await _professionalsService.ListPatientsAsync(professionalId);
+            return Ok(patients);
         }
     }
 }

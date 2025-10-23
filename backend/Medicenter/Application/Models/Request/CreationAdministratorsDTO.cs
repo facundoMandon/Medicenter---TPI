@@ -7,11 +7,9 @@ using System.Threading.Tasks;
 
 namespace Application.Models.Request
 {
-    public class CreationAdministratorsDTO
+    public class CreationAdministratorsDTO : CreationUsersDTO
     {
-        public string Name { get; set; }
-        public string LastName { get; set; }
-        public int DNI { get; set; }
-        public string Email { get; set; }
+        // No requiere atributos adicionales
+        // Hereda todo de CreationUsersDTO: Name, LastName, DNI, Email, Password, Rol
     }
 }

@@ -1,55 +1,70 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Application.Interfaces;
+using Application.Models;
 using Application.Models.Request;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Presentation.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     public class PatientsController : ControllerBase
     {
-        private readonly IPatientsService _service;
+        private readonly IPatientsService _patientsService;
 
-        public PatientsController(IPatientsService service)
+        public PatientsController(IPatientsService patientsService)
         {
-            _service = service;
+            _patientsService = patientsService;
         }
 
+        // POST /Patients (Crear Paciente)
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] CreationPatientsDTO dto)
+        public async Task<ActionResult<PatientsDTO>> CreatePatient([FromBody] CreationPatientsDTO dto)
         {
-            var result = await _service.CreateAsync(dto);
-            return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
+            var created = await _patientsService.CreatePatientAsync(dto);
+            return CreatedAtAction(nameof(UsersController.GetById), "Users", new { id = created.Id }, created);
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetById(int id)
+        // GET /Patients/{patientId}/appointments (verTurnos)
+        [HttpGet("{patientId}/appointments")]
+        public async Task<ActionResult<IEnumerable<AppointmentsDTO>>> ViewAppointments([FromRoute] int patientId)
         {
-            var result = await _service.GetByIdAsync(id);
-            if (result == null) return NotFound();
-            return Ok(result);
+            var appointments = await _patientsService.ViewAppointmentsAsync(patientId);
+            return Ok(appointments);
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetAll()
+        // POST /Patients/{patientId}/appointments (pedirTurno)
+        [HttpPost("{patientId}/appointments")]
+        public async Task<ActionResult<AppointmentsDTO>> RequestAppointment([FromRoute] int patientId, [FromBody] AppointmentRequestDTO request)
         {
-            var result = await _service.GetAllAsync();
-            return Ok(result);
+            try
+            {
+                var newAppointment = await _patientsService.RequestAppointmentAsync(patientId, request);
+                return CreatedAtAction(nameof(ViewAppointments), new { patientId = patientId }, newAppointment);
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, [FromBody] CreationPatientsDTO dto)
+        // DELETE /Patients/{patientId}/appointments/{appointmentId} (cancelarTurno)
+        [HttpDelete("{patientId}/appointments/{appointmentId}")]
+        public async Task<ActionResult> CancelAppointment([FromRoute] int patientId, [FromRoute] int appointmentId)
         {
-            var result = await _service.UpdateAsync(id, dto);
-            if (result == null) return NotFound();
-            return Ok(result);
-        }
-
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> Delete(int id)
-        {
-            await _service.DeleteAsync(id);
-            return NoContent();
+            try
+            {
+                await _patientsService.CancelAppointmentAsync(patientId, appointmentId);
+                return NoContent();
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (UnauthorizedAccessException ex)
+            {
+                return Forbid(ex.Message);
+            }
         }
     }
 }

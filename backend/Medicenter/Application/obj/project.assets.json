@@ -27,23 +27,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Facundo PC (Feti)\\.nuget\\packages\\": {},
-    "F:\\Equipo\\Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\tizia\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Documentos-F\\UTN\\4to cuatri\\Programación IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Application\\Application.csproj",
+      "projectUniqueName": "C:\\Users\\tizia\\source\\repos\\Medicenter---TPI\\backend\\Medicenter\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "F:\\Documentos-F\\UTN\\4to cuatri\\Programación IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Application\\Application.csproj",
-      "packagesPath": "C:\\Users\\Facundo PC (Feti)\\.nuget\\packages\\",
-      "outputPath": "F:\\Documentos-F\\UTN\\4to cuatri\\Programación IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Application\\obj\\",
+      "projectPath": "C:\\Users\\tizia\\source\\repos\\Medicenter---TPI\\backend\\Medicenter\\Application\\Application.csproj",
+      "packagesPath": "C:\\Users\\tizia\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\tizia\\source\\repos\\Medicenter---TPI\\backend\\Medicenter\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "F:\\Equipo\\Visual Studio\\Shared\\NuGetPackages"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Facundo PC (Feti)\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\tizia\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -58,8 +58,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "F:\\Documentos-F\\UTN\\4to cuatri\\Programación IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Domain\\Domain.csproj": {
-              "projectPath": "F:\\Documentos-F\\UTN\\4to cuatri\\Programación IV\\TPI\\Medicenter---TPI\\backend\\Medicenter\\Domain\\Domain.csproj"
+            "C:\\Users\\tizia\\source\\repos\\Medicenter---TPI\\backend\\Medicenter\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\tizia\\source\\repos\\Medicenter---TPI\\backend\\Medicenter\\Domain\\Domain.csproj"
             }
           }
         }

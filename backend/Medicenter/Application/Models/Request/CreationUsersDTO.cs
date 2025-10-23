@@ -11,23 +11,21 @@ namespace Application.Models.Request
     public class CreationUsersDTO
     {
         [Required]
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         [Required]
-        public string LastName { get; set; }
+        public string LastName { get; set; } = string.Empty;
 
         [Required]
         public int DNI { get; set; }
 
-        [Required]
-        [EmailAddress] // Para validación en la capa de Presentación
-        public string Email { get; set; }
+        [Required, EmailAddress]
+        public string Email { get; set; } = string.Empty;
+
+        [Required, MinLength(8)]
+        public string Password { get; set; } = string.Empty;
 
         [Required]
-        [MinLength(8)] // Para validación de seguridad
-        public string Password { get; set; }
-                                       
-        [Required]
-        public Roles rol { get; set; }
+        public Roles Rol { get; set; } // CORREGIDO: Rol con mayúscula
     }
 }

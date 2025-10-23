@@ -8,20 +8,12 @@ namespace Domain.Entities
 {
     public class Patients : Users
     {
-        public int affiliate_number { get; set; }
+        // Atributo mapeado del diagrama: n_Afiliado -> AffiliateNumber
+        public int AffiliateNumber { get; set; }
 
-        //FKs
-
+        // Relaciones (asumiendo Obra Social para completitud)
         public int InsuranceId { get; set; }
-
-        //Propiedad de Navegación
-
-        public Insurance Insurance { get; set; }
-
-        //Relaciones
-
-        public ICollection<Appointments> Appointments { get; set; }
-
-        //Métodos
+        public Insurance Insurance { get; set; } = null!;
+        public ICollection<Appointments> Appointments { get; set; } = new List<Appointments>();
     }
 }

@@ -7,17 +7,24 @@ using Domain.Entities;
 
 namespace Application.Models
 {
-    internal class PatientsDTO
+    public class PatientsDTO : UsersDTO
     {
-        public int affiliate_number { get; set; }
-        public int InsuranceId { get; set; }
+        public int AffiliateNumber { get; set; }
+        public string InsuranceName { get; set; } = string.Empty;
 
-        public static PatientsDTO FromEntity(Patients patient)
+        // Método para mappear de Patients a PatientsDTO
+        public static PatientsDTO FromEntity(Patients patient, string insuranceName = "")
         {
             return new PatientsDTO
             {
-                affiliate_number = patient.affiliate_number,
-                InsuranceId = patient.InsuranceId,
+                Id = patient.Id,
+                Name = patient.Name,
+                LastName = patient.LastName,
+                DNI = patient.DNI,
+                Email = patient.Email,
+                Rol = patient.Rol,
+                AffiliateNumber = patient.AffiliateNumber,
+                InsuranceName = insuranceName
             };
         }
     }

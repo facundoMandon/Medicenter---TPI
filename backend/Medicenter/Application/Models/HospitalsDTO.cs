@@ -7,19 +7,20 @@ using Domain.Entities;
 
 namespace Application.Models
 {
-    internal class HospitalsDTO
+    public class HospitalsDTO
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Adress { get; set; }
+        public string Nombre { get; set; } = string.Empty;
+        public string Direccion { get; set; } = string.Empty;
 
+        // Método FromEntity
         public static HospitalsDTO FromEntity(Hospitals hospital)
         {
             return new HospitalsDTO
             {
                 Id = hospital.Id,
-                Name = hospital.Name,
-                Adress = hospital.Adress,
+                Nombre = hospital.Nombre,
+                Direccion = hospital.Direccion
             };
         }
     }

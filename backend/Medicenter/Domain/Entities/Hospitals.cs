@@ -12,36 +12,14 @@ namespace Domain.Entities
     {
         [Required]
         public int Id { get; set; }
-        [Required]
-        public string Name { get; set; }
-        [Required]
-        public string Adress { get; set; }
 
-        //relaciones
-        public ICollection<Professionals> Professionals { get; set; }
+        [Required, MaxLength(150)]
+        public string Nombre { get; set; } = string.Empty; // CORREGIDO: Nombre
 
-        //Métodos
+        [Required, MaxLength(250)]
+        public string Direccion { get; set; } = string.Empty; // CORREGIDO: Direccion
 
-        public void registerProfessionals(Professionals professional) 
-        {
-            //logica
-        }
-
-        public void updateProfessionals(Professionals professional)
-        {
-            //logica
-        }
-
-        public List<Professionals> HospitalStaff() 
-        { 
-            //logica 
-            return new List<Professionals>();
-        }
-
-        public void DeleteProfessionals(Professionals professional)
-        {
-            //lógica
-        }
-
+        // Relación N:M con Professionals
+        public ICollection<Professionals> Professionals { get; set; } = new List<Professionals>();
     }
 }

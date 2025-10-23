@@ -9,17 +9,11 @@ using System.Threading.Tasks;
 
 namespace Application.Models
 {
-    public class AdministratorsDTO
+    public class AdministratorsDTO : UsersDTO
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string LastName { get; set; }
-        public int DNI { get; set; }
-        public string Email { get; set; }
-        // public string Password { get; set; } NO LO MANDAMOS AL FRONTEND
-        public Roles Rol { get; set; }
+        // No requiere atributos adicionales
 
-        //ayuda a mappear el Users a formato UsersDTO (le saco el password)
+        // Método para mappear de Administrators a AdministratorsDTO
         public static AdministratorsDTO FromEntity(Administrators admin)
         {
             return new AdministratorsDTO

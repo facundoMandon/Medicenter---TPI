@@ -8,21 +8,22 @@ using System.Threading.Tasks;
 
 namespace Application.Models
 {
-    internal class InsuranceDTO
+    public class InsuranceDTO
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public MedicalCoverageType CoverageType { get; set; }
+        public string Nombre { get; set; } = string.Empty;
+        public string Descripcion { get; set; } = string.Empty;
+        public MedicalCoverageType TipoCobertura { get; set; }
 
-        public static InsuranceDTO FromEntiy(Insurance insurance)
+        // Método FromEntity
+        public static InsuranceDTO FromEntity(Insurance insurance)
         {
             return new InsuranceDTO
             {
                 Id = insurance.Id,
-                Name = insurance.Name,
-                Description = insurance.Description,
-                CoverageType = insurance.CoverageType,
+                Nombre = insurance.Nombre,
+                Descripcion = insurance.Descripcion,
+                TipoCobertura = insurance.TipoCobertura
             };
         }
     }

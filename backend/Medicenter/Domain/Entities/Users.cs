@@ -27,4 +27,3 @@ namespace Domain.Entities
     }
 }
 
-//FALTAN LAS CLASES DE TURNOS, ESPECILIADAD, HOSPITALES, OBRA SOCIAL

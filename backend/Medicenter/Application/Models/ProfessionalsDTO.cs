@@ -7,17 +7,24 @@ using Domain.Entities;
 
 namespace Application.Models
 {
-    internal class ProfessionalsDTO
+    public class ProfessionalsDTO : UsersDTO
     {
-        public int n_matricula { get; set; }
-        public int SpecialtyId { get; set; }
+        public int LicenseNumber { get; set; }
+        public string SpecialtyName { get; set; } = string.Empty;
 
-        public static ProfessionalsDTO FromEntity(Professionals professional)
+        // Método para mappear de Professionals a ProfessionalsDTO
+        public static ProfessionalsDTO FromEntity(Professionals professional, string specialtyName = "")
         {
             return new ProfessionalsDTO
             {
-                n_matricula = professional.n_matricula,
-                SpecialtyId = professional.SpecialtyId
+                Id = professional.Id,
+                Name = professional.Name,
+                LastName = professional.LastName,
+                DNI = professional.DNI,
+                Email = professional.Email,
+                Rol = professional.Rol,
+                LicenseNumber = professional.LicenseNumber,
+                SpecialtyName = specialtyName
             };
         }
     }

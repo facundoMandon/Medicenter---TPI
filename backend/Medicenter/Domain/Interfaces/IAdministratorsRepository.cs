@@ -7,12 +7,5 @@ using Domain.Entities;
 
 namespace Domain.Interfaces
 {
-    public interface IAdministratorsRepository : IRepositoryBase<Administrators>
-    {
-        Task<Administrators> DeleteUsersAsync(int userId);
-        Task<Administrators> DeleteSpecialtyAsync(int specialtyId);
-        Task<Administrators> DeleteAppointmentAsync(int appointmentId);
-        Task<Administrators> UpdateUsersAsync(Users user);
-        Task<List<Administrators>> GetAllProffesionalsAsync();
-    }
+    public interface IAdministratorsRepository : IRepositoryBase<Administrators> { }
 }

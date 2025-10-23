@@ -9,16 +9,14 @@ namespace Domain.Entities
 {
     public class Professionals : Users
     {
-        public int n_matricula { get; set; }
+        // Atributo mapeado del diagrama: n_matrícula -> LicenseNumber
+        public int LicenseNumber { get; set; }
 
-        //FKs
+        // Relaciones (para completitud del modelo, asumiendo su existencia)
         public int SpecialtyId { get; set; }
-
-        // Propiedades de navegación
-        public Specialties Specialty { get; set; }
-
+        public Specialties Specialty { get; set; } = null!;
         public ICollection<Appointments> Appointments { get; set; } = new List<Appointments>();
-        public ICollection<Hospitals> Hospitals { get; set; } = new HashSet<Hospitals>();
+        public ICollection<Hospitals> Hospitals { get; set; } = new List<Hospitals>();
         public ICollection<Insurance> Insurances { get; set; } = new List<Insurance>();
     }
 }

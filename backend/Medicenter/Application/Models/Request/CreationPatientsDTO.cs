@@ -1,14 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Application.Models.Request
 {
-    public class CreationPatientsDTO
+    public class CreationPatientsDTO : CreationUsersDTO
     {
-        public int affiliate_number { get; set; }
+        [Required]
+        public int AffiliateNumber { get; set; }
+
+        [Required]
         public int InsuranceId { get; set; }
     }
 }

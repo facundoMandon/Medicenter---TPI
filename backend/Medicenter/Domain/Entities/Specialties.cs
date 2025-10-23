@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,19 +9,15 @@ namespace Domain.Entities
 {
     public class Specialties
     {
-        public int Id { get; set; } // ID: int
-        public string Type { get; set; } // Tipo: string
-        public string Description { get; set; } // Descripción: string
+        [Required]
+        public int Id { get; set; }
 
-        //Relaciones
+        [Required, MaxLength(100)]
+        public string Tipo { get; set; } = string.Empty; // CORREGIDO: Tipo en vez de Name
 
-        public ICollection<Professionals> Professionals { get; set; }
+        public string Descripcion { get; set; } = string.Empty; // CORREGIDO: Descripcion
 
-        // Métodos del diagrama
-        public void AddSpecialty() { /* Lógica */ }
-        public void AsignSpecialty() { /* Lógica */ }
-        public void RevoqueSpecialty() { /* Lógica */ }
-        public void DeleteSpecialty() { /* Lógica */ }
-        public void ModifySpecialty() { /* Lógica */ }
+        // Relación 1:N con Professionals
+        public ICollection<Professionals> Professionals { get; set; } = new List<Professionals>();
     }
 }
