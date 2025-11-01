@@ -1,4 +1,4 @@
-## A streamlined .gitignore for modern .NET projects
+## ✅ .gitignore completo y actualizado para proyectos .NET (Visual Studio + .NET 8)
 
 # Build results
 [Dd]ebug/
@@ -16,43 +16,47 @@ bld/
 [Ll]og/
 [Ll]ogs/
 
-# .NET Core
-project.lock.json
-project.fragment.lock.json
-artifacts/
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.VC.db
+*.VC.VC.opendb
+
+# Visual Studio Code
+.vscode/
+
+# Copilot indices (causaban conflicto)
+CopilotIndices/
+*.db
 
 # ASP.NET Scaffolding
 ScaffoldingReadMe.txt
 
 # NuGet Packages
 *.nupkg
-# NuGet Symbol Packages
 *.snupkg
+project.lock.json
+project.fragment.lock.json
+artifacts/
+*.nuget.props
+*.nuget.targets
+project.assets.json
+
+# Test results and logs
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+*.log
+*.tlog
+*.trx
+*.VisualState.xml
+TestResult.xml
+nunit-*.xml
+*.binlog
 
 # Others
 ~$*
 *~
 CodeCoverage/
-
-# MSBuild Binary and Structured Log
-*.binlog
-
-# MSTest test Results
-[Tt]est[Rr]esult*/
-[Bb]uild[Ll]og.*
-
-# NUnit
-*.VisualState.xml
-TestResult.xml
-nunit-*.xml
-
-# =========================================================
-# ARCHIVOS Y DIRECTORIOS DE VISUAL STUDIO (CAUSA DEL BLOQUEO)
-# Se añaden aquí para asegurar que Git los ignore
-# =========================================================
-.vs/
-*.suo
-*.user
-*.pdb
-*.tmp
-*.csproj.user
