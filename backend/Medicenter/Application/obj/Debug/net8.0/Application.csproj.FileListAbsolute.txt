@@ -1,0 +1,64 @@
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Application\obj\Debug\net8.0\Application.csproj.AssemblyReference.cache
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Application\obj\Debug\net8.0\Application.GeneratedMSBuildEditorConfig.editorconfig
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Application\obj\Debug\net8.0\Application.AssemblyInfoInputs.cache
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Application\obj\Debug\net8.0\Application.AssemblyInfo.cs
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Application\obj\Debug\net8.0\Application.csproj.CoreCompileInputs.cache
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Application\obj\Debug\net8.0\Application.sourcelink.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Application\bin\Debug\net8.0\Application.deps.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Application\bin\Debug\net8.0\Application.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Application\bin\Debug\net8.0\Application.pdb
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Application\bin\Debug\net8.0\Domain.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Application\bin\Debug\net8.0\Domain.pdb
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Application\obj\Debug\net8.0\Applicat.44B5EDA2.Up2Date
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Application\obj\Debug\net8.0\Application.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Application\obj\Debug\net8.0\refint\Application.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Application\obj\Debug\net8.0\Application.pdb
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Application\obj\Debug\net8.0\ref\Application.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Application\bin\Debug\net8.0\Application.deps.json
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Application\bin\Debug\net8.0\Application.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Application\bin\Debug\net8.0\Application.pdb
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Application\bin\Debug\net8.0\Domain.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Application\bin\Debug\net8.0\Domain.pdb
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.csproj.AssemblyReference.cache
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.AssemblyInfoInputs.cache
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.AssemblyInfo.cs
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.csproj.CoreCompileInputs.cache
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.sourcelink.json
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Applicat.44B5EDA2.Up2Date
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\refint\Application.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.pdb
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\ref\Application.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.csproj.AssemblyReference.cache
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.GeneratedMSBuildEditorConfig.editorconfig
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.AssemblyInfoInputs.cache
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.AssemblyInfo.cs
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.csproj.CoreCompileInputs.cache
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.sourcelink.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\refint\Application.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.pdb
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.csproj.AssemblyReference.cache
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.AssemblyInfoInputs.cache
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.AssemblyInfo.cs
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.csproj.CoreCompileInputs.cache
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.sourcelink.json
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\refint\Application.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Application.pdb
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Application\bin\Debug\net8.0\Application.deps.json
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Application\bin\Debug\net8.0\Application.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Application\bin\Debug\net8.0\Application.pdb
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Application\bin\Debug\net8.0\Domain.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Application\bin\Debug\net8.0\Domain.pdb
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Applicat.44B5EDA2.Up2Date
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\ref\Application.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\bin\Debug\net8.0\Application.deps.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\bin\Debug\net8.0\Application.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\bin\Debug\net8.0\Application.pdb
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\bin\Debug\net8.0\Domain.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\bin\Debug\net8.0\Domain.pdb
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\Applicat.44B5EDA2.Up2Date
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Application\obj\Debug\net8.0\ref\Application.dll

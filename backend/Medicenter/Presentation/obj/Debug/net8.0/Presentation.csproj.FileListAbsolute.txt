@@ -1,0 +1,514 @@
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.csproj.AssemblyReference.cache
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\obj\Debug\net8.0\rpswa.dswa.cache.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.GeneratedMSBuildEditorConfig.editorconfig
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.AssemblyInfoInputs.cache
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.AssemblyInfo.cs
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.csproj.CoreCompileInputs.cache
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.MvcApplicationPartsAssemblyInfo.cache
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.sourcelink.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\appsettings.Development.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\appsettings.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Presentation.staticwebassets.endpoints.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Presentation.exe
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Presentation.deps.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Presentation.runtimeconfig.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Presentation.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Presentation.pdb
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Http.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Options.ConfigurationExtensions.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.OpenApi.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\MySqlConnector.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Application.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Domain.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Infrastructure.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Application.pdb
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Infrastructure.pdb
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Domain.pdb
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.MvcApplicationPartsAssemblyInfo.cs
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\obj\Debug\net8.0\rjimswa.dswa.cache.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\obj\Debug\net8.0\scopedcss\bundle\Presentation.styles.css
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\obj\Debug\net8.0\staticwebassets.build.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\obj\Debug\net8.0\staticwebassets.build.json.cache
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\obj\Debug\net8.0\staticwebassets.development.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\obj\Debug\net8.0\Presenta.BC777DBE.Up2Date
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\obj\Debug\net8.0\refint\Presentation.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.pdb
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.genruntimeconfig.cache
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\obj\Debug\net8.0\ref\Presentation.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Humanizer.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\Mono.TextTemplating.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\System.CodeDom.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\System.Composition.Convention.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\System.Composition.Hosting.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\System.Composition.Runtime.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\System.Composition.TypedParts.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter\backend\Medicenter\Presentation\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\appsettings.json
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Presentation.staticwebassets.endpoints.json
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Presentation.exe
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Presentation.deps.json
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Presentation.runtimeconfig.json
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Presentation.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Presentation.pdb
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Humanizer.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Http.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Options.ConfigurationExtensions.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Mono.TextTemplating.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\MySqlConnector.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\System.CodeDom.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\System.Composition.Convention.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\System.Composition.Hosting.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\System.Composition.Runtime.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\System.Composition.TypedParts.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Application.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Domain.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Infrastructure.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Application.pdb
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Infrastructure.pdb
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Domain.pdb
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.csproj.AssemblyReference.cache
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.AssemblyInfoInputs.cache
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.AssemblyInfo.cs
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.csproj.CoreCompileInputs.cache
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.sourcelink.json
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\rjimswa.dswa.cache.json
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\scopedcss\bundle\Presentation.styles.css
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\staticwebassets.build.json.cache
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presenta.BC777DBE.Up2Date
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\refint\Presentation.dll
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.pdb
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.genruntimeconfig.cache
+C:\Users\Facundo\Documents\UTN\prog 4\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\ref\Presentation.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.csproj.AssemblyReference.cache
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\rpswa.dswa.cache.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.GeneratedMSBuildEditorConfig.editorconfig
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.AssemblyInfoInputs.cache
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.AssemblyInfo.cs
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.csproj.CoreCompileInputs.cache
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.MvcApplicationPartsAssemblyInfo.cs
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.MvcApplicationPartsAssemblyInfo.cache
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.sourcelink.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\refint\Presentation.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.pdb
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.csproj.AssemblyReference.cache
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\rpswa.dswa.cache.json
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.AssemblyInfoInputs.cache
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.AssemblyInfo.cs
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.csproj.CoreCompileInputs.cache
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.sourcelink.json
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\refint\Presentation.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.pdb
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\appsettings.json
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Presentation.staticwebassets.endpoints.json
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Presentation.exe
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Presentation.deps.json
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Presentation.runtimeconfig.json
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Presentation.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Presentation.pdb
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Humanizer.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Http.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Options.ConfigurationExtensions.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Mono.TextTemplating.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\MySqlConnector.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\System.CodeDom.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\System.Composition.Convention.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\System.Composition.Hosting.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\System.Composition.Runtime.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\System.Composition.TypedParts.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Application.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Domain.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Infrastructure.dll
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Application.pdb
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Infrastructure.pdb
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Domain.pdb
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\rjimswa.dswa.cache.json
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\scopedcss\bundle\Presentation.styles.css
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\staticwebassets.build.json.cache
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presenta.BC777DBE.Up2Date
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.genruntimeconfig.cache
+C:\Users\tizia\Source\Repos\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\ref\Presentation.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\appsettings.Development.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\appsettings.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Presentation.staticwebassets.endpoints.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Presentation.exe
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Presentation.deps.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Presentation.runtimeconfig.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Presentation.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Presentation.pdb
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Humanizer.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Configuration.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Configuration.Binder.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Diagnostics.Abstractions.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Http.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Options.ConfigurationExtensions.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Microsoft.OpenApi.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Mono.TextTemplating.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\MySqlConnector.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Pomelo.EntityFrameworkCore.MySql.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\System.CodeDom.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\System.Composition.Convention.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\System.Composition.Hosting.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\System.Composition.Runtime.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\System.Composition.TypedParts.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Application.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Domain.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Infrastructure.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Application.pdb
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Infrastructure.pdb
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\bin\Debug\net8.0\Domain.pdb
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\rjimswa.dswa.cache.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\rjsmrazor.dswa.cache.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\rjsmcshtml.dswa.cache.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\scopedcss\bundle\Presentation.styles.css
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\staticwebassets.build.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\staticwebassets.build.json.cache
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\staticwebassets.development.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presenta.BC777DBE.Up2Date
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\Presentation.genruntimeconfig.cache
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\ref\Presentation.dll
+F:\Documentos-F\UTN\4to cuatri\Programación IV\TPI\Medicenter---TPI\backend\Medicenter\Presentation\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

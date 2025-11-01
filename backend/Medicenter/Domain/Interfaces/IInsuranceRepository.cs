@@ -11,8 +11,6 @@ namespace Domain.Interfaces
     public interface IInsuranceRepository : IRepositoryBase<Insurance>
     {
         // Métodos según diagrama
-        Task AddPatientToInsuranceAsync(int insuranceId, int patientId); // añadirAfiliado
-        Task RemovePatientFromInsuranceAsync(int insuranceId, int patientId); // eliminarAfiliado
         Task ChangePatientCoverageAsync(int patientId, MedicalCoverageType newCoverage); // cambiarCobertura
     }
 }

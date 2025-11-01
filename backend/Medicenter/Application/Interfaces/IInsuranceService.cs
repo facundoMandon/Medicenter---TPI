@@ -20,8 +20,6 @@ namespace Application.Interfaces
         Task DeleteInsuranceAsync(int id);
 
         // Métodos según diagrama
-        Task AddAffiliateAsync(int insuranceId, int patientId); // añadirAfiliado()
-        Task RemoveAffiliateAsync(int insuranceId, int patientId); // eliminarAfiliado()
         Task ChangeCoverageAsync(int patientId, MedicalCoverageType newCoverage); // cambiarCobertura()
     }
 }

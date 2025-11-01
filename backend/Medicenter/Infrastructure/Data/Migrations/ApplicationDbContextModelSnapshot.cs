@@ -30,10 +30,14 @@ namespace Infrastructure.Data.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("Date")
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<DateTime>("Fecha")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<string>("Description")
+                    b.Property<string>("Hora")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -43,8 +47,8 @@ namespace Infrastructure.Data.Migrations
                     b.Property<int>("ProfessionalId")
                         .HasColumnType("int");
 
-                    b.Property<TimeSpan>("Time")
-                        .HasColumnType("time(6)");
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -63,13 +67,15 @@ namespace Infrastructure.Data.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Adress")
+                    b.Property<string>("Direccion")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(250)
+                        .HasColumnType("varchar(250)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Nombre")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(150)
+                        .HasColumnType("varchar(150)");
 
                     b.HasKey("Id");
 
@@ -84,16 +90,17 @@ namespace Infrastructure.Data.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CoverageType")
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
+
+                    b.Property<int>("TipoCobertura")
                         .HasColumnType("int");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
@@ -108,13 +115,14 @@ namespace Infrastructure.Data.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Description")
+                    b.Property<string>("Descripcion")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Type")
+                    b.Property<string>("Tipo")
                         .IsRequired()
-                        .HasColumnType("longtext");
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
 
                     b.HasKey("Id");
 
@@ -131,6 +139,11 @@ namespace Infrastructure.Data.Migrations
 
                     b.Property<int>("DNI")
                         .HasColumnType("int");
+
+                    b.Property<string>("Discriminator")
+                        .IsRequired()
+                        .HasMaxLength(21)
+                        .HasColumnType("varchar(21)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -155,7 +168,9 @@ namespace Infrastructure.Data.Migrations
 
                     b.ToTable("Users", (string)null);
 
-                    b.UseTptMappingStrategy();
+                    b.HasDiscriminator().HasValue("Users");
+
+                    b.UseTphMappingStrategy();
                 });
 
             modelBuilder.Entity("HospitalsProfessionals", b =>
@@ -192,37 +207,37 @@ namespace Infrastructure.Data.Migrations
                 {
                     b.HasBaseType("Domain.Entities.Users");
 
-                    b.ToTable("Administrators", (string)null);
+                    b.HasDiscriminator().HasValue("Administrators");
                 });
 
             modelBuilder.Entity("Domain.Entities.Patients", b =>
                 {
                     b.HasBaseType("Domain.Entities.Users");
 
-                    b.Property<int>("InsuranceId")
+                    b.Property<int>("AffiliateNumber")
                         .HasColumnType("int");
 
-                    b.Property<int>("affiliate_number")
+                    b.Property<int>("InsuranceId")
                         .HasColumnType("int");
 
                     b.HasIndex("InsuranceId");
 
-                    b.ToTable("Patients", (string)null);
+                    b.HasDiscriminator().HasValue("Patients");
                 });
 
             modelBuilder.Entity("Domain.Entities.Professionals", b =>
                 {
                     b.HasBaseType("Domain.Entities.Users");
 
-                    b.Property<int>("SpecialtyId")
+                    b.Property<int>("LicenseNumber")
                         .HasColumnType("int");
 
-                    b.Property<int>("n_matricula")
+                    b.Property<int>("SpecialtyId")
                         .HasColumnType("int");
 
                     b.HasIndex("SpecialtyId");
 
-                    b.ToTable("Professionals", (string)null);
+                    b.HasDiscriminator().HasValue("Professionals");
                 });
 
             modelBuilder.Entity("Domain.Entities.Appointments", b =>
@@ -230,13 +245,13 @@ namespace Infrastructure.Data.Migrations
                     b.HasOne("Domain.Entities.Patients", "Patient")
                         .WithMany("Appointments")
                         .HasForeignKey("PatientId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Domain.Entities.Professionals", "Professional")
                         .WithMany("Appointments")
                         .HasForeignKey("ProfessionalId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Patient");
@@ -274,27 +289,12 @@ namespace Infrastructure.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Domain.Entities.Administrators", b =>
-                {
-                    b.HasOne("Domain.Entities.Users", null)
-                        .WithOne()
-                        .HasForeignKey("Domain.Entities.Administrators", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("Domain.Entities.Patients", b =>
                 {
-                    b.HasOne("Domain.Entities.Users", null)
-                        .WithOne()
-                        .HasForeignKey("Domain.Entities.Patients", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Domain.Entities.Insurance", "Insurance")
                         .WithMany("Patients")
                         .HasForeignKey("InsuranceId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.SetNull)
                         .IsRequired();
 
                     b.Navigation("Insurance");
@@ -302,16 +302,10 @@ namespace Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Domain.Entities.Professionals", b =>
                 {
-                    b.HasOne("Domain.Entities.Users", null)
-                        .WithOne()
-                        .HasForeignKey("Domain.Entities.Professionals", "Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Domain.Entities.Specialties", "Specialty")
                         .WithMany("Professionals")
                         .HasForeignKey("SpecialtyId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Specialty");
