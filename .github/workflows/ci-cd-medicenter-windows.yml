@@ -1,0 +1,58 @@
+name: CI/CD Medicenter (Windows)
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    branches:
+      - main
+      - develop
+
+jobs:
+  build-test-deploy:
+    runs-on: windows-latest
+    steps:
+      # 1️⃣ Checkout del código
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # 2️⃣ Configurar .NET 8
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: 8.0.x
+
+      # 3️⃣ Restaurar dependencias NuGet
+      - name: Restore dependencies
+        run: dotnet restore .\backend\Medicenter\Medicenter.sln
+
+      # 4️⃣ Construir la solución
+      - name: Build solution
+        run: dotnet build .\backend\Medicenter\Medicenter.sln --configuration Release --no-restore
+
+      # 5️⃣ Ejecutar pruebas
+      - name: Run tests
+        run: dotnet test .\backend\Medicenter\Medicenter.sln --configuration Release --no-build --verbosity normal
+
+      # 6️⃣ Publicar proyecto Presentation
+      - name: Publish Presentation project
+        run: dotnet publish .\backend\Medicenter\Presentation\Presentation.csproj -c Release -o .\publish
+
+      # 7️⃣ Subir artefacto a GitHub (opcional, útil para descargas)
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: Medicenter-Publish
+          path: .\publish
+
+      # 8️⃣ Deploy a MonsterASP vía FTP
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@4.2.0
+        with:
+          server: ftp.tu-servidor.com
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: .\publish
+          server-dir: /ruta/del/proyecto
