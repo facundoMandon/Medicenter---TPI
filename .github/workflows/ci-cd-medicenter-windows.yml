@@ -65,4 +65,4 @@ jobs:
           protocol: ftp
           local-dir: ./publish/
           server-dir: /wwwroot/
-          dangerous-clean-slate: true
+          dangerous-clean-slate: false
