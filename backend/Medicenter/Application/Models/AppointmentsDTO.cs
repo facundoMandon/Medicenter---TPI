@@ -1,18 +1,14 @@
-﻿using Application.Models;
-using Domain.Entities;
+﻿using Domain.Entities;
 using Domain.Enums;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Models
 {
     public class AppointmentsDTO
     {
         public int Id { get; set; }
-        public DateTime Fecha { get; set; }
+        public string Year { get; set; } = string.Empty;
+        public string Month { get; set; } = string.Empty;
+        public string Day { get; set; } = string.Empty;
         public string Hora { get; set; } = string.Empty;
         public string Descripcion { get; set; } = string.Empty;
         public AppointmentStatus Status { get; set; }
@@ -25,13 +21,18 @@ namespace Application.Models
         public string ProfessionalName { get; set; } = string.Empty;
         public string SpecialtyName { get; set; } = string.Empty;
 
+        // Fecha formateada para mostrar (opcional)
+        public string FormattedDate => $"{Day}/{Month}/{Year}";
+
         // Método FromEntity para mapear
         public static AppointmentsDTO FromEntity(Appointments appointment, string patientName = "", string professionalName = "", string specialtyName = "")
         {
             return new AppointmentsDTO
             {
                 Id = appointment.Id,
-                Fecha = appointment.Fecha,
+                Year = appointment.Year,
+                Month = appointment.Month,
+                Day = appointment.Day,
                 Hora = appointment.Hora,
                 Descripcion = appointment.Descripcion,
                 Status = appointment.Status,

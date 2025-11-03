@@ -7,8 +7,7 @@ using Domain.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.Json;
 
 namespace Application.Services
 {
@@ -63,25 +62,16 @@ namespace Application.Services
             if (professional == null)
                 throw new KeyNotFoundException($"Professional with ID {dto.ProfessionalId} not found.");
 
-            // 🔹 Consultar feriados de Argentina para la fecha del turno
-            string year = dto.Fecha.Year.ToString();
-            string month = dto.Fecha.Month.ToString();
-            string day = dto.Fecha.Day.ToString();
-
-            var holidaysJson = await _holidaysService.GetHolidaysAsync("AR", year, month, day);
-
-            // 🔹 Revisar si hay feriados
-            if (!string.IsNullOrWhiteSpace(holidaysJson) && holidaysJson != "{}" && holidaysJson != "[]")
-            {
-                // Podés hacer un parse más avanzado si querés
-                throw new InvalidOperationException($"La fecha {dto.Fecha:yyyy-MM-dd} es feriado en Argentina. No se puede asignar turno.");
-            }
+            // Validar fecha y verificar feriados
+            await ValidateDateAndHolidaysAsync(dto.Year, dto.Month, dto.Day);
 
             var appointment = new Appointments
             {
                 PatientId = dto.PatientId,
                 ProfessionalId = dto.ProfessionalId,
-                Fecha = dto.Fecha,
+                Year = dto.Year.PadLeft(4, '0'),
+                Month = dto.Month.PadLeft(2, '0'),
+                Day = dto.Day.PadLeft(2, '0'),
                 Hora = dto.Hora,
                 Descripcion = dto.Descripcion,
                 Status = AppointmentStatus.Requested
@@ -97,30 +87,20 @@ namespace Application.Services
             if (existing == null)
                 throw new KeyNotFoundException("Appointment not found.");
 
-
-            // 🔹 Consultar feriados de Argentina para la fecha del turno
-            string year = dto.Fecha.Year.ToString();
-            string month = dto.Fecha.Month.ToString();
-            string day = dto.Fecha.Day.ToString();
-
-            var holidaysJson = await _holidaysService.GetHolidaysAsync("AR", year, month, day);
-
-            // 🔹 Revisar si hay feriados
-            if (!string.IsNullOrWhiteSpace(holidaysJson) && holidaysJson != "{}" && holidaysJson != "[]")
-            {
-                throw new InvalidOperationException($"La fecha {dto.Fecha:yyyy-MM-dd} es feriado en Argentina. No se puede asignar turno.");
-            }
+            // Validar fecha y verificar feriados
+            await ValidateDateAndHolidaysAsync(dto.Year, dto.Month, dto.Day);
 
             existing.PatientId = dto.PatientId;
             existing.ProfessionalId = dto.ProfessionalId;
-            existing.Fecha = dto.Fecha;
+            existing.Year = dto.Year.PadLeft(4, '0');
+            existing.Month = dto.Month.PadLeft(2, '0');
+            existing.Day = dto.Day.PadLeft(2, '0');
             existing.Hora = dto.Hora;
             existing.Descripcion = dto.Descripcion;
 
             await _appointmentsRepository.UpdateAsync(existing);
             return await MapToDtoAsync(existing);
         }
-
 
         public async Task<AppointmentsDTO> ConfirmAppointmentAsync(int appointmentId)
         {
@@ -144,6 +124,62 @@ namespace Application.Services
             await _appointmentsRepository.UpdateAsync(existing);
         }
 
+        /// <summary>
+        /// Valida que la fecha sea válida y no sea feriado en Argentina
+        /// Lanza ArgumentException (400 Bad Request) si es feriado
+        /// </summary>
+        private async Task ValidateDateAndHolidaysAsync(string year, string month, string day)
+        {
+            // Normalizar mes y día para consulta (agregar 0 si es necesario)
+            string monthNormalized = month.PadLeft(2, '0');
+            string dayNormalized = day.PadLeft(2, '0');
+
+            // Validar que la fecha sea válida
+            try
+            {
+                var date = new DateTime(int.Parse(year), int.Parse(monthNormalized), int.Parse(dayNormalized));
+
+                // Validar que la fecha no sea en el pasado
+                if (date.Date < DateTime.Now.Date)
+                {
+                    throw new ArgumentException("No se pueden crear turnos en fechas pasadas");
+                }
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                throw new ArgumentException($"La fecha {day}/{month}/{year} no es válida");
+            }
+
+            // Consultar feriados de Argentina
+            var holidaysJson = await _holidaysService.GetHolidaysAsync("AR", year, monthNormalized, dayNormalized);
+
+            // Verificar si hay feriados
+            if (!string.IsNullOrWhiteSpace(holidaysJson) &&
+                holidaysJson != "{}" &&
+                holidaysJson != "[]" &&
+                !holidaysJson.Contains("error"))
+            {
+                // Intentar parsear para verificar que sea un array con elementos
+                try
+                {
+                    var holidays = JsonSerializer.Deserialize<JsonElement>(holidaysJson);
+
+                    if (holidays.ValueKind == JsonValueKind.Array && holidays.GetArrayLength() > 0)
+                    {
+                        // Es un feriado - lanzar ArgumentException para que retorne 400
+                        var holidayName = holidays[0].GetProperty("name").GetString();
+                        throw new ArgumentException(
+                            $"La fecha {dayNormalized}/{monthNormalized}/{year} es feriado en Argentina ({holidayName}). No se pueden asignar turnos en días feriados."
+                        );
+                    }
+                }
+                catch (JsonException)
+                {
+                    // Si no se puede parsear, continuar (asumir que no es feriado)
+                }
+            }
+        }
+
         private async Task<AppointmentsDTO> MapToDtoAsync(Appointments appointment)
         {
             string patientName = "";
@@ -158,7 +194,7 @@ namespace Application.Services
             if (professional != null)
             {
                 professionalName = $"{professional.Name} {professional.LastName}";
-                specialtyName = professional.Specialty?.Tipo ?? ""; // CORREGIDO: Tipo
+                specialtyName = professional.Specialty?.Tipo ?? "";
             }
 
             return AppointmentsDTO.FromEntity(appointment, patientName, professionalName, specialtyName);

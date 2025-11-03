@@ -1,12 +1,14 @@
 ﻿using Application.Interfaces;
 using Application.Models;
 using Application.Models.Request;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Presentation.Controllers
 {
     [ApiController]
     [Route("[controller]")]
+    [Authorize] // ⬅️ Todos los endpoints requieren autenticación
     public class AppointmentsController : ControllerBase
     {
         private readonly IAppointmentsService _appointmentsService;
@@ -16,16 +18,18 @@ namespace Presentation.Controllers
             _appointmentsService = appointmentsService;
         }
 
-        // GET /Appointments
+        // GET /Appointments - Ver todos los turnos (solo admin)
         [HttpGet]
+        [Authorize(Roles = "Administrator")] // ⬅️ Solo administradores
         public async Task<ActionResult<IEnumerable<AppointmentsDTO>>> GetAll()
         {
             var appointments = await _appointmentsService.GetAllAsync();
             return Ok(appointments);
         }
 
-        // GET /Appointments/{id}
+        // GET /Appointments/{id} - Ver un turno específico
         [HttpGet("{id}")]
+        [Authorize(Roles = "Administrator,Professional,Patient")] // ⬅️ Cualquier usuario autenticado
         public async Task<ActionResult<AppointmentsDTO>> GetById([FromRoute] int id)
         {
             try
@@ -39,8 +43,9 @@ namespace Presentation.Controllers
             }
         }
 
-        // POST /Appointments (asignarTurno)
+        // POST /Appointments (asignarTurno) - Solo admin puede asignar directamente
         [HttpPost]
+        [Authorize(Roles = "Administrator")] // ⬅️ Solo administradores
         public async Task<ActionResult<AppointmentsDTO>> AssignAppointment([FromBody] CreationAppointmentDTO dto)
         {
             try
@@ -54,8 +59,9 @@ namespace Presentation.Controllers
             }
         }
 
-        // PUT /Appointments/{id} (modificarTurno)
+        // PUT /Appointments/{id} (modificarTurno) - Solo admin
         [HttpPut("{id}")]
+        [Authorize(Roles = "Administrator")] // ⬅️ Solo administradores
         public async Task<ActionResult<AppointmentsDTO>> UpdateAppointment([FromRoute] int id, [FromBody] CreationAppointmentDTO dto)
         {
             try
@@ -69,8 +75,9 @@ namespace Presentation.Controllers
             }
         }
 
-        // POST /Appointments/{id}/confirm (confirmarTurno)
+        // POST /Appointments/{id}/confirm (confirmarTurno) - Admin o el profesional asignado
         [HttpPost("{id}/confirm")]
+        [Authorize(Roles = "Administrator,Professional")] // ⬅️ Admin o profesional
         public async Task<ActionResult<AppointmentsDTO>> ConfirmAppointment([FromRoute] int id)
         {
             try
@@ -84,8 +91,9 @@ namespace Presentation.Controllers
             }
         }
 
-        // DELETE /Appointments/{id} (cancelarTurno)
+        // DELETE /Appointments/{id} (cancelarTurno) - Admin o los involucrados
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Administrator,Professional,Patient")] // ⬅️ Cualquiera involucrado
         public async Task<ActionResult> CancelAppointment([FromRoute] int id)
         {
             try
