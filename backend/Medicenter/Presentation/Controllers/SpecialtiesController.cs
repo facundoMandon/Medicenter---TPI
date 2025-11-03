@@ -1,6 +1,7 @@
 ﻿using Application.Interfaces;
 using Application.Models;
 using Application.Models.Request;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Presentation.Controllers
@@ -16,16 +17,18 @@ namespace Presentation.Controllers
             _specialtiesService = specialtiesService;
         }
 
-        // GET /Specialties
+        // GET /Specialties - Ver todas las especialidades (público)
         [HttpGet]
+        [AllowAnonymous] // ⬅️ Público - pacientes necesitan ver especialidades disponibles
         public async Task<ActionResult<IEnumerable<SpecialtiesDTO>>> GetAll()
         {
             var specialties = await _specialtiesService.GetAllAsync();
             return Ok(specialties);
         }
 
-        // GET /Specialties/{id}
+        // GET /Specialties/{id} - Ver una especialidad (público)
         [HttpGet("{id}")]
+        [AllowAnonymous] // ⬅️ Público
         public async Task<ActionResult<SpecialtiesDTO>> GetById([FromRoute] int id)
         {
             try
@@ -39,16 +42,18 @@ namespace Presentation.Controllers
             }
         }
 
-        // POST /Specialties (añadirEspecialidad)
+        // POST /Specialties (añadirEspecialidad) - Solo admin
         [HttpPost]
+        [Authorize(Roles = "Administrator")] // ⬅️ Solo administradores
         public async Task<ActionResult<SpecialtiesDTO>> CreateSpecialty([FromBody] CreationSpecialtiesDTO dto)
         {
             var created = await _specialtiesService.CreateSpecialtyAsync(dto);
             return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
         }
 
-        // PUT /Specialties/{id} (modificarEspecialidad)
+        // PUT /Specialties/{id} (modificarEspecialidad) - Solo admin
         [HttpPut("{id}")]
+        [Authorize(Roles = "Administrator")] // ⬅️ Solo administradores
         public async Task<ActionResult<SpecialtiesDTO>> UpdateSpecialty([FromRoute] int id, [FromBody] CreationSpecialtiesDTO dto)
         {
             try
@@ -62,8 +67,9 @@ namespace Presentation.Controllers
             }
         }
 
-        // DELETE /Specialties/{id} (eliminarEspecialidad)
+        // DELETE /Specialties/{id} (eliminarEspecialidad) - Solo admin
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Administrator")] // ⬅️ Solo administradores
         public async Task<ActionResult> DeleteSpecialty([FromRoute] int id)
         {
             try
@@ -77,8 +83,9 @@ namespace Presentation.Controllers
             }
         }
 
-        // POST /Specialties/{specialtyId}/assign/{professionalId} (asignarEspecialidad)
+        // POST /Specialties/{specialtyId}/assign/{professionalId} (asignarEspecialidad) - Solo admin
         [HttpPost("{specialtyId}/assign/{professionalId}")]
+        [Authorize(Roles = "Administrator")] // ⬅️ Solo administradores
         public async Task<ActionResult> AssignSpecialtyToProfessional([FromRoute] int specialtyId, [FromRoute] int professionalId)
         {
             try
@@ -92,8 +99,9 @@ namespace Presentation.Controllers
             }
         }
 
-        // DELETE /Specialties/{specialtyId}/remove/{professionalId} (quitarEspecialidad)
+        // DELETE /Specialties/{specialtyId}/remove/{professionalId} (quitarEspecialidad) - Solo admin
         [HttpDelete("{specialtyId}/remove/{professionalId}")]
+        [Authorize(Roles = "Administrator")] // ⬅️ Solo administradores
         public async Task<ActionResult> RemoveSpecialtyFromProfessional([FromRoute] int specialtyId, [FromRoute] int professionalId)
         {
             try

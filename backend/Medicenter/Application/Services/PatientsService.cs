@@ -3,11 +3,6 @@ using Application.Models;
 using Application.Models.Request;
 using Domain.Entities;
 using Domain.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Services
 {
@@ -38,7 +33,7 @@ namespace Application.Services
                 LastName = dto.LastName,
                 DNI = dto.DNI,
                 Email = dto.Email,
-                Password = dto.Password,
+                Password = dto.Password, // Sin hash
                 Rol = dto.Rol,
                 AffiliateNumber = dto.AffiliateNumber,
                 InsuranceId = dto.InsuranceId
@@ -60,7 +55,7 @@ namespace Application.Services
                 a,
                 $"{a.Patient.Name} {a.Patient.LastName}",
                 $"{a.Professional.Name} {a.Professional.LastName}",
-                a.Professional.Specialty?.Tipo ?? "" // CORREGIDO: Tipo en vez de Name
+                a.Professional.Specialty?.Tipo ?? ""
             ));
         }
 
@@ -84,11 +79,16 @@ namespace Application.Services
             if (professional == null)
                 throw new KeyNotFoundException($"Professional with ID {request.ProfessionalId} not found.");
 
+            // Validar fecha (esto se hace en AppointmentsService si llamas a ese servicio)
+            // O puedes validar aquí también
+
             var appointment = new Appointments
             {
                 PatientId = patientId,
                 ProfessionalId = request.ProfessionalId,
-                Fecha = request.Fecha,
+                Year = request.Year.PadLeft(4, '0'),
+                Month = request.Month.PadLeft(2, '0'),
+                Day = request.Day.PadLeft(2, '0'),
                 Hora = request.Hora,
                 Descripcion = request.Descripcion,
                 Status = Domain.Enums.AppointmentStatus.Requested
@@ -106,7 +106,7 @@ namespace Application.Services
                 appointmentWithData,
                 $"{appointmentWithData.Patient.Name} {appointmentWithData.Patient.LastName}",
                 $"{appointmentWithData.Professional.Name} {appointmentWithData.Professional.LastName}",
-                appointmentWithData.Professional.Specialty?.Tipo ?? "" // CORREGIDO: Tipo
+                appointmentWithData.Professional.Specialty?.Tipo ?? ""
             );
         }
     }

@@ -2,9 +2,12 @@ using Application.Interfaces;
 using Application.Services;
 using Domain.Interfaces;
 using Infrastructure.Data;
-using Microsoft.EntityFrameworkCore;
-using System.Net.Http.Headers;
 using Infrastructure.Services;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
+using System.Net.Http.Headers;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -35,6 +38,64 @@ builder.Services.AddScoped<ISpecialtiesService, SpecialtiesService>();
 
 //Servicios de terceros (API)
 builder.Services.AddScoped<IHolidaysService, HolidaysService>();
+
+// Authentication Service con IOptions
+builder.Services.AddScoped<ICustomAuthenticationService, AuthenticationService>();
+builder.Services.Configure<AuthenticationServiceOptions>(
+    builder.Configuration.GetSection(AuthenticationServiceOptions.Authentication)
+);
+
+// Configuración de JWT Authentication
+builder.Services.AddAuthentication("Bearer").AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new()
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateIssuerSigningKey = true,
+        ValidateLifetime = true,
+        ValidIssuer = builder.Configuration["Authentication:Issuer"],
+        ValidAudience = builder.Configuration["Authentication:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey(
+            Encoding.ASCII.GetBytes(builder.Configuration["Authentication:SecretForKey"]!))
+    };
+});
+
+builder.Services.AddAuthorization();
+
+// Configuración de Swagger con JWT
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(setupAction =>
+{
+    setupAction.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "Medicenter API",
+        Version = "v1",
+        Description = "API para gestión de turnos médicos con autenticación JWT"
+    });
+
+    setupAction.AddSecurityDefinition("ApiBearerAuth", new OpenApiSecurityScheme()
+    {
+        Type = SecuritySchemeType.Http,
+        Scheme = "Bearer",
+        Description = "Acá pega el token generado al loguearte"
+    });
+
+    setupAction.AddSecurityRequirement(new OpenApiSecurityRequirement()
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "ApiBearerAuth"
+                }
+            },
+            new List<string>()
+        }
+    });
+});
 
 builder.Services.AddControllers();
 

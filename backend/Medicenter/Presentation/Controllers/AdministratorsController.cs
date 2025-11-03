@@ -1,13 +1,14 @@
 ﻿using Application.Interfaces;
 using Application.Models;
 using Application.Models.Request;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Presentation.Controllers
 {
     [ApiController]
     [Route("admin")]
+    [Authorize(Roles = "Administrator")] // ⬅️ Solo administradores pueden acceder
     public class AdministratorsController : ControllerBase
     {
         private readonly IAdministratorsService _adminsService;
