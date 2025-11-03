@@ -1,4 +1,4 @@
-name: CI/CD Medicenter (Windows)
+name: CI/CD Medicenter (Linux)
 
 on:
   push:
@@ -12,7 +12,7 @@ on:
 
 jobs:
   build-test-deploy:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest    # ✅ Cambiado a Linux runner
     steps:
       # 1️⃣ Checkout del código
       - name: Checkout repository
@@ -42,7 +42,7 @@ jobs:
 
       # 7️⃣ Verificar archivos publicados (debug visual)
       - name: List published files
-        run: dir ./publish
+        run: ls ./publish
 
       # 8️⃣ Deploy a MonsterASP vía SFTP
       - name: Deploy via SFTP
