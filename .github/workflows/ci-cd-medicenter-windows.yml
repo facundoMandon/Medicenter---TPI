@@ -44,14 +44,15 @@ jobs:
       - name: List published files
         run: ls ./publish
 
-      # 8️⃣ Deploy a MonsterASP vía SFTP
-      - name: Deploy via SFTP
-        uses: wlixcc/SFTP-Deploy-Action@v1.2.4
+      # 8️⃣ Deploy a MonsterASP vía FTP
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@4.2.0
         with:
+          server: site41796.sitesasp.net
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server: site41796.sitesasp.net
-          port: 22
-          local_path: ./publish/*
-          remote_path: /wwwroot/
-          sftp_only: true
+          port: 21
+          protocol: ftp
+          local-dir: ./publish/
+          server-dir: /wwwroot/
+          dangerous-clean-slate: true
