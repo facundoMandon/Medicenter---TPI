@@ -48,7 +48,7 @@ jobs:
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.2.0
         with:
-          server: site41796.runasp.net      # ⚠️ usa runasp.net, no sitesasp.net
+          server: site41796.sitesasp.net
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           port: 21
@@ -56,4 +56,3 @@ jobs:
           local-dir: ./publish/
           server-dir: /wwwroot/
           dangerous-clean-slate: true
-
