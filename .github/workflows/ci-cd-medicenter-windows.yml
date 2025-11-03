@@ -51,8 +51,11 @@ jobs:
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.2.0
         with:
-          server: ftp.tu-servidor.com
+          server: site41796.sitesasp.net
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: .\publish
-          server-dir: /ruta/del/proyecto
+          port: 21
+          protocol: ftp
+          local-dir: ./publish
+          server-dir: /wwwroot
+          delete: true
