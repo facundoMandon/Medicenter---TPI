@@ -12,6 +12,6 @@ namespace Domain.Enums
         Confirmed,      // Confirmado (confirmarTurno)
         Accepted,       // Aceptado por profesional (aceptarTurno)
         Rejected,       // Rechazado por profesional (rechazarTurno)
-        Cancelled       // Cancelado (cancelarTurno)
+        Cancelled       // Cancelado (cancelarTurno) -> por cualquier involucrado
     }
 }

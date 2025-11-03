@@ -1,0 +1,44 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build outputs
+bin/
+obj/
+out/
+
+# Rider IDE
+.idea/
+
+# DotNet
+*.dbmdl
+*.pidb
+*.mdb
+*.log
+*.vspscc
+
+# Publish output
+*.Publish.xml
+*.nupkg
+
+# ASP.NET / IIS
+*.vsconfig
+*.pdb
+
+# NuGet
+*.nupkg
+*.snupkg
+packages/
+
+# Node / front-end (si tenés)
+node_modules/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db

@@ -8,6 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using System.Net.Http.Headers;
 using System.Text;
+using Presentation.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -111,8 +112,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
+app.UseMiddleware<ForbiddenResponseMiddleware>();
 app.UseAuthorization();
-
 app.MapControllers();
 
 app.Run();

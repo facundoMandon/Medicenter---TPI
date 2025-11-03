@@ -43,9 +43,9 @@ namespace Presentation.Controllers
             }
         }
 
-        // POST /Appointments (asignarTurno) - Solo admin puede asignar directamente
+        // POST /Appointments (asignarTurno) - Solo admin y profesionales puede asignar directamente
         [HttpPost]
-        [Authorize(Roles = "Administrator")] // ⬅️ Solo administradores
+        [Authorize(Roles = "Administrator, Professional")] // ⬅️ Solo administradores y profesionales
         public async Task<ActionResult<AppointmentsDTO>> AssignAppointment([FromBody] CreationAppointmentDTO dto)
         {
             try
@@ -57,6 +57,11 @@ namespace Presentation.Controllers
             {
                 return BadRequest(ex.Message);
             }
+                catch (ArgumentException ex)
+    {
+        // ⬅️ Esta excepción ocurre cuando la fecha es feriado o inválida
+        return BadRequest(ex.Message);
+    }
         }
 
         // PUT /Appointments/{id} (modificarTurno) - Solo admin
