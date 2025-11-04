@@ -37,7 +37,21 @@ jobs:
       - name: Run tests
         run: dotnet test ./backend/Medicenter/Medicenter.sln --configuration Release --no-build --verbosity normal
 
-      # 6️⃣ Publicar proyecto Presentation directamente plano
+      # 6️⃣ Aplicar migraciones de EF a la base de datos
+      - name: Apply EF Migrations
+        env:
+          ConnectionStrings__DefaultConnection: ${{ secrets.DB_CONNECTION_STRING }}
+        run: |
+          # Instalar dotnet-ef si no está disponible
+          dotnet tool install --global dotnet-ef --version 8.0.0
+          export PATH="$PATH:$HOME/.dotnet/tools"
+
+          # Ejecutar las migraciones
+          dotnet ef database update \
+            --project ./backend/Medicenter/Infrastructure/Infrastructure.csproj \
+            --startup-project ./backend/Medicenter/Presentation/Presentation.csproj
+
+      # 7️⃣ Publicar proyecto Presentation directamente plano
       - name: Publish Presentation project
         run: |
           dotnet publish ./backend/Medicenter/Presentation/Presentation.csproj \
@@ -50,11 +64,11 @@ jobs:
             /p:CopyAllFilesToSingleFolderForPackage=true \
             /p:GenerateWebConfig=true
 
-      # 7️⃣ Verificar archivos publicados
+      # 8️⃣ Verificar archivos publicados
       - name: List published files
         run: ls -R ./publish
 
-      # 8️⃣ Deploy a MonsterASP vía FTP
+      # 9️⃣ Deploy a MonsterASP vía FTP
       - name: Deploy via FTP
         uses: SamKirkland/FTP-Deploy-Action@4.2.0
         with:
