@@ -37,20 +37,6 @@ jobs:
       - name: Run tests
         run: dotnet test ./backend/Medicenter/Medicenter.sln --configuration Release --no-build --verbosity normal
 
-      # 6️⃣ Aplicar migraciones de EF a la base de datos
-      - name: Apply EF Migrations
-        env:
-          ConnectionStrings__DefaultConnection: ${{ secrets.DB_CONNECTION_STRING }}
-        run: |
-          # Instalar dotnet-ef si no está disponible
-          dotnet tool install --global dotnet-ef --version 8.0.13
-          export PATH="$PATH:$HOME/.dotnet/tools"
-
-          # Ejecutar las migraciones
-          dotnet ef database update \
-            --project ./backend/Medicenter/Infrastructure/Infrastructure.csproj \
-            --startup-project ./backend/Medicenter/Presentation/Presentation.csproj
-
       # 7️⃣ Publicar proyecto Presentation directamente plano
       - name: Publish Presentation project
         run: |
