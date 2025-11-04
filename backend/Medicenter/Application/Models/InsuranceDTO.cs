@@ -11,9 +11,9 @@ namespace Application.Models
     public class InsuranceDTO
     {
         public int Id { get; set; }
-        public string Nombre { get; set; } = string.Empty;
-        public string Descripcion { get; set; } = string.Empty;
-        public MedicalCoverageType TipoCobertura { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public MedicalCoverageType MedicalCoverageType { get; set; }
 
         // Método FromEntity
         public static InsuranceDTO FromEntity(Insurance insurance)
@@ -21,9 +21,9 @@ namespace Application.Models
             return new InsuranceDTO
             {
                 Id = insurance.Id,
-                Nombre = insurance.Nombre,
-                Descripcion = insurance.Descripcion,
-                TipoCobertura = insurance.TipoCobertura
+                Name = insurance.Name,
+                Description = insurance.Description,
+                MedicalCoverageType = insurance.MedicalCoverageType
             };
         }
     }

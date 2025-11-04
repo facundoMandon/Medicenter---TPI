@@ -14,17 +14,17 @@ namespace Domain.Entities
         public int Id { get; set; }
 
         [Required, MaxLength(100)]
-        public string Nombre { get; set; } = string.Empty; // Nombre: string
+        public string Name { get; set; } = string.Empty; // Name: string
 
-        public string Descripcion { get; set; } = string.Empty; // Descripción: text
+        public string Description { get; set; } = string.Empty; // Descripción: text
 
         [Required]
-        public MedicalCoverageType TipoCobertura { get; set; } // enum(común, media, premium)
+        public MedicalCoverageType MedicalCoverageType { get; set; } // enum(común, media, premium)
 
-        // Relación 1:N con Patients (Afiliados)
-        public ICollection<Patients> Patients { get; set; } = new List<Patients>();
+        // Relación 1:N con Patient (Afiliados)
+        public ICollection<Patient> Patient { get; set; } = new List<Patient>();
 
-        // Relación N:M con Professionals
-        public ICollection<Professionals> Professionals { get; set; } = new List<Professionals>();
+        // Relación N:M con Professional
+        public ICollection<Professional> Professional { get; set; } = new List<Professional>();
     }
 }

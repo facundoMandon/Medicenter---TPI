@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Models\AppointmentsDTO.cs~RF59447a.TMP" />
+    <None Remove="Models\AppointmentDTO.cs~RF59447a.TMP" />
   </ItemGroup>
 
   <ItemGroup>

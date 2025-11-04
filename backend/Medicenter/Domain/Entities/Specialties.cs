@@ -13,11 +13,11 @@ namespace Domain.Entities
         public int Id { get; set; }
 
         [Required, MaxLength(100)]
-        public string Tipo { get; set; } = string.Empty; // CORREGIDO: Tipo en vez de Name
+        public string Type { get; set; } = string.Empty; // CORREGIDO: Type en vez de Name
 
-        public string Descripcion { get; set; } = string.Empty; // CORREGIDO: Descripcion
+        public string Description { get; set; } = string.Empty; // CORREGIDO: Description
 
-        // Relación 1:N con Professionals
-        public ICollection<Professionals> Professionals { get; set; } = new List<Professionals>();
+        // Relación 1:N con Professional
+        public ICollection<Professional> Professional { get; set; } = new List<Professional>();
     }
 }

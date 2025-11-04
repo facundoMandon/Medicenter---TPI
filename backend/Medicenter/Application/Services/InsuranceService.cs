@@ -15,9 +15,9 @@ namespace Application.Services
     public class InsuranceService : IInsuranceService
     {
         private readonly IInsuranceRepository _insuranceRepository;
-        private readonly IPatientsRepository _patientsRepository;
+        private readonly IPatientRepository _patientsRepository;
 
-        public InsuranceService(IInsuranceRepository insuranceRepository, IPatientsRepository patientsRepository)
+        public InsuranceService(IInsuranceRepository insuranceRepository, IPatientRepository patientsRepository)
         {
             _insuranceRepository = insuranceRepository;
             _patientsRepository = patientsRepository;
@@ -40,11 +40,26 @@ namespace Application.Services
 
         public async Task<InsuranceDTO> CreateInsuranceAsync(CreationInsuranceDTO dto)
         {
+            // Normalizar valores para evitar falsos duplicados
+            string nombreNormalizado = dto.Name.Trim().ToLower();
+            string tipoCoberturaNormalizado = dto.MedicalCoverageType.ToString().Trim().ToLower();
+
+            // ✅ Verificar si ya existe una obra social con mismo nombre y tipo de cobertura
+            var existingInsurances = await _insuranceRepository.GetAllAsync();
+            bool exists = existingInsurances.Any(i =>
+                i.Name.Trim().ToLower() == nombreNormalizado &&
+                i.MedicalCoverageType.ToString().Trim().ToLower() == tipoCoberturaNormalizado
+            );
+
+            if (exists)
+                throw new ArgumentException($"Ya existe una obra social con el nombre \"{dto.Name}\" y tipo de cobertura \"{dto.MedicalCoverageType}\".");
+
+            // Crear nueva obra social si no hay duplicado
             var insurance = new Insurance
             {
-                Nombre = dto.Nombre,
-                TipoCobertura = dto.TipoCobertura,
-                Descripcion = dto.Descripcion
+                Name = dto.Name,
+                MedicalCoverageType = dto.MedicalCoverageType,
+                Description = dto.Description
             };
 
             var created = await _insuranceRepository.CreateAsync(insurance);
@@ -57,9 +72,9 @@ namespace Application.Services
             if (insurance == null)
                 throw new KeyNotFoundException($"Obra Social ID {id} no encontrada.");
 
-            insurance.Nombre = dto.Nombre;
-            insurance.TipoCobertura = dto.TipoCobertura;
-            insurance.Descripcion = dto.Descripcion;
+            insurance.Name = dto.Name;
+            insurance.MedicalCoverageType = dto.MedicalCoverageType;
+            insurance.Description = dto.Description;
 
             await _insuranceRepository.UpdateAsync(insurance);
             return InsuranceDTO.FromEntity(insurance);

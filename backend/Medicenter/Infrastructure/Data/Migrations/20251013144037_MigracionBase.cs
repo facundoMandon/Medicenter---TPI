@@ -16,7 +16,7 @@ namespace Infrastructure.Data.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Hospitals",
+                name: "Hospital",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -28,7 +28,7 @@ namespace Infrastructure.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Hospitals", x => x.Id);
+                    table.PrimaryKey("PK_Hospital", x => x.Id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
@@ -68,7 +68,7 @@ namespace Infrastructure.Data.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Users",
+                name: "User",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -86,30 +86,30 @@ namespace Infrastructure.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Users", x => x.Id);
+                    table.PrimaryKey("PK_User", x => x.Id);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Administrators",
+                name: "Administrator",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Administrators", x => x.Id);
+                    table.PrimaryKey("PK_Administrator", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Administrators_Users_Id",
+                        name: "FK_Administrator_User_Id",
                         column: x => x.Id,
-                        principalTable: "Users",
+                        principalTable: "User",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Patients",
+                name: "Patient",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false),
@@ -118,24 +118,24 @@ namespace Infrastructure.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Patients", x => x.Id);
+                    table.PrimaryKey("PK_Patient", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Patients_Insurance_InsuranceId",
+                        name: "FK_Patient_Insurance_InsuranceId",
                         column: x => x.InsuranceId,
                         principalTable: "Insurance",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Patients_Users_Id",
+                        name: "FK_Patient_User_Id",
                         column: x => x.Id,
-                        principalTable: "Users",
+                        principalTable: "User",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Professionals",
+                name: "Professional",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false),
@@ -144,24 +144,24 @@ namespace Infrastructure.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Professionals", x => x.Id);
+                    table.PrimaryKey("PK_Professional", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Professionals_Specialties_SpecialtyId",
+                        name: "FK_Professional_Specialties_SpecialtyId",
                         column: x => x.SpecialtyId,
                         principalTable: "Specialties",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Professionals_Users_Id",
+                        name: "FK_Professional_User_Id",
                         column: x => x.Id,
-                        principalTable: "Users",
+                        principalTable: "User",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "Appointments",
+                name: "Appointment",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -175,100 +175,100 @@ namespace Infrastructure.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Appointments", x => x.Id);
+                    table.PrimaryKey("PK_Appointment", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Appointments_Patients_PatientId",
+                        name: "FK_Appointment_Patient_PatientId",
                         column: x => x.PatientId,
-                        principalTable: "Patients",
+                        principalTable: "Patient",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Appointments_Professionals_ProfessionalId",
+                        name: "FK_Appointment_Professional_ProfessionalId",
                         column: x => x.ProfessionalId,
-                        principalTable: "Professionals",
+                        principalTable: "Professional",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "HospitalsProfessionals",
+                name: "HospitalProfessional",
                 columns: table => new
                 {
-                    HospitalsId = table.Column<int>(type: "int", nullable: false),
-                    ProfessionalsId = table.Column<int>(type: "int", nullable: false)
+                    HospitalId = table.Column<int>(type: "int", nullable: false),
+                    ProfessionalId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_HospitalsProfessionals", x => new { x.HospitalsId, x.ProfessionalsId });
+                    table.PrimaryKey("PK_HospitalProfessional", x => new { x.HospitalId, x.ProfessionalId });
                     table.ForeignKey(
-                        name: "FK_HospitalsProfessionals_Hospitals_HospitalsId",
-                        column: x => x.HospitalsId,
-                        principalTable: "Hospitals",
+                        name: "FK_HospitalProfessional_Hospital_HospitalId",
+                        column: x => x.HospitalId,
+                        principalTable: "Hospital",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_HospitalsProfessionals_Professionals_ProfessionalsId",
-                        column: x => x.ProfessionalsId,
-                        principalTable: "Professionals",
+                        name: "FK_HospitalProfessional_Professional_ProfessionalId",
+                        column: x => x.ProfessionalId,
+                        principalTable: "Professional",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateTable(
-                name: "InsuranceProfessionals",
+                name: "InsuranceProfessional",
                 columns: table => new
                 {
                     InsurancesId = table.Column<int>(type: "int", nullable: false),
-                    ProfessionalsId = table.Column<int>(type: "int", nullable: false)
+                    ProfessionalId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_InsuranceProfessionals", x => new { x.InsurancesId, x.ProfessionalsId });
+                    table.PrimaryKey("PK_InsuranceProfessional", x => new { x.InsurancesId, x.ProfessionalId });
                     table.ForeignKey(
-                        name: "FK_InsuranceProfessionals_Insurance_InsurancesId",
+                        name: "FK_InsuranceProfessional_Insurance_InsurancesId",
                         column: x => x.InsurancesId,
                         principalTable: "Insurance",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_InsuranceProfessionals_Professionals_ProfessionalsId",
-                        column: x => x.ProfessionalsId,
-                        principalTable: "Professionals",
+                        name: "FK_InsuranceProfessional_Professional_ProfessionalId",
+                        column: x => x.ProfessionalId,
+                        principalTable: "Professional",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 })
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Appointments_PatientId",
-                table: "Appointments",
+                name: "IX_Appointment_PatientId",
+                table: "Appointment",
                 column: "PatientId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Appointments_ProfessionalId",
-                table: "Appointments",
+                name: "IX_Appointment_ProfessionalId",
+                table: "Appointment",
                 column: "ProfessionalId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_HospitalsProfessionals_ProfessionalsId",
-                table: "HospitalsProfessionals",
-                column: "ProfessionalsId");
+                name: "IX_HospitalProfessional_ProfessionalId",
+                table: "HospitalProfessional",
+                column: "ProfessionalId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_InsuranceProfessionals_ProfessionalsId",
-                table: "InsuranceProfessionals",
-                column: "ProfessionalsId");
+                name: "IX_InsuranceProfessional_ProfessionalId",
+                table: "InsuranceProfessional",
+                column: "ProfessionalId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Patients_InsuranceId",
-                table: "Patients",
+                name: "IX_Patient_InsuranceId",
+                table: "Patient",
                 column: "InsuranceId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Professionals_SpecialtyId",
-                table: "Professionals",
+                name: "IX_Professional_SpecialtyId",
+                table: "Professional",
                 column: "SpecialtyId");
         }
 
@@ -276,25 +276,25 @@ namespace Infrastructure.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Administrators");
+                name: "Administrator");
 
             migrationBuilder.DropTable(
-                name: "Appointments");
+                name: "Appointment");
 
             migrationBuilder.DropTable(
-                name: "HospitalsProfessionals");
+                name: "HospitalProfessional");
 
             migrationBuilder.DropTable(
-                name: "InsuranceProfessionals");
+                name: "InsuranceProfessional");
 
             migrationBuilder.DropTable(
-                name: "Patients");
+                name: "Patient");
 
             migrationBuilder.DropTable(
-                name: "Hospitals");
+                name: "Hospital");
 
             migrationBuilder.DropTable(
-                name: "Professionals");
+                name: "Professional");
 
             migrationBuilder.DropTable(
                 name: "Insurance");
@@ -303,7 +303,7 @@ namespace Infrastructure.Data.Migrations
                 name: "Specialties");
 
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "User");
         }
     }
 }

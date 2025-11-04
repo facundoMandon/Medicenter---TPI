@@ -17,7 +17,7 @@ namespace Infrastructure.Data
         // cambiarCobertura
         public async Task ChangePatientCoverageAsync(int patientId, MedicalCoverageType newCoverage)
         {
-            var patient = await _context.Set<Patients>()
+            var patient = await _context.Set<Patient>()
                 .Include(p => p.Insurance)
                 .FirstOrDefaultAsync(p => p.Id == patientId);
 
@@ -26,7 +26,7 @@ namespace Infrastructure.Data
 
             if (patient.Insurance != null)
             {
-                patient.Insurance.TipoCobertura = newCoverage;
+                patient.Insurance.MedicalCoverageType = newCoverage;
                 await _context.SaveChangesAsync();
             }
         }

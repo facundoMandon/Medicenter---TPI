@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20251103162719_NombreDeLaMigracion")]
-    partial class NombreDeLaMigracion
+    [Migration("20251103162719_NameDeLaMigracion")]
+    partial class NameDeLaMigracion
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -24,7 +24,7 @@ namespace Infrastructure.Data.Migrations
 
             MySqlModelBuilderExtensions.AutoIncrementColumns(modelBuilder);
 
-            modelBuilder.Entity("Domain.Entities.Appointments", b =>
+            modelBuilder.Entity("Domain.Entities.Appointment", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -37,11 +37,11 @@ namespace Infrastructure.Data.Migrations
                         .HasMaxLength(2)
                         .HasColumnType("varchar(2)");
 
-                    b.Property<string>("Descripcion")
+                    b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Hora")
+                    b.Property<string>("Time")
                         .IsRequired()
                         .HasMaxLength(5)
                         .HasColumnType("varchar(5)");
@@ -71,10 +71,10 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasIndex("ProfessionalId");
 
-                    b.ToTable("Appointments", (string)null);
+                    b.ToTable("Appointment", (string)null);
                 });
 
-            modelBuilder.Entity("Domain.Entities.Hospitals", b =>
+            modelBuilder.Entity("Domain.Entities.Hospital", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -82,19 +82,19 @@ namespace Infrastructure.Data.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Direccion")
+                    b.Property<string>("Adress")
                         .IsRequired()
                         .HasMaxLength(250)
                         .HasColumnType("varchar(250)");
 
-                    b.Property<string>("Nombre")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("varchar(150)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Hospitals", (string)null);
+                    b.ToTable("Hospital", (string)null);
                 });
 
             modelBuilder.Entity("Domain.Entities.Insurance", b =>
@@ -105,16 +105,16 @@ namespace Infrastructure.Data.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Descripcion")
+                    b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Nombre")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
 
-                    b.Property<int>("TipoCobertura")
+                    b.Property<int>("MedicalCoverageType")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -130,11 +130,11 @@ namespace Infrastructure.Data.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Descripcion")
+                    b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("Tipo")
+                    b.Property<string>("Type")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("varchar(100)");
@@ -144,7 +144,7 @@ namespace Infrastructure.Data.Migrations
                     b.ToTable("Specialties", (string)null);
                 });
 
-            modelBuilder.Entity("Domain.Entities.Users", b =>
+            modelBuilder.Entity("Domain.Entities.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -181,53 +181,53 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("User", (string)null);
 
-                    b.HasDiscriminator().HasValue("Users");
+                    b.HasDiscriminator().HasValue("User");
 
                     b.UseTphMappingStrategy();
                 });
 
-            modelBuilder.Entity("HospitalsProfessionals", b =>
+            modelBuilder.Entity("HospitalProfessional", b =>
                 {
-                    b.Property<int>("HospitalsId")
+                    b.Property<int>("HospitalId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProfessionalsId")
+                    b.Property<int>("ProfessionalId")
                         .HasColumnType("int");
 
-                    b.HasKey("HospitalsId", "ProfessionalsId");
+                    b.HasKey("HospitalId", "ProfessionalId");
 
-                    b.HasIndex("ProfessionalsId");
+                    b.HasIndex("ProfessionalId");
 
-                    b.ToTable("HospitalsProfessionals");
+                    b.ToTable("HospitalProfessional");
                 });
 
-            modelBuilder.Entity("InsuranceProfessionals", b =>
+            modelBuilder.Entity("InsuranceProfessional", b =>
                 {
                     b.Property<int>("InsurancesId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ProfessionalsId")
+                    b.Property<int>("ProfessionalId")
                         .HasColumnType("int");
 
-                    b.HasKey("InsurancesId", "ProfessionalsId");
+                    b.HasKey("InsurancesId", "ProfessionalId");
 
-                    b.HasIndex("ProfessionalsId");
+                    b.HasIndex("ProfessionalId");
 
-                    b.ToTable("InsuranceProfessionals");
+                    b.ToTable("InsuranceProfessional");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Administrators", b =>
+            modelBuilder.Entity("Domain.Entities.Administrator", b =>
                 {
-                    b.HasBaseType("Domain.Entities.Users");
+                    b.HasBaseType("Domain.Entities.User");
 
-                    b.HasDiscriminator().HasValue("Administrators");
+                    b.HasDiscriminator().HasValue("Administrator");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Patients", b =>
+            modelBuilder.Entity("Domain.Entities.Patient", b =>
                 {
-                    b.HasBaseType("Domain.Entities.Users");
+                    b.HasBaseType("Domain.Entities.User");
 
                     b.Property<int>("AffiliateNumber")
                         .HasColumnType("int");
@@ -237,12 +237,12 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasIndex("InsuranceId");
 
-                    b.HasDiscriminator().HasValue("Patients");
+                    b.HasDiscriminator().HasValue("Patient");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Professionals", b =>
+            modelBuilder.Entity("Domain.Entities.Professional", b =>
                 {
-                    b.HasBaseType("Domain.Entities.Users");
+                    b.HasBaseType("Domain.Entities.User");
 
                     b.Property<int>("LicenseNumber")
                         .HasColumnType("int");
@@ -252,19 +252,19 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasIndex("SpecialtyId");
 
-                    b.HasDiscriminator().HasValue("Professionals");
+                    b.HasDiscriminator().HasValue("Professional");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Appointments", b =>
+            modelBuilder.Entity("Domain.Entities.Appointment", b =>
                 {
-                    b.HasOne("Domain.Entities.Patients", "Patient")
-                        .WithMany("Appointments")
+                    b.HasOne("Domain.Entities.Patient", "Patient")
+                        .WithMany("Appointment")
                         .HasForeignKey("PatientId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Domain.Entities.Professionals", "Professional")
-                        .WithMany("Appointments")
+                    b.HasOne("Domain.Entities.Professional", "Professional")
+                        .WithMany("Appointment")
                         .HasForeignKey("ProfessionalId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -274,22 +274,22 @@ namespace Infrastructure.Data.Migrations
                     b.Navigation("Professional");
                 });
 
-            modelBuilder.Entity("HospitalsProfessionals", b =>
+            modelBuilder.Entity("HospitalProfessional", b =>
                 {
-                    b.HasOne("Domain.Entities.Hospitals", null)
+                    b.HasOne("Domain.Entities.Hospital", null)
                         .WithMany()
-                        .HasForeignKey("HospitalsId")
+                        .HasForeignKey("HospitalId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Entities.Professionals", null)
+                    b.HasOne("Domain.Entities.Professional", null)
                         .WithMany()
-                        .HasForeignKey("ProfessionalsId")
+                        .HasForeignKey("ProfessionalId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("InsuranceProfessionals", b =>
+            modelBuilder.Entity("InsuranceProfessional", b =>
                 {
                     b.HasOne("Domain.Entities.Insurance", null)
                         .WithMany()
@@ -297,17 +297,17 @@ namespace Infrastructure.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Entities.Professionals", null)
+                    b.HasOne("Domain.Entities.Professional", null)
                         .WithMany()
-                        .HasForeignKey("ProfessionalsId")
+                        .HasForeignKey("ProfessionalId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Domain.Entities.Patients", b =>
+            modelBuilder.Entity("Domain.Entities.Patient", b =>
                 {
                     b.HasOne("Domain.Entities.Insurance", "Insurance")
-                        .WithMany("Patients")
+                        .WithMany("Patient")
                         .HasForeignKey("InsuranceId")
                         .OnDelete(DeleteBehavior.SetNull)
                         .IsRequired();
@@ -315,10 +315,10 @@ namespace Infrastructure.Data.Migrations
                     b.Navigation("Insurance");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Professionals", b =>
+            modelBuilder.Entity("Domain.Entities.Professional", b =>
                 {
                     b.HasOne("Domain.Entities.Specialties", "Specialty")
-                        .WithMany("Professionals")
+                        .WithMany("Professional")
                         .HasForeignKey("SpecialtyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
@@ -328,22 +328,22 @@ namespace Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Domain.Entities.Insurance", b =>
                 {
-                    b.Navigation("Patients");
+                    b.Navigation("Patient");
                 });
 
             modelBuilder.Entity("Domain.Entities.Specialties", b =>
                 {
-                    b.Navigation("Professionals");
+                    b.Navigation("Professional");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Patients", b =>
+            modelBuilder.Entity("Domain.Entities.Patient", b =>
                 {
-                    b.Navigation("Appointments");
+                    b.Navigation("Appointment");
                 });
 
-            modelBuilder.Entity("Domain.Entities.Professionals", b =>
+            modelBuilder.Entity("Domain.Entities.Professional", b =>
                 {
-                    b.Navigation("Appointments");
+                    b.Navigation("Appointment");
                 });
 #pragma warning restore 612, 618
         }

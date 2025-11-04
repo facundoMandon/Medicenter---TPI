@@ -24,8 +24,8 @@ namespace Application.Models.Request
 
         [Required]
         [RegularExpression(@"^([01]?[0-9]|2[0-3]):[0-5][0-9]$", ErrorMessage = "La hora debe tener formato HH:mm")]
-        public string Hora { get; set; } = string.Empty; // Ej: "14:30"
+        public string Time { get; set; } = string.Empty; // Ej: "14:30"
 
-        public string Descripcion { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
     }
 }

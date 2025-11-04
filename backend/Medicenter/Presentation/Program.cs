@@ -18,22 +18,22 @@ string connectionString = builder.Configuration.GetConnectionString("DefaultConn
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString)));
 
-builder.Services.AddScoped<IUsersRepository, UsersRepository>();
-builder.Services.AddScoped<IAdministratorsRepository, AdministratorsRepository>();
-builder.Services.AddScoped<IProfessionalsRepository, ProfessionalsRepository>();
-builder.Services.AddScoped<IPatientsRepository, PatientsRepository>();
-builder.Services.AddScoped<IHospitalsRepository, HospitalsRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IAdministratorRepository, AdministratorRepository>();
+builder.Services.AddScoped<IProfessionalRepository, ProfessionalRepository>();
+builder.Services.AddScoped<IPatientRepository, PatientRepository>();
+builder.Services.AddScoped<IHospitalRepository, HospitalRepository>();
 builder.Services.AddScoped<IInsuranceRepository, InsuranceRepository>();
-builder.Services.AddScoped<IAppointmentsRepository, AppointmentsRepository>();
+builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
 builder.Services.AddScoped<ISpecialtiesRepository, SpecialtiesRepository>();
 
-builder.Services.AddScoped<IUsersService, UsersService>();
-builder.Services.AddScoped<IAdministratorsService, AdministratorsService>();
-builder.Services.AddScoped<IProfessionalsService, ProfessionalsService>();
-builder.Services.AddScoped<IPatientsService, PatientsService>();
-builder.Services.AddScoped<IHospitalsService, HospitalsService>();
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IAdministratorService, AdministratorService>();
+builder.Services.AddScoped<IProfessionalService, ProfessionalService>();
+builder.Services.AddScoped<IPatientService, PatientService>();
+builder.Services.AddScoped<IHospitalService, HospitalService>();
 builder.Services.AddScoped<IInsuranceService, InsuranceService>();
-builder.Services.AddScoped<IAppointmentsService, AppointmentsService>();
+builder.Services.AddScoped<IAppointmentService, AppointmentService>();
 builder.Services.AddScoped<ISpecialtiesService, SpecialtiesService>();
 
 builder.Services.AddScoped<IHolidaysService, HolidaysService>();

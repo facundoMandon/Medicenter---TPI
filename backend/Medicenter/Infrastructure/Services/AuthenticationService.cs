@@ -12,16 +12,16 @@ namespace Infrastructure.Services
 {
     public class AuthenticationService : ICustomAuthenticationService
     {
-        private readonly IUsersRepository _usersRepository;
+        private readonly IUserRepository _usersRepository;
         private readonly AuthenticationServiceOptions _options;
 
-        public AuthenticationService(IUsersRepository usersRepository, IOptions<AuthenticationServiceOptions> options)
+        public AuthenticationService(IUserRepository usersRepository, IOptions<AuthenticationServiceOptions> options)
         {
             _usersRepository = usersRepository;
             _options = options.Value;
         }
 
-        private async Task<Domain.Entities.Users?> ValidateUser(string email, string password)
+        private async Task<Domain.Entities.User?> ValidateUser(string email, string password)
         {
             var user = await _usersRepository.GetByEmailAsync(email);
 

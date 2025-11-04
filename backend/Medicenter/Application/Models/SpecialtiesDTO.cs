@@ -10,8 +10,8 @@ namespace Application.Models
     public class SpecialtiesDTO
     {
         public int Id { get; set; }
-        public string Tipo { get; set; } = string.Empty;
-        public string Descripcion { get; set; } = string.Empty;
+        public string Type { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
 
         // Método FromEntity
         public static SpecialtiesDTO FromEntity(Specialties specialty)
@@ -19,8 +19,8 @@ namespace Application.Models
             return new SpecialtiesDTO
             {
                 Id = specialty.Id,
-                Tipo = specialty.Tipo,
-                Descripcion = specialty.Descripcion
+                Type = specialty.Type,
+                Description = specialty.Description
             };
         }
     }

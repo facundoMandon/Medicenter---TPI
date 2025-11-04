@@ -14,9 +14,9 @@ namespace Application.Services
     public class SpecialtiesService : ISpecialtiesService
     {
         private readonly ISpecialtiesRepository _specialtiesRepository;
-        private readonly IProfessionalsRepository _professionalsRepository;
+        private readonly IProfessionalRepository _professionalsRepository;
 
-        public SpecialtiesService(ISpecialtiesRepository specialtiesRepository, IProfessionalsRepository professionalsRepository)
+        public SpecialtiesService(ISpecialtiesRepository specialtiesRepository, IProfessionalRepository professionalsRepository)
         {
             _specialtiesRepository = specialtiesRepository;
             _professionalsRepository = professionalsRepository;
@@ -40,10 +40,22 @@ namespace Application.Services
         // añadirEspecialidad()
         public async Task<SpecialtiesDTO> CreateSpecialtyAsync(CreationSpecialtiesDTO dto)
         {
+            // ✅ Obtener todas las especialidades existentes
+            var existingSpecialties = await _specialtiesRepository.GetAllAsync();
+
+            string tipoNormalized = dto.Type.Trim().ToLower();
+
+            // Verificar duplicado por nombre (Type)
+            bool exists = existingSpecialties.Any(s => s.Type.Trim().ToLower() == tipoNormalized);
+
+            if (exists)
+                throw new ArgumentException($"Ya existe una especialidad registrada con el nombre '{dto.Type}'.");
+
+            // Crear nueva especialidad
             var specialty = new Specialties
             {
-                Tipo = dto.Tipo,
-                Descripcion = dto.Descripcion
+                Type = dto.Type,
+                Description = dto.Description
             };
 
             var created = await _specialtiesRepository.CreateAsync(specialty);
@@ -57,12 +69,25 @@ namespace Application.Services
             if (existing == null)
                 throw new KeyNotFoundException($"Specialty with ID {id} not found.");
 
-            existing.Tipo = dto.Tipo;
-            existing.Descripcion = dto.Descripcion;
+            // ✅ Verificar duplicado al modificar (excluyendo la propia especialidad)
+            var allSpecialties = await _specialtiesRepository.GetAllAsync();
+            string tipoNormalized = dto.Type.Trim().ToLower();
+
+            bool exists = allSpecialties.Any(s =>
+                s.Id != id && s.Type.Trim().ToLower() == tipoNormalized
+            );
+
+            if (exists)
+                throw new ArgumentException($"Ya existe otra especialidad con el nombre '{dto.Type}'.");
+
+            // Actualizar datos
+            existing.Type = dto.Type;
+            existing.Description = dto.Description;
 
             await _specialtiesRepository.UpdateAsync(existing);
             return SpecialtiesDTO.FromEntity(existing);
         }
+
 
         // eliminarEspecialidad()
         public async Task DeleteSpecialtyAsync(int id)
