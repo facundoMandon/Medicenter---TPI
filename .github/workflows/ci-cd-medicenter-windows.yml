@@ -43,7 +43,7 @@ jobs:
           ConnectionStrings__DefaultConnection: ${{ secrets.DB_CONNECTION_STRING }}
         run: |
           # Instalar dotnet-ef si no está disponible
-          dotnet tool install --global dotnet-ef --version 8.0.0
+          dotnet tool install --global dotnet-ef --version 8.0.13
           export PATH="$PATH:$HOME/.dotnet/tools"
 
           # Ejecutar las migraciones
