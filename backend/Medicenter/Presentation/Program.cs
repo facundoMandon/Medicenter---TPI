@@ -113,6 +113,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthentication();
 app.UseMiddleware<ForbiddenResponseMiddleware>();
+app.UseMiddleware<CustomExceptionHandlingMiddleware>();
 app.UseAuthorization();
 app.MapControllers();
 

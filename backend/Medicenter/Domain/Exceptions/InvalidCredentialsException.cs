@@ -4,9 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain
+namespace Domain.Exceptions
 {
-    internal class Class1
+    public class InvalidCredentialsException : Exception
     {
+        public InvalidCredentialsException(string message) : base(message)
+        {
+        }
     }
 }
