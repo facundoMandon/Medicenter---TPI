@@ -36,9 +36,13 @@ namespace Presentation.Middlewares
                         _logger.LogWarning(validationEx, "Validation Exception");
                         context.Response.StatusCode = StatusCodes.Status400BadRequest;
                         break;
-                    case InvalidCredentialsException invalidCredentialsEx:
+                    case InvalidCredentialException invalidCredentialsEx:
                         _logger.LogWarning(invalidCredentialsEx, "Invalid Credential Exception");
                         context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                        break;
+                    case DuplicateException duplicateEx:
+                        _logger.LogWarning(duplicateEx, "Duplicate User Exception");
+                        context.Response.StatusCode = StatusCodes.Status409Conflict; 
                         break;
                     default:
                         _logger.LogError(ex, "Undhandled Exception");
