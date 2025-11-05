@@ -20,7 +20,7 @@ namespace Presentation.Controllers
 
         // GET /User - Solo administradores
         [HttpGet]
-        [Authorize(Roles = "Administrator")] // ⬅️ Solo administradores
+        [Authorize(Roles = "Administrator")] // ⬅ Solo administradores
         public async Task<ActionResult<List<UserDTO>>> GetAll()
         {
             var users = await _usersService.GetAllAsync();
@@ -29,7 +29,7 @@ namespace Presentation.Controllers
 
         // GET /User/{id} - Usuario puede ver su propio perfil, o admin puede ver cualquiera
         [HttpGet("{id}")]
-        [Authorize] // ⬅️ Requiere autenticación
+        [Authorize] // ⬅ Requiere autenticación
         public async Task<ActionResult<UserDTO>> GetById([FromRoute] int id)
         {
             // Verificar que el usuario autenticado sea el mismo o sea admin
@@ -41,16 +41,14 @@ namespace Presentation.Controllers
                 return Forbid(); // 403 Forbidden
             }
 
+            // El middleware manejará la excepción si el usuario no existe
             var user = await _usersService.GetByIdAsync(id);
-            if (user == null)
-                return NotFound("User not found.");
-
             return Ok(user);
         }
 
         // PUT /User/profile/{userId} (editarPerfil) - Usuario puede editar su propio perfil
         [HttpPut("profile/{userId}")]
-        [Authorize] // ⬅️ Requiere autenticación
+        [Authorize] // ⬅ Requiere autenticación
         public async Task<ActionResult<UserDTO>> EditProfile([FromRoute] int userId, [FromBody] CreationUserDTO dto)
         {
             // Verificar que el usuario autenticado sea el mismo
@@ -61,16 +59,14 @@ namespace Presentation.Controllers
                 return Forbid(); // 403 Forbidden
             }
 
+            // El middleware manejará las excepciones de validación o si el usuario no existe
             var updated = await _usersService.UpdateAsync(userId, dto);
-            if (updated == null)
-                return NotFound("User not found.");
-
             return Ok(updated);
         }
 
         // DELETE /User/account/{userId} (eliminarCuenta) - Usuario puede eliminar su propia cuenta
         [HttpDelete("account/{userId}")]
-        [Authorize] // ⬅️ Requiere autenticación
+        [Authorize] // ⬅ Requiere autenticación
         public async Task<ActionResult> DeleteAccount([FromRoute] int userId)
         {
             // Verificar que el usuario autenticado sea el mismo
@@ -81,15 +77,17 @@ namespace Presentation.Controllers
                 return Forbid(); // 403 Forbidden
             }
 
+            // El middleware manejará la excepción si el usuario no existe
             await _usersService.DeleteAccountAsync(userId);
             return NoContent();
         }
 
         // POST /User/password/recover (recuperarContraseña) - Público
         [HttpPost("password/recover")]
-        [AllowAnonymous] // ⬅️ Público (recuperar contraseña)
+        [AllowAnonymous] // ⬅ Público (recuperar contraseña)
         public async Task<ActionResult> RecoverPassword([FromBody] string email)
         {
+            // El middleware manejará las excepciones de validación
             await _usersService.RecoverPasswordAsync(email);
             return Accepted();
         }

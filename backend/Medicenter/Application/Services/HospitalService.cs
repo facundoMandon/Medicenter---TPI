@@ -2,9 +2,11 @@
 using Application.Models;
 using Application.Models.Request;
 using Domain.Entities;
+using Domain.Exceptions;
 using Domain.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,7 +34,7 @@ namespace Application.Services
         {
             var hospital = await _hospitalsRepository.GetByIdAsync(id);
             if (hospital == null)
-                throw new KeyNotFoundException($"Hospital con ID {id} no encontrado.");
+                throw new NotFoundException($"Hospital con ID {id} no encontrado.");
 
             return HospitalDTO.FromEntity(hospital);
         }
@@ -45,25 +47,18 @@ namespace Application.Services
 
         public async Task<HospitalDTO> CreateHospitalAsync(CreationHospitalDTO dto)
         {
-            // Normalizar los valores (para evitar falsos negativos por mayúsculas o espacios)
-            string nombreNormalizado = dto.Name.Trim().ToLower();
-            string direccionNormalizada = dto.Adress.Trim().ToLower();
+            // Validaciones de datos de entrada
+            if (string.IsNullOrWhiteSpace(dto.Name))
+                throw new ValidationException("El nombre del hospital es requerido.");
 
-            // ✅ Verificar si ya existe un hospital con mismo nombre y dirección
-            var existingHospital = await _hospitalsRepository.GetAllAsync();
-            bool exists = existingHospital.Any(h =>
-                h.Name.Trim().ToLower() == nombreNormalizado &&
-                h.Adress.Trim().ToLower() == direccionNormalizada
-            );
+            if (string.IsNullOrWhiteSpace(dto.Address))
+                throw new ValidationException("La dirección del hospital es requerida.");
 
-            if (exists)
-                throw new ArgumentException($"Ya existe un hospital con el nombre \"{dto.Name}\" y la dirección \"{dto.Adress}\".");
-
-            // Crear nuevo hospital si no existe duplicado
+            // Crear el hospital
             var hospital = new Hospital
             {
                 Name = dto.Name,
-                Adress = dto.Adress
+                Address = dto.Address
             };
 
             var created = await _hospitalsRepository.CreateAsync(hospital);
@@ -72,12 +67,21 @@ namespace Application.Services
 
         public async Task<HospitalDTO> UpdateHospitalAsync(int id, CreationHospitalDTO dto)
         {
+            // Validaciones de datos de entrada
+            if (string.IsNullOrWhiteSpace(dto.Name))
+                throw new ValidationException("El nombre del hospital es requerido.");
+
+            if (string.IsNullOrWhiteSpace(dto.Address))
+                throw new ValidationException("La dirección del hospital es requerida.");
+
+            // Verificar que el hospital existe
             var hospital = await _hospitalsRepository.GetByIdAsync(id);
             if (hospital == null)
-                throw new KeyNotFoundException($"Hospital con ID {id} no encontrado.");
+                throw new NotFoundException($"Hospital con ID {id} no encontrado.");
 
+            // Actualizar propiedades
             hospital.Name = dto.Name;
-            hospital.Adress = dto.Adress;
+            hospital.Address = dto.Address;
 
             await _hospitalsRepository.UpdateAsync(hospital);
             return HospitalDTO.FromEntity(hospital);
@@ -85,9 +89,10 @@ namespace Application.Services
 
         public async Task DeleteHospitalAsync(int id)
         {
+            // Verificar que el hospital existe antes de eliminar
             var hospital = await _hospitalsRepository.GetByIdAsync(id);
             if (hospital == null)
-                throw new KeyNotFoundException($"Hospital con ID {id} no encontrado.");
+                throw new NotFoundException($"Hospital con ID {id} no encontrado.");
 
             await _hospitalsRepository.DeleteAsync(hospital);
         }
@@ -95,14 +100,17 @@ namespace Application.Services
         // registrarProfesional
         public async Task RegisterProfessionalAsync(int hospitalId, int professionalId)
         {
+            // Verificar que el hospital existe
             var hospital = await _hospitalsRepository.GetByIdAsync(hospitalId);
-            var professional = await _professionalsRepository.GetByIdAsync(professionalId);
-
             if (hospital == null)
-                throw new KeyNotFoundException($"Hospital con ID {hospitalId} no encontrado.");
-            if (professional == null)
-                throw new KeyNotFoundException($"Profesional con ID {professionalId} no encontrado.");
+                throw new NotFoundException($"Hospital con ID {hospitalId} no encontrado.");
 
+            // Verificar que el profesional existe
+            var professional = await _professionalsRepository.GetByIdAsync(professionalId);
+            if (professional == null)
+                throw new NotFoundException($"Profesional con ID {professionalId} no encontrado.");
+
+            // Registrar el profesional en el hospital
             await _hospitalsRepository.RegisterProfessionalAsync(hospitalId, professionalId);
         }
 
@@ -117,10 +125,17 @@ namespace Application.Services
         // listarProfesionales
         public async Task<IEnumerable<ProfessionalDTO>> ListProfessionalAsync(int hospitalId)
         {
+            // Verificar que el hospital existe
+            var hospital = await _hospitalsRepository.GetByIdAsync(hospitalId);
+            if (hospital == null)
+                throw new NotFoundException($"Hospital con ID {hospitalId} no encontrado.");
+
+            // Obtener profesionales del hospital
             var professionals = await _hospitalsRepository.GetProfessionalByHospitalIdAsync(hospitalId);
 
             var dtos = new List<ProfessionalDTO>();
 
+            // Construir DTOs con información de especialidad
             foreach (var professional in professionals)
             {
                 var specialty = await _specialtiesRepository.GetByIdAsync(professional.SpecialtyId);
@@ -133,6 +148,17 @@ namespace Application.Services
         // eliminarProfesionales
         public async Task RemoveProfessionalAsync(int hospitalId, int professionalId)
         {
+            // Verificar que el hospital existe
+            var hospital = await _hospitalsRepository.GetByIdAsync(hospitalId);
+            if (hospital == null)
+                throw new NotFoundException($"Hospital con ID {hospitalId} no encontrado.");
+
+            // Verificar que el profesional existe
+            var professional = await _professionalsRepository.GetByIdAsync(professionalId);
+            if (professional == null)
+                throw new NotFoundException($"Profesional con ID {professionalId} no encontrado.");
+
+            // Remover el profesional del hospital
             await _hospitalsRepository.RemoveProfessionalAsync(hospitalId, professionalId);
         }
     }

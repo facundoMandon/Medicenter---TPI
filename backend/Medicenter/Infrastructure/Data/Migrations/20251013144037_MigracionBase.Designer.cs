@@ -66,7 +66,7 @@ namespace Infrastructure.Data.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Adress")
+                    b.Property<string>("Address")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -178,13 +178,13 @@ namespace Infrastructure.Data.Migrations
 
             modelBuilder.Entity("InsuranceProfessional", b =>
                 {
-                    b.Property<int>("InsurancesId")
+                    b.Property<int>("InsuranceId")
                         .HasColumnType("int");
 
                     b.Property<int>("ProfessionalId")
                         .HasColumnType("int");
 
-                    b.HasKey("InsurancesId", "ProfessionalId");
+                    b.HasKey("InsuranceId", "ProfessionalId");
 
                     b.HasIndex("ProfessionalId");
 
@@ -266,7 +266,7 @@ namespace Infrastructure.Data.Migrations
                 {
                     b.HasOne("Domain.Entities.Insurance", null)
                         .WithMany()
-                        .HasForeignKey("InsurancesId")
+                        .HasForeignKey("InsuranceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

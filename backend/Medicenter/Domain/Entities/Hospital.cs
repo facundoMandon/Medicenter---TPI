@@ -14,10 +14,10 @@ namespace Domain.Entities
         public int Id { get; set; }
 
         [Required, MaxLength(150)]
-        public string Name { get; set; } = string.Empty; // CORREGIDO: Name
+        public string Name { get; set; } = string.Empty;
 
         [Required, MaxLength(250)]
-        public string Adress { get; set; } = string.Empty; // CORREGIDO: Adress
+        public string Address { get; set; } = string.Empty; 
 
         // Relación N:M con Professional
         public ICollection<Professional> Professional { get; set; } = new List<Professional>();

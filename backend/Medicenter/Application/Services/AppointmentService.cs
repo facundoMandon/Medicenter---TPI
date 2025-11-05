@@ -3,9 +3,11 @@ using Application.Models;
 using Application.Models.Request;
 using Domain.Entities;
 using Domain.Enums;
+using Domain.Exceptions;
 using Domain.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text.Json;
 
@@ -34,7 +36,7 @@ namespace Application.Services
         {
             var appointment = await _appointmentsRepository.GetByIdAsync(id);
             if (appointment == null)
-                throw new KeyNotFoundException("Appointment not found.");
+                throw new NotFoundException($"Turno con ID {id} no encontrado.");
 
             return await MapToDtoAsync(appointment);
         }
@@ -54,33 +56,33 @@ namespace Application.Services
 
         public async Task<AppointmentDTO> AssignAppointmentAsync(CreationAppointmentDTO dto)
         {
+            // Verificar que el paciente existe
             var patient = await _patientsRepository.GetByIdAsync(dto.PatientId);
             if (patient == null)
-                throw new KeyNotFoundException($"Patient with ID {dto.PatientId} not found.");
+                throw new NotFoundException($"Paciente con ID {dto.PatientId} no encontrado.");
 
+            // Verificar que el profesional existe
             var professional = await _professionalsRepository.GetByIdAsync(dto.ProfessionalId);
             if (professional == null)
-                throw new KeyNotFoundException($"Professional with ID {dto.ProfessionalId} not found.");
+                throw new NotFoundException($"Profesional con ID {dto.ProfessionalId} no encontrado.");
+
+            // Validaciones de datos de entrada
+            if (string.IsNullOrWhiteSpace(dto.Year) || dto.Year.Length != 4)
+                throw new ValidationException("El año debe tener 4 dígitos.");
+
+            if (string.IsNullOrWhiteSpace(dto.Month) || dto.Month.Length > 2)
+                throw new ValidationException("El mes debe tener 1 o 2 dígitos.");
+
+            if (string.IsNullOrWhiteSpace(dto.Day) || dto.Day.Length > 2)
+                throw new ValidationException("El día debe tener 1 o 2 dígitos.");
+
+            if (string.IsNullOrWhiteSpace(dto.Time))
+                throw new ValidationException("La hora es requerida.");
 
             // Validar fecha y verificar feriados
             await ValidateDateAndHolidaysAsync(dto.Year, dto.Month, dto.Day);
 
-            // ✅ Validar que no haya otro turno en la misma fecha y hora para el mismo profesional
-            var existingAppointment = await _appointmentsRepository.GetAllAsync();
-            bool alreadyExists = existingAppointment.Any(a =>
-                a.ProfessionalId == dto.ProfessionalId &&
-                a.Year == dto.Year.PadLeft(4, '0') &&
-                a.Month == dto.Month.PadLeft(2, '0') &&
-                a.Day == dto.Day.PadLeft(2, '0') &&
-                string.Equals(a.Time, dto.Time, StringComparison.OrdinalIgnoreCase) &&
-                a.Status != AppointmentStatus.Cancelled // permitir si el turno anterior fue cancelado
-            );
-
-            if (alreadyExists)
-            {
-                throw new ArgumentException($"Ya existe un turno asignado al profesional en la fecha {dto.Day}/{dto.Month}/{dto.Year} a las {dto.Time}.");
-            }
-
+            // Crear el turno
             var appointment = new Appointment
             {
                 PatientId = dto.PatientId,
@@ -99,13 +101,28 @@ namespace Application.Services
 
         public async Task<AppointmentDTO> UpdateAppointmentAsync(int appointmentId, CreationAppointmentDTO dto)
         {
+            // Verificar que el turno existe
             var existing = await _appointmentsRepository.GetByIdAsync(appointmentId);
             if (existing == null)
-                throw new KeyNotFoundException("Appointment not found.");
+                throw new NotFoundException($"Turno con ID {appointmentId} no encontrado.");
+
+            // Validaciones de datos de entrada
+            if (string.IsNullOrWhiteSpace(dto.Year) || dto.Year.Length != 4)
+                throw new ValidationException("El año debe tener 4 dígitos.");
+
+            if (string.IsNullOrWhiteSpace(dto.Month) || dto.Month.Length > 2)
+                throw new ValidationException("El mes debe tener 1 o 2 dígitos.");
+
+            if (string.IsNullOrWhiteSpace(dto.Day) || dto.Day.Length > 2)
+                throw new ValidationException("El día debe tener 1 o 2 dígitos.");
+
+            if (string.IsNullOrWhiteSpace(dto.Time))
+                throw new ValidationException("La hora es requerida.");
 
             // Validar fecha y verificar feriados
             await ValidateDateAndHolidaysAsync(dto.Year, dto.Month, dto.Day);
 
+            // Actualizar el turno
             existing.PatientId = dto.PatientId;
             existing.ProfessionalId = dto.ProfessionalId;
             existing.Year = dto.Year.PadLeft(4, '0');
@@ -120,10 +137,12 @@ namespace Application.Services
 
         public async Task<AppointmentDTO> ConfirmAppointmentAsync(int appointmentId)
         {
+            // Verificar que el turno existe
             var existing = await _appointmentsRepository.GetByIdAsync(appointmentId);
             if (existing == null)
-                throw new KeyNotFoundException("Appointment not found.");
+                throw new NotFoundException($"Turno con ID {appointmentId} no encontrado.");
 
+            // Confirmar el turno
             existing.Status = AppointmentStatus.Confirmed;
             await _appointmentsRepository.UpdateAsync(existing);
 
@@ -132,17 +151,19 @@ namespace Application.Services
 
         public async Task CancelAppointmentAsync(int appointmentId)
         {
+            // Verificar que el turno existe
             var existing = await _appointmentsRepository.GetByIdAsync(appointmentId);
             if (existing == null)
-                throw new KeyNotFoundException("Appointment not found.");
+                throw new NotFoundException($"Turno con ID {appointmentId} no encontrado.");
 
+            // Cancelar el turno
             existing.Status = AppointmentStatus.Cancelled;
             await _appointmentsRepository.UpdateAsync(existing);
         }
 
         /// <summary>
         /// Valida que la fecha sea válida y no sea feriado en Argentina
-        /// Lanza ArgumentException (400 Bad Request) si es feriado
+        /// Lanza ValidationException si la fecha es inválida, pasada o es feriado
         /// </summary>
         private async Task ValidateDateAndHolidaysAsync(string year, string month, string day)
         {
@@ -158,12 +179,16 @@ namespace Application.Services
                 // Validar que la fecha no sea en el pasado
                 if (date.Date < DateTime.Now.Date)
                 {
-                    throw new ArgumentException("No se pueden crear turnos en fechas pasadas");
+                    throw new ValidationException("No se pueden crear turnos en fechas pasadas.");
                 }
             }
             catch (ArgumentOutOfRangeException)
             {
-                throw new ArgumentException($"La fecha {day}/{month}/{year} no es válida");
+                throw new ValidationException($"La fecha {day}/{month}/{year} no es válida.");
+            }
+            catch (FormatException)
+            {
+                throw new ValidationException($"La fecha {day}/{month}/{year} tiene un formato inválido.");
             }
 
             // Consultar feriados de Argentina
@@ -182,9 +207,9 @@ namespace Application.Services
 
                     if (holidays.ValueKind == JsonValueKind.Array && holidays.GetArrayLength() > 0)
                     {
-                        // Es un feriado - lanzar ArgumentException para que retorne 400
+                        // Es un feriado - lanzar ValidationException
                         var holidayName = holidays[0].GetProperty("name").GetString();
-                        throw new ArgumentException(
+                        throw new ValidationException(
                             $"La fecha {dayNormalized}/{monthNormalized}/{year} es feriado en Argentina ({holidayName}). No se pueden asignar turnos en días feriados."
                         );
                     }
@@ -196,6 +221,7 @@ namespace Application.Services
             }
         }
 
+        // Método auxiliar para mapear entidad a DTO
         private async Task<AppointmentDTO> MapToDtoAsync(Appointment appointment)
         {
             string patientName = "";

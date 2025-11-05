@@ -2,9 +2,11 @@
 using Application.Models;
 using Application.Models.Request;
 using Domain.Entities;
+using Domain.Exceptions;
 using Domain.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,48 +37,60 @@ namespace Application.Services
 
         public async Task<ProfessionalDTO> CreateProfessionalAsync(CreationProfessionalDTO dto)
         {
-            // ✅ Obtener todos los profesionales existentes
-            var existingProfessional = await _professionalsRepository.GetAllAsync();
+            // Validaciones de datos de entrada
+            if (string.IsNullOrWhiteSpace(dto.Name))
+                throw new ValidationException("El nombre es requerido.");
 
-            // Normalizar datos para evitar falsos duplicados
-            string emailNormalized = dto.Email.Trim().ToLower();
-     
+            if (string.IsNullOrWhiteSpace(dto.LastName))
+                throw new ValidationException("El apellido es requerido.");
 
-            // Verificar duplicados por DNI, Email o Número de Matrícula
-            bool exists = existingProfessional.Any(p =>
-                p.DNI == dto.DNI ||
-                p.Email.Trim().ToLower() == emailNormalized ||
-                p.LicenseNumber == dto.LicenseNumber
-            );
+            if (string.IsNullOrWhiteSpace(dto.Email))
+                throw new ValidationException("El email es requerido.");
 
-            if (exists)
-                throw new ArgumentException(
-                    $"Ya existe un profesional registrado con el mismo DNI ({dto.DNI}), correo electrónico ({dto.Email}) o número de matrícula ({dto.LicenseNumber})."
-                );
+            if (!IsValidEmail(dto.Email))
+                throw new ValidationException("El formato del email no es válido.");
 
-            // Crear nuevo profesional si no hay duplicado
+            if (string.IsNullOrWhiteSpace(dto.Password))
+                throw new ValidationException("La contraseña es requerida.");
+
+            if (dto.LicenseNumber <= 0)
+                throw new ValidationException("El número de matrícula es requerido.");
+
+            if (dto.SpecialtyId <= 0)
+                throw new ValidationException("Debe especificar un ID de especialidad válido.");
+
+            // Verificar que la especialidad existe
+            var specialty = await _specialtiesRepository.GetByIdAsync(dto.SpecialtyId);
+            if (specialty == null)
+                throw new NotFoundException($"No existe una especialidad con el ID {dto.SpecialtyId}.");
+
+            // Crear el profesional
             var professional = new Professional
             {
                 Name = dto.Name,
                 LastName = dto.LastName,
                 DNI = dto.DNI,
                 Email = dto.Email,
-                Password = dto.Password, // ⚠️ sin hash, pendiente de encriptar
+                Password = dto.Password, // Debería hashearse
                 Rol = dto.Rol,
                 LicenseNumber = dto.LicenseNumber,
                 SpecialtyId = dto.SpecialtyId
             };
 
             var created = await _professionalsRepository.CreateAsync(professional);
-
-            var specialty = await _specialtiesRepository.GetByIdAsync(dto.SpecialtyId);
-            string specialtyName = specialty?.Type ?? "";
+            string specialtyName = specialty.Type; // CORREGIDO: Type en vez de Name
 
             return ProfessionalDTO.FromEntity(created, specialtyName);
         }
 
         public async Task<IEnumerable<AppointmentDTO>> ViewAppointmentAsync(int professionalId)
         {
+            // Verificar que el profesional existe
+            var professional = await _professionalsRepository.GetByIdAsync(professionalId);
+            if (professional == null)
+                throw new NotFoundException($"Profesional con ID {professionalId} no encontrado.");
+
+            // Obtener turnos del profesional
             var appointments = await _appointmentsRepository.GetByProfessionalIdAsync(professionalId);
 
             return appointments.Select(a => AppointmentDTO.FromEntity(
@@ -89,11 +103,21 @@ namespace Application.Services
 
         public async Task<bool> AcceptAppointmentAsync(int professionalId, int appointmentId)
         {
+            // Verificar que el profesional existe
+            var professional = await _professionalsRepository.GetByIdAsync(professionalId);
+            if (professional == null)
+                throw new NotFoundException($"Profesional con ID {professionalId} no encontrado.");
+
+            // Verificar que el turno existe
             var appointment = await _appointmentsRepository.GetByIdAsync(appointmentId);
+            if (appointment == null)
+                throw new NotFoundException($"Turno con ID {appointmentId} no encontrado.");
 
-            if (appointment == null || appointment.ProfessionalId != professionalId)
-                return false;
+            // Verificar que el turno pertenece al profesional
+            if (appointment.ProfessionalId != professionalId)
+                throw new ValidationException("El turno no pertenece a este profesional.");
 
+            // Aceptar el turno
             appointment.Status = Domain.Enums.AppointmentStatus.Accepted;
             await _appointmentsRepository.UpdateAsync(appointment);
             return true;
@@ -101,11 +125,21 @@ namespace Application.Services
 
         public async Task<bool> RejectAppointmentAsync(int professionalId, int appointmentId)
         {
+            // Verificar que el profesional existe
+            var professional = await _professionalsRepository.GetByIdAsync(professionalId);
+            if (professional == null)
+                throw new NotFoundException($"Profesional con ID {professionalId} no encontrado.");
+
+            // Verificar que el turno existe
             var appointment = await _appointmentsRepository.GetByIdAsync(appointmentId);
+            if (appointment == null)
+                throw new NotFoundException($"Turno con ID {appointmentId} no encontrado.");
 
-            if (appointment == null || appointment.ProfessionalId != professionalId)
-                return false;
+            // Verificar que el turno pertenece al profesional
+            if (appointment.ProfessionalId != professionalId)
+                throw new ValidationException("El turno no pertenece a este profesional.");
 
+            // Rechazar el turno
             appointment.Status = Domain.Enums.AppointmentStatus.Rejected;
             await _appointmentsRepository.UpdateAsync(appointment);
             return true;
@@ -113,22 +147,45 @@ namespace Application.Services
 
         public async Task<IEnumerable<PatientDTO>> ListPatientAsync(int professionalId)
         {
+            // Verificar que el profesional existe
+            var professional = await _professionalsRepository.GetByIdAsync(professionalId);
+            if (professional == null)
+                throw new NotFoundException($"Profesional con ID {professionalId} no encontrado.");
+
+            // Obtener turnos del profesional
             var appointments = await _appointmentsRepository.GetByProfessionalIdAsync(professionalId);
 
+            // Extraer IDs únicos de pacientes
             var patientIds = appointments.Select(a => a.PatientId).Distinct();
             var patients = new List<PatientDTO>();
 
+            // Obtener información de cada paciente
             foreach (var patientId in patientIds)
             {
                 var patient = await _patientsRepository.GetByIdAsync(patientId);
                 if (patient != null)
                 {
                     var insurance = await _insuranceRepository.GetByIdAsync(patient.InsuranceId);
-                    patients.Add(PatientDTO.FromEntity(patient, insurance?.Name ?? ""));
+                    string insuranceName = insurance?.Name ?? "";
+                    patients.Add(PatientDTO.FromEntity(patient, insuranceName));
                 }
             }
 
             return patients;
+        }
+
+        // Método auxiliar para validar formato de email
+        private bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

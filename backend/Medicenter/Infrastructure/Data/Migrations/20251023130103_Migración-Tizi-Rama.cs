@@ -45,7 +45,7 @@ namespace Infrastructure.Data.Migrations
                 table: "Insurance");
 
             migrationBuilder.DropColumn(
-                name: "Adress",
+                name: "Address",
                 table: "Hospital");
 
             migrationBuilder.DropColumn(
@@ -133,7 +133,7 @@ namespace Infrastructure.Data.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.AddColumn<string>(
-                name: "Adress",
+                name: "Address",
                 table: "Hospital",
                 type: "varchar(250)",
                 maxLength: 250,
@@ -287,7 +287,7 @@ namespace Infrastructure.Data.Migrations
                 table: "Insurance");
 
             migrationBuilder.DropColumn(
-                name: "Adress",
+                name: "Address",
                 table: "Hospital");
 
             migrationBuilder.DropColumn(
@@ -342,7 +342,7 @@ namespace Infrastructure.Data.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.AddColumn<string>(
-                name: "Adress",
+                name: "Address",
                 table: "Hospital",
                 type: "longtext",
                 nullable: false)

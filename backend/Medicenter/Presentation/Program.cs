@@ -37,6 +37,7 @@ builder.Services.AddScoped<IAppointmentService, AppointmentService>();
 builder.Services.AddScoped<ISpecialtiesService, SpecialtiesService>();
 
 builder.Services.AddScoped<IHolidaysService, HolidaysService>();
+builder.Services.AddScoped<CustomExceptionHandlingMiddleware>();
 
 builder.Services.AddHttpClient("HolidaysApi", client =>
 {
@@ -75,7 +76,7 @@ builder.Services.AddSwaggerGen(setupAction =>
     {
         Title = "Medicenter API",
         Version = "v1",
-        Description = "API para gestión de turnos médicos con autenticaci"
+        Description = "API para gestion de turnos medicos"
     });
 
     setupAction.AddSecurityDefinition("ApiBearerAuth", new OpenApiSecurityScheme
@@ -102,18 +103,17 @@ builder.Services.AddSwaggerGen(setupAction =>
 });
 
 var app = builder.Build();
+app.UseMiddleware<CustomExceptionHandlingMiddleware>();
 
 //if (app.Environment.IsDevelopment())
 //{
-    app.UseSwagger();
+app.UseSwagger();
     app.UseSwaggerUI();
 //}
 
 app.UseHttpsRedirection();
 
 app.UseAuthentication();
-app.UseMiddleware<ForbiddenResponseMiddleware>();
-app.UseMiddleware<CustomExceptionHandlingMiddleware>();
 app.UseAuthorization();
 app.MapControllers();
 

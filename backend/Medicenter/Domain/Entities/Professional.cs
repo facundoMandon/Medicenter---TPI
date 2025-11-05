@@ -17,6 +17,6 @@ namespace Domain.Entities
         public Specialties Specialty { get; set; } = null!;
         public ICollection<Appointment> Appointment { get; set; } = new List<Appointment>();
         public ICollection<Hospital> Hospital { get; set; } = new List<Hospital>();
-        public ICollection<Insurance> Insurances { get; set; } = new List<Insurance>();
+        public ICollection<Insurance> Insurance { get; set; } = new List<Insurance>();
     }
 }

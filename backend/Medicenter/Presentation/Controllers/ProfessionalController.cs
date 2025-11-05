@@ -1,10 +1,9 @@
 ﻿using Application.Interfaces;
 using Application.Models;
 using Application.Models.Request;
-using Infrastructure.Data;
+using Application.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 
 namespace Presentation.Controllers
@@ -14,30 +13,18 @@ namespace Presentation.Controllers
     public class ProfessionalController : ControllerBase
     {
         private readonly IProfessionalService _professionalsService;
-        private readonly ApplicationDbContext _context;
 
-        public ProfessionalController(IProfessionalService professionalsService, ApplicationDbContext context)
+        public ProfessionalController(IProfessionalService professionalsService)
         {
             _professionalsService = professionalsService;
-            _context = context;
         }
 
         // POST /Professional (Crear Profesional) - Solo admin
         [HttpPost]
-        [Authorize(Roles = "Administrator")] // ⬅️ Solo administradores
+        [Authorize(Roles = "Administrator")] // ⬅ Solo administradores
         public async Task<ActionResult<ProfessionalDTO>> CreateProfessional([FromBody] CreationProfessionalDTO dto)
         {
-            if (dto.SpecialtyId <= 0)
-            {
-                return BadRequest("Debe especificar un ID de especialidad válido.");
-            }
-
-            var specialtyExists = await _context.Specialties.AnyAsync(s => s.Id == dto.SpecialtyId);
-            if (!specialtyExists)
-            {
-                return NotFound($"No existe una especialidad con el ID {dto.SpecialtyId}.");
-            }
-
+            // El middleware manejará las excepciones de validación o si la especialidad no existe
             var created = await _professionalsService.CreateProfessionalAsync(dto);
 
             return CreatedAtAction(nameof(UserController.GetById), "User", new { id = created.Id }, created);
@@ -45,7 +32,7 @@ namespace Presentation.Controllers
 
         // GET /Professional/{professionalId}/appointments (verTurnos)
         [HttpGet("{professionalId}/appointments")]
-        [Authorize(Roles = "Professional,Administrator")] // ⬅️ Solo profesional o admin
+        [Authorize(Roles = "Professional,Administrator")] // ⬅ Solo profesional o admin
         public async Task<ActionResult<IEnumerable<AppointmentDTO>>> ViewAppointment([FromRoute] int professionalId)
         {
             // Verificar que el usuario autenticado sea el profesional o un administrador
@@ -57,13 +44,14 @@ namespace Presentation.Controllers
                 return Forbid(); // 403 Forbidden
             }
 
+            // El middleware manejará la excepción si el profesional no existe
             var appointments = await _professionalsService.ViewAppointmentAsync(professionalId);
             return Ok(appointments);
         }
 
         // POST /Professional/appointments/{appointmentId}/accept (aceptarTurno)
         [HttpPost("appointments/{appointmentId}/accept")]
-        [Authorize(Roles = "Professional")] // ⬅️ Solo profesionales
+        [Authorize(Roles = "Professional")] // ⬅ Solo profesionales
         public async Task<ActionResult> AcceptAppointment([FromRoute] int appointmentId)
         {
             // ✅ Obtener ID del profesional desde el token JWT
@@ -74,13 +62,14 @@ namespace Presentation.Controllers
                 return Unauthorized("No se pudo identificar al profesional.");
             }
 
-            bool success = await _professionalsService.AcceptAppointmentAsync(professionalId, appointmentId);
-            return success ? NoContent() : BadRequest("Cannot accept appointment.");
+            // El middleware manejará las excepciones si el turno no existe o no pertenece al profesional
+            await _professionalsService.AcceptAppointmentAsync(professionalId, appointmentId);
+            return NoContent();
         }
 
         // POST /Professional/appointments/{appointmentId}/reject (rechazarTurno)
         [HttpPost("appointments/{appointmentId}/reject")]
-        [Authorize(Roles = "Professional")] // ⬅️ Solo profesionales
+        [Authorize(Roles = "Professional")] // ⬅ Solo profesionales
         public async Task<ActionResult> RejectAppointment([FromRoute] int appointmentId)
         {
             // ✅ Obtener ID del profesional desde el token JWT
@@ -91,13 +80,14 @@ namespace Presentation.Controllers
                 return Unauthorized("No se pudo identificar al profesional.");
             }
 
-            bool success = await _professionalsService.RejectAppointmentAsync(professionalId, appointmentId);
-            return success ? NoContent() : BadRequest("Cannot reject appointment.");
+            // El middleware manejará las excepciones si el turno no existe o no pertenece al profesional
+            await _professionalsService.RejectAppointmentAsync(professionalId, appointmentId);
+            return NoContent();
         }
 
         // GET /Professional/{professionalId}/patients (listarPacientes)
         [HttpGet("{professionalId}/patients")]
-        [Authorize(Roles = "Professional,Administrator")] // ⬅️ Solo profesional o admin
+        [Authorize(Roles = "Professional,Administrator")] // ⬅ Solo profesional o admin
         public async Task<ActionResult<IEnumerable<PatientDTO>>> ListPatient([FromRoute] int professionalId)
         {
             // Verificar que el usuario autenticado sea el profesional o un administrador
@@ -109,6 +99,7 @@ namespace Presentation.Controllers
                 return Forbid(); // 403 Forbidden
             }
 
+            // El middleware manejará la excepción si el profesional no existe
             var patients = await _professionalsService.ListPatientAsync(professionalId);
             return Ok(patients);
         }

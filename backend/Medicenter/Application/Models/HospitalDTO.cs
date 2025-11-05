@@ -11,7 +11,7 @@ namespace Application.Models
     {
         public int Id { get; set; }
         public string Name { get; set; } = string.Empty;
-        public string Adress { get; set; } = string.Empty;
+        public string Address { get; set; } = string.Empty;
 
         // Método FromEntity
         public static HospitalDTO FromEntity(Hospital hospital)
@@ -20,7 +20,7 @@ namespace Application.Models
             {
                 Id = hospital.Id,
                 Name = hospital.Name,
-                Adress = hospital.Adress
+                Address = hospital.Address
             };
         }
     }

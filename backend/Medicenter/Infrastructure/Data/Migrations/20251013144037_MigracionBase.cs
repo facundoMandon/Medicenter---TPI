@@ -23,7 +23,7 @@ namespace Infrastructure.Data.Migrations
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    Adress = table.Column<string>(type: "longtext", nullable: false)
+                    Address = table.Column<string>(type: "longtext", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
@@ -220,15 +220,15 @@ namespace Infrastructure.Data.Migrations
                 name: "InsuranceProfessional",
                 columns: table => new
                 {
-                    InsurancesId = table.Column<int>(type: "int", nullable: false),
+                    InsuranceId = table.Column<int>(type: "int", nullable: false),
                     ProfessionalId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_InsuranceProfessional", x => new { x.InsurancesId, x.ProfessionalId });
+                    table.PrimaryKey("PK_InsuranceProfessional", x => new { x.InsuranceId, x.ProfessionalId });
                     table.ForeignKey(
-                        name: "FK_InsuranceProfessional_Insurance_InsurancesId",
-                        column: x => x.InsurancesId,
+                        name: "FK_InsuranceProfessional_Insurance_InsuranceId",
+                        column: x => x.InsuranceId,
                         principalTable: "Insurance",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);

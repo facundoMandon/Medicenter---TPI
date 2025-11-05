@@ -72,7 +72,7 @@ namespace Infrastructure.Data
 
             // Professional con Insurance (Muchos a Muchos)
             modelBuilder.Entity<Professional>()
-                .HasMany(p => p.Insurances)
+                .HasMany(p => p.Insurance)
                 .WithMany(i => i.Professional);
 
 

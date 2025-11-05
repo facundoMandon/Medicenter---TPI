@@ -3,9 +3,11 @@ using Application.Models;
 using Application.Models.Request;
 using Domain.Entities;
 using Domain.Enums;
+using Domain.Exceptions;
 using Domain.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,7 +29,7 @@ namespace Application.Services
         {
             var insurance = await _insuranceRepository.GetByIdAsync(id);
             if (insurance == null)
-                throw new KeyNotFoundException($"Obra Social ID {id} no encontrada.");
+                throw new NotFoundException($"Obra Social con ID {id} no encontrada.");
 
             return InsuranceDTO.FromEntity(insurance);
         }
@@ -40,21 +42,14 @@ namespace Application.Services
 
         public async Task<InsuranceDTO> CreateInsuranceAsync(CreationInsuranceDTO dto)
         {
-            // Normalizar valores para evitar falsos duplicados
-            string nombreNormalizado = dto.Name.Trim().ToLower();
-            string tipoCoberturaNormalizado = dto.MedicalCoverageType.ToString().Trim().ToLower();
+            // Validaciones de datos de entrada
+            if (string.IsNullOrWhiteSpace(dto.Name))
+                throw new ValidationException("El nombre de la obra social es requerido.");
 
-            // ✅ Verificar si ya existe una obra social con mismo nombre y tipo de cobertura
-            var existingInsurances = await _insuranceRepository.GetAllAsync();
-            bool exists = existingInsurances.Any(i =>
-                i.Name.Trim().ToLower() == nombreNormalizado &&
-                i.MedicalCoverageType.ToString().Trim().ToLower() == tipoCoberturaNormalizado
-            );
+            if (string.IsNullOrWhiteSpace(dto.Description))
+                throw new ValidationException("La descripción de la obra social es requerida.");
 
-            if (exists)
-                throw new ArgumentException($"Ya existe una obra social con el nombre \"{dto.Name}\" y tipo de cobertura \"{dto.MedicalCoverageType}\".");
-
-            // Crear nueva obra social si no hay duplicado
+            // Crear la obra social
             var insurance = new Insurance
             {
                 Name = dto.Name,
@@ -68,10 +63,19 @@ namespace Application.Services
 
         public async Task<InsuranceDTO> UpdateInsuranceAsync(int id, CreationInsuranceDTO dto)
         {
+            // Validaciones de datos de entrada
+            if (string.IsNullOrWhiteSpace(dto.Name))
+                throw new ValidationException("El nombre de la obra social es requerido.");
+
+            if (string.IsNullOrWhiteSpace(dto.Description))
+                throw new ValidationException("La descripción de la obra social es requerida.");
+
+            // Verificar que la obra social existe
             var insurance = await _insuranceRepository.GetByIdAsync(id);
             if (insurance == null)
-                throw new KeyNotFoundException($"Obra Social ID {id} no encontrada.");
+                throw new NotFoundException($"Obra Social con ID {id} no encontrada.");
 
+            // Actualizar propiedades
             insurance.Name = dto.Name;
             insurance.MedicalCoverageType = dto.MedicalCoverageType;
             insurance.Description = dto.Description;
@@ -82,9 +86,10 @@ namespace Application.Services
 
         public async Task DeleteInsuranceAsync(int id)
         {
+            // Verificar que la obra social existe antes de eliminar
             var insurance = await _insuranceRepository.GetByIdAsync(id);
             if (insurance == null)
-                throw new KeyNotFoundException($"Obra Social ID {id} no encontrada.");
+                throw new NotFoundException($"Obra Social con ID {id} no encontrada.");
 
             await _insuranceRepository.DeleteAsync(insurance);
         }
@@ -92,10 +97,12 @@ namespace Application.Services
         // cambiarCobertura()
         public async Task ChangeCoverageAsync(int patientId, MedicalCoverageType newCoverage)
         {
+            // Verificar que el paciente existe
             var patient = await _patientsRepository.GetByIdAsync(patientId);
             if (patient == null)
-                throw new KeyNotFoundException($"Paciente ID {patientId} no encontrado.");
+                throw new NotFoundException($"Paciente con ID {patientId} no encontrado.");
 
+            // Cambiar la cobertura del paciente
             await _insuranceRepository.ChangePatientCoverageAsync(patientId, newCoverage);
         }
     }

@@ -23,7 +23,7 @@ namespace Application.Models.Request
         public string Day { get; set; } = string.Empty; // Ej: "23" o "5"
 
         [Required]
-        [RegularExpression(@"^([01]?[0-9]|2[0-3]):[0-5][0-9]$", ErrorMessage = "La hora debe tener formato HH:mm")]
+        [RegularExpression(@"^([01]?[0-9]|2[0-3]):[0-5][0-9]$", ErrorMessage = "La Time debe tener formato HH:mm")]
         public string Time { get; set; } = string.Empty; // Ej: "14:30"
 
         public string Description { get; set; } = string.Empty;

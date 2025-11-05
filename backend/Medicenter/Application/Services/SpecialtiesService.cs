@@ -2,9 +2,11 @@
 using Application.Models;
 using Application.Models.Request;
 using Domain.Entities;
+using Domain.Exceptions;
 using Domain.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,7 +28,7 @@ namespace Application.Services
         {
             var specialty = await _specialtiesRepository.GetByIdAsync(id);
             if (specialty == null)
-                throw new KeyNotFoundException($"Specialty with ID {id} not found.");
+                throw new NotFoundException($"Especialidad con ID {id} no encontrada.");
 
             return SpecialtiesDTO.FromEntity(specialty);
         }
@@ -40,18 +42,13 @@ namespace Application.Services
         // añadirEspecialidad()
         public async Task<SpecialtiesDTO> CreateSpecialtyAsync(CreationSpecialtiesDTO dto)
         {
-            // ✅ Obtener todas las especialidades existentes
-            var existingSpecialties = await _specialtiesRepository.GetAllAsync();
+            // Validaciones de datos de entrada
+            if (string.IsNullOrWhiteSpace(dto.Type))
+                throw new ValidationException("El tipo de especialidad es requerido.");
 
-            string tipoNormalized = dto.Type.Trim().ToLower();
+            if (string.IsNullOrWhiteSpace(dto.Description))
+                throw new ValidationException("La descripción de la especialidad es requerida.");
 
-            // Verificar duplicado por nombre (Type)
-            bool exists = existingSpecialties.Any(s => s.Type.Trim().ToLower() == tipoNormalized);
-
-            if (exists)
-                throw new ArgumentException($"Ya existe una especialidad registrada con el nombre '{dto.Type}'.");
-
-            // Crear nueva especialidad
             var specialty = new Specialties
             {
                 Type = dto.Type,
@@ -65,22 +62,19 @@ namespace Application.Services
         // modificarEspecialidad()
         public async Task<SpecialtiesDTO> UpdateSpecialtyAsync(int id, CreationSpecialtiesDTO dto)
         {
+            // Validaciones de datos de entrada
+            if (string.IsNullOrWhiteSpace(dto.Type))
+                throw new ValidationException("El tipo de especialidad es requerido.");
+
+            if (string.IsNullOrWhiteSpace(dto.Description))
+                throw new ValidationException("La descripción de la especialidad es requerida.");
+
+            // Verificar que la especialidad existe
             var existing = await _specialtiesRepository.GetByIdAsync(id);
             if (existing == null)
-                throw new KeyNotFoundException($"Specialty with ID {id} not found.");
+                throw new NotFoundException($"Especialidad con ID {id} no encontrada.");
 
-            // ✅ Verificar duplicado al modificar (excluyendo la propia especialidad)
-            var allSpecialties = await _specialtiesRepository.GetAllAsync();
-            string tipoNormalized = dto.Type.Trim().ToLower();
-
-            bool exists = allSpecialties.Any(s =>
-                s.Id != id && s.Type.Trim().ToLower() == tipoNormalized
-            );
-
-            if (exists)
-                throw new ArgumentException($"Ya existe otra especialidad con el nombre '{dto.Type}'.");
-
-            // Actualizar datos
+            // Actualizar propiedades
             existing.Type = dto.Type;
             existing.Description = dto.Description;
 
@@ -88,13 +82,13 @@ namespace Application.Services
             return SpecialtiesDTO.FromEntity(existing);
         }
 
-
         // eliminarEspecialidad()
         public async Task DeleteSpecialtyAsync(int id)
         {
+            // Verificar que la especialidad existe antes de eliminar
             var existing = await _specialtiesRepository.GetByIdAsync(id);
             if (existing == null)
-                throw new KeyNotFoundException($"Specialty with ID {id} not found.");
+                throw new NotFoundException($"Especialidad con ID {id} no encontrada.");
 
             await _specialtiesRepository.DeleteAsync(existing);
         }
@@ -102,14 +96,17 @@ namespace Application.Services
         // asignarEspecialidad(profesional)
         public async Task AssignSpecialtyToProfessionalAsync(int specialtyId, int professionalId)
         {
+            // Verificar que la especialidad existe
             var specialty = await _specialtiesRepository.GetByIdAsync(specialtyId);
             if (specialty == null)
-                throw new KeyNotFoundException($"Specialty with ID {specialtyId} not found.");
+                throw new NotFoundException($"Especialidad con ID {specialtyId} no encontrada.");
 
+            // Verificar que el profesional existe
             var professional = await _professionalsRepository.GetByIdAsync(professionalId);
             if (professional == null)
-                throw new KeyNotFoundException($"Professional with ID {professionalId} not found.");
+                throw new NotFoundException($"Profesional con ID {professionalId} no encontrado.");
 
+            // Asignar la especialidad al profesional
             professional.SpecialtyId = specialtyId;
             await _professionalsRepository.UpdateAsync(professional);
         }
@@ -117,15 +114,18 @@ namespace Application.Services
         // quitarEspecialidad(profesional)
         public async Task RemoveSpecialtyFromProfessionalAsync(int specialtyId, int professionalId)
         {
+            // Verificar que el profesional existe
             var professional = await _professionalsRepository.GetByIdAsync(professionalId);
             if (professional == null)
-                throw new KeyNotFoundException($"Professional with ID {professionalId} not found.");
+                throw new NotFoundException($"Profesional con ID {professionalId} no encontrado.");
 
-            if (professional.SpecialtyId == specialtyId)
-            {
-                professional.SpecialtyId = 0; // O null si es nullable
-                await _professionalsRepository.UpdateAsync(professional);
-            }
+            // Validar que el profesional tiene asignada esta especialidad
+            if (professional.SpecialtyId != specialtyId)
+                throw new ValidationException($"El profesional con ID {professionalId} no tiene asignada la especialidad con ID {specialtyId}.");
+
+            // Quitar la especialidad del profesional
+            professional.SpecialtyId = 0; // O null si es nullable
+            await _professionalsRepository.UpdateAsync(professional);
         }
     }
 }
