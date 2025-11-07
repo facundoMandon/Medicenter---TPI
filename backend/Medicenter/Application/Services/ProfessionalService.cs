@@ -59,12 +59,12 @@ namespace Application.Services
             if (dto.SpecialtyId <= 0)
                 throw new ValidationException("Debe especificar un ID de especialidad válido.");
 
-            // ✅ Verificar duplicados de Email
+            // Verificar duplicados de Email
             var existingEmail = await _professionalsRepository.GetByEmailAsync(dto.Email);
             if (existingEmail != null)
                 throw new DuplicateException($"Ya existe otro profesional con el email '{dto.Email}'.");
 
-            // ✅ Verificar duplicados de DNI
+            // Verificar duplicados de DNI
             var existingDni = await _professionalsRepository.GetByDniAsync(dto.DNI);
             if (existingDni != null)
                 throw new DuplicateException($"Ya existe otro profesional con el DNI '{dto.DNI}'.");

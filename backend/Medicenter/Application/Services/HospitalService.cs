@@ -53,7 +53,7 @@ namespace Application.Services
             if (string.IsNullOrWhiteSpace(dto.Address))
                 throw new ValidationException("La dirección del hospital es requerida.");
 
-            // ✅ Validar duplicado (nombre o dirección ya existente)
+            // Validar duplicado (nombre o dirección ya existente)
             var existingHospitals = await _hospitalsRepository.GetAllAsync();
             bool duplicate = existingHospitals.Any(h =>
                 h.Name.Equals(dto.Name, StringComparison.OrdinalIgnoreCase) ||
@@ -87,7 +87,7 @@ namespace Application.Services
             if (hospital == null)
                 throw new NotFoundException($"Hospital con ID {id} no encontrado.");
 
-            // ✅ Verificar duplicado (si otro hospital tiene el mismo nombre o dirección)
+            // Verificar duplicado (si otro hospital tiene el mismo nombre o dirección)
             var allHospitals = await _hospitalsRepository.GetAllAsync();
             bool duplicate = allHospitals.Any(h =>
                 h.Id != id &&
@@ -128,7 +128,7 @@ namespace Application.Services
             if (professional == null)
                 throw new NotFoundException($"Profesional con ID {professionalId} no encontrado.");
 
-            // ✅ Verificar si el profesional ya está registrado en el hospital
+            // Verificar si el profesional ya está registrado en el hospital
             var currentProfessionals = await _hospitalsRepository.GetProfessionalByHospitalIdAsync(hospitalId);
             bool alreadyRegistered = currentProfessionals.Any(p => p.Id == professionalId);
 

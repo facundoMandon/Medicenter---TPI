@@ -37,7 +37,7 @@ namespace Application.Interfaces
 
         public async Task<UserDTO?> UpdateAsync(int id, CreationUserDTO dto)
         {
-            // 🔍 Validaciones de entrada
+            // Validaciones de entrada
             if (string.IsNullOrWhiteSpace(dto.Name))
                 throw new ValidationException("El nombre es requerido.");
 
@@ -47,17 +47,17 @@ namespace Application.Interfaces
             if (!IsValidEmail(dto.Email))
                 throw new ValidationException("El formato del email no es válido.");
 
-            // 🧠 Buscar usuario existente
+            // Buscar usuario existente
             var user = await _usersRepository.GetByIdAsync(id);
             if (user == null)
                 throw new NotFoundException($"Usuario con ID {id} no encontrado.");
 
-            // 🚫 Verificar duplicados (Email)
+            // Verificar duplicados (Email)
             var existingEmail = await _usersRepository.GetByEmailAsync(dto.Email);
             if (existingEmail != null && existingEmail.Id != id)
                 throw new DuplicateException($"Ya existe otro usuario con el email '{dto.Email}'.");
 
-            // 🚫 Verificar duplicados (DNI)
+            // Verificar duplicados (DNI)
             if (dto.DNI > 0)
             {
                 var existingDni = await _usersRepository.GetByDniAsync(dto.DNI);
@@ -65,7 +65,7 @@ namespace Application.Interfaces
                     throw new DuplicateException($"Ya existe otro usuario con el DNI '{dto.DNI}'.");
             }
 
-            // 🧩 Actualizar propiedades del usuario
+            // Actualizar propiedades del usuario
             user.Name = dto.Name;
             user.LastName = dto.LastName;
             user.DNI = dto.DNI;
@@ -89,16 +89,8 @@ namespace Application.Interfaces
 
         public async Task DeleteAsync(int id) => await DeleteAccountAsync(id);
 
-        public Task RecoverPasswordAsync(string email)
-        {
-            if (string.IsNullOrWhiteSpace(email))
-                throw new ValidationException("El email es requerido para recuperar la contraseña.");
 
-            // TODO: Implementar lógica real
-            throw new NotImplementedException("Lógica de recuperación de contraseña no implementada.");
-        }
-
-        // 🧰 Validador auxiliar de email
+        // Validador auxiliar de email
         private bool IsValidEmail(string email)
         {
             try

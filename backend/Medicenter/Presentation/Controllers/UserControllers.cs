@@ -82,14 +82,6 @@ namespace Presentation.Controllers
             return NoContent();
         }
 
-        // POST /User/password/recover (recuperarContraseña) - Público
-        [HttpPost("password/recover")]
-        [AllowAnonymous] // ⬅ Público (recuperar contraseña)
-        public async Task<ActionResult> RecoverPassword([FromBody] string email)
-        {
-            // El middleware manejará las excepciones de validación
-            await _usersService.RecoverPasswordAsync(email);
-            return Accepted();
-        }
+
     }
 }

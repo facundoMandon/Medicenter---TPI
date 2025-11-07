@@ -35,7 +35,7 @@ namespace Application.Services
 
         public async Task<AdministratorDTO> CreateAdministratorAsync(CreationUserDTO dto)
         {
-            // 🔹 Validaciones de datos de entrada
+            // Validaciones de datos de entrada
             if (string.IsNullOrWhiteSpace(dto.Name))
                 throw new ValidationException("El nombre es requerido.");
 
@@ -54,12 +54,12 @@ namespace Application.Services
             if (dto.Rol != Domain.Enums.Roles.Administrator)
                 throw new ValidationException("El rol debe ser Administrador para crear un administrador.");
 
-            // 🔹 Validar duplicado por email
+            // Validar duplicado por email
             var existingEmail = await _usersRepository.GetByEmailAsync(dto.Email);
             if (existingEmail != null)
                 throw new DuplicateException($"Ya existe un usuario registrado con el email '{dto.Email}'.");
 
-            // 🔹 Validar duplicado por DNI (si se proporciona)
+            // Validar duplicado por DNI (si se proporciona)
             if (dto.DNI > 0)
             {
                 var existingDni = await _usersRepository.GetByDniAsync(dto.DNI);
@@ -68,7 +68,7 @@ namespace Application.Services
             }
 
 
-            // 🔹 Crear el administrador
+            // Crear el administrador
             var admin = new Administrator
             {
                 Name = dto.Name,
@@ -101,12 +101,12 @@ namespace Application.Services
             if (user == null)
                 throw new NotFoundException($"Usuario con ID {userId} no encontrado.");
 
-            // 🔹 Validar duplicado de email (otro usuario con el mismo email)
+            // Validar duplicado de email (otro usuario con el mismo email)
             var existingEmail = await _usersRepository.GetByEmailAsync(dto.Email);
             if (existingEmail != null && existingEmail.Id != userId)
                 throw new DuplicateException($"Ya existe otro usuario con el email '{dto.Email}'.");
 
-            // 🔹 Validar duplicado de DNI (otro usuario con el mismo DNI)
+            // Validar duplicado de DNI (otro usuario con el mismo DNI)
             if (dto.DNI > 0)
             {
                 var existingDni = await _usersRepository.GetByDniAsync(dto.DNI);
@@ -178,7 +178,7 @@ namespace Application.Services
             await _insuranceRepository.DeleteAsync(insurance);
         }
 
-        // 🔹 Método auxiliar para validar formato de email
+        // Método auxiliar para validar formato de email
         private bool IsValidEmail(string email)
         {
             try
