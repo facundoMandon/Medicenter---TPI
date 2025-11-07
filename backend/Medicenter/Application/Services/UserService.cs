@@ -7,7 +7,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Application.Interfaces
@@ -38,7 +37,7 @@ namespace Application.Interfaces
 
         public async Task<UserDTO?> UpdateAsync(int id, CreationUserDTO dto)
         {
-            // Validaciones de datos de entrada
+            // 🔍 Validaciones de entrada
             if (string.IsNullOrWhiteSpace(dto.Name))
                 throw new ValidationException("El nombre es requerido.");
 
@@ -48,20 +47,32 @@ namespace Application.Interfaces
             if (!IsValidEmail(dto.Email))
                 throw new ValidationException("El formato del email no es válido.");
 
-            // Buscar usuario existente
+            // 🧠 Buscar usuario existente
             var user = await _usersRepository.GetByIdAsync(id);
             if (user == null)
                 throw new NotFoundException($"Usuario con ID {id} no encontrado.");
 
-            // Actualizar propiedades del usuario
+            // 🚫 Verificar duplicados (Email)
+            var existingEmail = await _usersRepository.GetByEmailAsync(dto.Email);
+            if (existingEmail != null && existingEmail.Id != id)
+                throw new DuplicateException($"Ya existe otro usuario con el email '{dto.Email}'.");
+
+            // 🚫 Verificar duplicados (DNI)
+            if (dto.DNI > 0)
+            {
+                var existingDni = await _usersRepository.GetByDniAsync(dto.DNI);
+                if (existingDni != null && existingDni.Id != id)
+                    throw new DuplicateException($"Ya existe otro usuario con el DNI '{dto.DNI}'.");
+            }
+
+            // 🧩 Actualizar propiedades del usuario
             user.Name = dto.Name;
             user.LastName = dto.LastName;
             user.DNI = dto.DNI;
             user.Email = dto.Email;
 
-            // Actualizar contraseña si se proporciona
             if (!string.IsNullOrEmpty(dto.Password))
-                user.Password = dto.Password; // Debería hashearse
+                user.Password = dto.Password; // Idealmente, hashear
 
             await _usersRepository.UpdateAsync(user);
             return UserDTO.FromEntity(user);
@@ -69,7 +80,6 @@ namespace Application.Interfaces
 
         public async Task DeleteAccountAsync(int userId)
         {
-            // Verificar que el usuario existe antes de eliminar
             var user = await _usersRepository.GetByIdAsync(userId);
             if (user == null)
                 throw new NotFoundException($"Usuario con ID {userId} no encontrado.");
@@ -81,15 +91,14 @@ namespace Application.Interfaces
 
         public Task RecoverPasswordAsync(string email)
         {
-            // Validar que el email no esté vacío
             if (string.IsNullOrWhiteSpace(email))
                 throw new ValidationException("El email es requerido para recuperar la contraseña.");
 
-            // TODO: Implementar lógica de recuperación
+            // TODO: Implementar lógica real
             throw new NotImplementedException("Lógica de recuperación de contraseña no implementada.");
         }
 
-        // Método auxiliar para validar formato de email
+        // 🧰 Validador auxiliar de email
         private bool IsValidEmail(string email)
         {
             try

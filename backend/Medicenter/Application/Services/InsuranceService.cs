@@ -5,12 +5,7 @@ using Domain.Entities;
 using Domain.Enums;
 using Domain.Exceptions;
 using Domain.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Services
 {
@@ -42,14 +37,17 @@ namespace Application.Services
 
         public async Task<InsuranceDTO> CreateInsuranceAsync(CreationInsuranceDTO dto)
         {
-            // Validaciones de datos de entrada
             if (string.IsNullOrWhiteSpace(dto.Name))
                 throw new ValidationException("El nombre de la obra social es requerido.");
 
             if (string.IsNullOrWhiteSpace(dto.Description))
                 throw new ValidationException("La descripción de la obra social es requerida.");
 
-            // Crear la obra social
+            // 🧠 Verificar duplicado por nombre antes de crear
+            var existing = await _insuranceRepository.GetByNameAsync(dto.Name);
+            if (existing != null)
+                throw new DuplicateException($"Ya existe una obra social con el nombre '{dto.Name}'.");
+
             var insurance = new Insurance
             {
                 Name = dto.Name,
@@ -63,19 +61,21 @@ namespace Application.Services
 
         public async Task<InsuranceDTO> UpdateInsuranceAsync(int id, CreationInsuranceDTO dto)
         {
-            // Validaciones de datos de entrada
             if (string.IsNullOrWhiteSpace(dto.Name))
                 throw new ValidationException("El nombre de la obra social es requerido.");
 
             if (string.IsNullOrWhiteSpace(dto.Description))
                 throw new ValidationException("La descripción de la obra social es requerida.");
 
-            // Verificar que la obra social existe
             var insurance = await _insuranceRepository.GetByIdAsync(id);
             if (insurance == null)
                 throw new NotFoundException($"Obra Social con ID {id} no encontrada.");
 
-            // Actualizar propiedades
+            // 🧠 Verificar si ya existe otra obra social con el mismo nombre
+            var duplicate = await _insuranceRepository.GetByNameAsync(dto.Name);
+            if (duplicate != null && duplicate.Id != id)
+                throw new DuplicateException($"Ya existe otra obra social con el nombre '{dto.Name}'.");
+
             insurance.Name = dto.Name;
             insurance.MedicalCoverageType = dto.MedicalCoverageType;
             insurance.Description = dto.Description;
@@ -86,7 +86,6 @@ namespace Application.Services
 
         public async Task DeleteInsuranceAsync(int id)
         {
-            // Verificar que la obra social existe antes de eliminar
             var insurance = await _insuranceRepository.GetByIdAsync(id);
             if (insurance == null)
                 throw new NotFoundException($"Obra Social con ID {id} no encontrada.");
@@ -94,15 +93,12 @@ namespace Application.Services
             await _insuranceRepository.DeleteAsync(insurance);
         }
 
-        // cambiarCobertura()
         public async Task ChangeCoverageAsync(int patientId, MedicalCoverageType newCoverage)
         {
-            // Verificar que el paciente existe
             var patient = await _patientsRepository.GetByIdAsync(patientId);
             if (patient == null)
                 throw new NotFoundException($"Paciente con ID {patientId} no encontrado.");
 
-            // Cambiar la cobertura del paciente
             await _insuranceRepository.ChangePatientCoverageAsync(patientId, newCoverage);
         }
     }

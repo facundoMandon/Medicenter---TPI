@@ -79,8 +79,22 @@ namespace Application.Services
             if (string.IsNullOrWhiteSpace(dto.Time))
                 throw new ValidationException("La hora es requerida.");
 
-            // Validar fecha y verificar feriados
+            // Validar fecha y feriados
             await ValidateDateAndHolidaysAsync(dto.Year, dto.Month, dto.Day);
+
+            // ✅ Verificar si ya existe un turno asignado al mismo profesional, fecha y hora
+            var existingAppointments = await _appointmentsRepository.GetAllAsync();
+            bool isDuplicate = existingAppointments.Any(a =>
+                a.ProfessionalId == dto.ProfessionalId &&
+                a.Year == dto.Year.PadLeft(4, '0') &&
+                a.Month == dto.Month.PadLeft(2, '0') &&
+                a.Day == dto.Day.PadLeft(2, '0') &&
+                a.Time == dto.Time &&
+                a.Status != Domain.Enums.AppointmentStatus.Cancelled
+            );
+
+            if (isDuplicate)
+                throw new DuplicateException($"Ya existe un turno asignado al profesional en la fecha {dto.Day}/{dto.Month}/{dto.Year} a las {dto.Time}.");
 
             // Crear el turno
             var appointment = new Appointment
@@ -105,6 +119,21 @@ namespace Application.Services
             var existing = await _appointmentsRepository.GetByIdAsync(appointmentId);
             if (existing == null)
                 throw new NotFoundException($"Turno con ID {appointmentId} no encontrado.");
+
+            // Verificar que el turno no se cree por duplicado (no modificar un turno y que se solape con uno ya creado)
+            var allAppointments = await _appointmentsRepository.GetAllAsync();
+            bool duplicateExists = allAppointments.Any(a =>
+                a.Id != appointmentId &&
+                a.ProfessionalId == dto.ProfessionalId &&
+                a.Year == dto.Year.PadLeft(4, '0') &&
+                a.Month == dto.Month.PadLeft(2, '0') &&
+                a.Day == dto.Day.PadLeft(2, '0') &&
+                a.Time == dto.Time &&
+                a.Status != Domain.Enums.AppointmentStatus.Cancelled
+            );
+
+            if (duplicateExists)
+                throw new DuplicateException($"El profesional ya tiene un turno en la fecha {dto.Day}/{dto.Month}/{dto.Year} a las {dto.Time}.");
 
             // Validaciones de datos de entrada
             if (string.IsNullOrWhiteSpace(dto.Year) || dto.Year.Length != 4)

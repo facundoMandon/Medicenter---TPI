@@ -1,5 +1,6 @@
 ﻿using Domain.Entities;
 using Domain.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,10 @@ namespace Infrastructure.Data
     {
         public SpecialtiesRepository(ApplicationDbContext context) : base(context) { }
 
-        // No necesita métodos adicionales
+        public async Task<Specialties?> GetByNameAsync(string type)
+        {
+            return await _context.Set<Specialties>()
+                .FirstOrDefaultAsync(s => s.Type.ToLower() == type.ToLower());
+        }
     }
 }

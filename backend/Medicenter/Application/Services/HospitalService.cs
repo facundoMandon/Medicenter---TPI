@@ -8,7 +8,6 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Application.Services
@@ -54,6 +53,15 @@ namespace Application.Services
             if (string.IsNullOrWhiteSpace(dto.Address))
                 throw new ValidationException("La dirección del hospital es requerida.");
 
+            // ✅ Validar duplicado (nombre o dirección ya existente)
+            var existingHospitals = await _hospitalsRepository.GetAllAsync();
+            bool duplicate = existingHospitals.Any(h =>
+                h.Name.Equals(dto.Name, StringComparison.OrdinalIgnoreCase) ||
+                h.Address.Equals(dto.Address, StringComparison.OrdinalIgnoreCase));
+
+            if (duplicate)
+                throw new DuplicateException($"Ya existe un hospital con el nombre '{dto.Name}' o la dirección '{dto.Address}'.");
+
             // Crear el hospital
             var hospital = new Hospital
             {
@@ -78,6 +86,16 @@ namespace Application.Services
             var hospital = await _hospitalsRepository.GetByIdAsync(id);
             if (hospital == null)
                 throw new NotFoundException($"Hospital con ID {id} no encontrado.");
+
+            // ✅ Verificar duplicado (si otro hospital tiene el mismo nombre o dirección)
+            var allHospitals = await _hospitalsRepository.GetAllAsync();
+            bool duplicate = allHospitals.Any(h =>
+                h.Id != id &&
+                (h.Name.Equals(dto.Name, StringComparison.OrdinalIgnoreCase) ||
+                 h.Address.Equals(dto.Address, StringComparison.OrdinalIgnoreCase)));
+
+            if (duplicate)
+                throw new DuplicateException($"Ya existe otro hospital con el nombre '{dto.Name}' o la dirección '{dto.Address}'.");
 
             // Actualizar propiedades
             hospital.Name = dto.Name;
@@ -110,15 +128,20 @@ namespace Application.Services
             if (professional == null)
                 throw new NotFoundException($"Profesional con ID {professionalId} no encontrado.");
 
+            // ✅ Verificar si el profesional ya está registrado en el hospital
+            var currentProfessionals = await _hospitalsRepository.GetProfessionalByHospitalIdAsync(hospitalId);
+            bool alreadyRegistered = currentProfessionals.Any(p => p.Id == professionalId);
+
+            if (alreadyRegistered)
+                throw new DuplicateException($"El profesional con ID {professionalId} ya está registrado en el hospital {hospital.Name}.");
+
             // Registrar el profesional en el hospital
             await _hospitalsRepository.RegisterProfessionalAsync(hospitalId, professionalId);
         }
 
-        // editarProfesional (Este método no hace nada porque la edición se hace en UserService)
+        // editarProfesional (no implementa lógica)
         public Task EditProfessionalAsync(int hospitalId, int professionalId)
         {
-            // Este método existe solo para cumplir con el contrato del diagrama
-            // La edición real del profesional se hace en UserService o ProfessionalService
             return Task.CompletedTask;
         }
 
@@ -132,10 +155,8 @@ namespace Application.Services
 
             // Obtener profesionales del hospital
             var professionals = await _hospitalsRepository.GetProfessionalByHospitalIdAsync(hospitalId);
-
             var dtos = new List<ProfessionalDTO>();
 
-            // Construir DTOs con información de especialidad
             foreach (var professional in professionals)
             {
                 var specialty = await _specialtiesRepository.GetByIdAsync(professional.SpecialtyId);

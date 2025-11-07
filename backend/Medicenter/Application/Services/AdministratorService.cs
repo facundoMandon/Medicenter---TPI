@@ -4,12 +4,7 @@ using Application.Models.Request;
 using Domain.Entities;
 using Domain.Exceptions;
 using Domain.Interfaces;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Application.Services
 {
@@ -40,7 +35,7 @@ namespace Application.Services
 
         public async Task<AdministratorDTO> CreateAdministratorAsync(CreationUserDTO dto)
         {
-            // Validaciones de datos de entrada
+            // 🔹 Validaciones de datos de entrada
             if (string.IsNullOrWhiteSpace(dto.Name))
                 throw new ValidationException("El nombre es requerido.");
 
@@ -56,11 +51,24 @@ namespace Application.Services
             if (string.IsNullOrWhiteSpace(dto.Password))
                 throw new ValidationException("La contraseña es requerida.");
 
-            // Validar que el rol sea Administrador
             if (dto.Rol != Domain.Enums.Roles.Administrator)
                 throw new ValidationException("El rol debe ser Administrador para crear un administrador.");
 
-            // Crear el administrador
+            // 🔹 Validar duplicado por email
+            var existingEmail = await _usersRepository.GetByEmailAsync(dto.Email);
+            if (existingEmail != null)
+                throw new DuplicateException($"Ya existe un usuario registrado con el email '{dto.Email}'.");
+
+            // 🔹 Validar duplicado por DNI (si se proporciona)
+            if (dto.DNI > 0)
+            {
+                var existingDni = await _usersRepository.GetByDniAsync(dto.DNI);
+                if (existingDni != null)
+                    throw new DuplicateException($"Ya existe otro usuario con el DNI '{dto.DNI}'.");
+            }
+
+
+            // 🔹 Crear el administrador
             var admin = new Administrator
             {
                 Name = dto.Name,
@@ -77,7 +85,6 @@ namespace Application.Services
 
         public async Task UpdateUserAsync(int userId, CreationUserDTO dto)
         {
-            // Validaciones de datos de entrada
             if (string.IsNullOrWhiteSpace(dto.Name))
                 throw new ValidationException("El nombre es requerido.");
 
@@ -90,27 +97,36 @@ namespace Application.Services
             if (!IsValidEmail(dto.Email))
                 throw new ValidationException("El formato del email no es válido.");
 
-            // Verificar que el usuario existe
             var user = await _usersRepository.GetByIdAsync(userId);
             if (user == null)
                 throw new NotFoundException($"Usuario con ID {userId} no encontrado.");
 
-            // Actualizar propiedades del usuario
+            // 🔹 Validar duplicado de email (otro usuario con el mismo email)
+            var existingEmail = await _usersRepository.GetByEmailAsync(dto.Email);
+            if (existingEmail != null && existingEmail.Id != userId)
+                throw new DuplicateException($"Ya existe otro usuario con el email '{dto.Email}'.");
+
+            // 🔹 Validar duplicado de DNI (otro usuario con el mismo DNI)
+            if (dto.DNI > 0)
+            {
+                var existingDni = await _usersRepository.GetByDniAsync(dto.DNI);
+                if (existingDni != null && existingDni.Id != userId)
+                    throw new DuplicateException($"Ya existe otro usuario con el DNI '{dto.DNI}'.");
+            }
+
             user.Name = dto.Name;
             user.LastName = dto.LastName;
             user.DNI = dto.DNI;
             user.Email = dto.Email;
 
-            // Actualizar contraseña si se proporciona
             if (!string.IsNullOrEmpty(dto.Password))
-                user.Password = dto.Password; // Debería hashearse
+                user.Password = dto.Password; // (debería hashearse)
 
             await _usersRepository.UpdateAsync(user);
         }
 
         public async Task DeleteUserAsync(int userId)
         {
-            // Verificar que el usuario existe antes de eliminar
             var user = await _usersRepository.GetByIdAsync(userId);
             if (user == null)
                 throw new NotFoundException($"Usuario con ID {userId} no encontrado.");
@@ -127,18 +143,16 @@ namespace Application.Services
         public async Task<IEnumerable<SpecialtiesDTO>> ViewSpecialtiesAsync()
         {
             var specialties = await _specialtiesRepository.GetAllAsync();
-
             return specialties.Select(s => new SpecialtiesDTO
             {
                 Id = s.Id,
-                Type = s.Type, // CORREGIDO: Type en vez de Name
-                Description = s.Description // CORREGIDO
+                Type = s.Type,
+                Description = s.Description
             });
         }
 
         public async Task DeleteSpecialtyAsync(int specialtyId)
         {
-            // Verificar que la especialidad existe antes de eliminar
             var specialty = await _specialtiesRepository.GetByIdAsync(specialtyId);
             if (specialty == null)
                 throw new NotFoundException($"Especialidad con ID {specialtyId} no encontrada.");
@@ -148,7 +162,6 @@ namespace Application.Services
 
         public async Task DeleteAppointmentAsync(int appointmentId)
         {
-            // Verificar que el turno existe antes de eliminar
             var appointment = await _appointmentsRepository.GetByIdAsync(appointmentId);
             if (appointment == null)
                 throw new NotFoundException($"Turno con ID {appointmentId} no encontrado.");
@@ -158,7 +171,6 @@ namespace Application.Services
 
         public async Task DeleteInsuranceAsync(int insuranceId)
         {
-            // Verificar que la obra social existe antes de eliminar
             var insurance = await _insuranceRepository.GetByIdAsync(insuranceId);
             if (insurance == null)
                 throw new NotFoundException($"Obra Social con ID {insuranceId} no encontrada.");
@@ -166,7 +178,7 @@ namespace Application.Services
             await _insuranceRepository.DeleteAsync(insurance);
         }
 
-        // Método auxiliar para validar formato de email
+        // 🔹 Método auxiliar para validar formato de email
         private bool IsValidEmail(string email)
         {
             try

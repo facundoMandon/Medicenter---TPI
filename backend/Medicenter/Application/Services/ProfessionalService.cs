@@ -37,7 +37,7 @@ namespace Application.Services
 
         public async Task<ProfessionalDTO> CreateProfessionalAsync(CreationProfessionalDTO dto)
         {
-            // Validaciones de datos de entrada
+            // Validaciones básicas
             if (string.IsNullOrWhiteSpace(dto.Name))
                 throw new ValidationException("El nombre es requerido.");
 
@@ -59,6 +59,16 @@ namespace Application.Services
             if (dto.SpecialtyId <= 0)
                 throw new ValidationException("Debe especificar un ID de especialidad válido.");
 
+            // ✅ Verificar duplicados de Email
+            var existingEmail = await _professionalsRepository.GetByEmailAsync(dto.Email);
+            if (existingEmail != null)
+                throw new DuplicateException($"Ya existe otro profesional con el email '{dto.Email}'.");
+
+            // ✅ Verificar duplicados de DNI
+            var existingDni = await _professionalsRepository.GetByDniAsync(dto.DNI);
+            if (existingDni != null)
+                throw new DuplicateException($"Ya existe otro profesional con el DNI '{dto.DNI}'.");
+
             // Verificar que la especialidad existe
             var specialty = await _specialtiesRepository.GetByIdAsync(dto.SpecialtyId);
             if (specialty == null)
@@ -71,14 +81,14 @@ namespace Application.Services
                 LastName = dto.LastName,
                 DNI = dto.DNI,
                 Email = dto.Email,
-                Password = dto.Password, // Debería hashearse
+                Password = dto.Password, // 🔒 Debería encriptarse
                 Rol = dto.Rol,
                 LicenseNumber = dto.LicenseNumber,
                 SpecialtyId = dto.SpecialtyId
             };
 
             var created = await _professionalsRepository.CreateAsync(professional);
-            string specialtyName = specialty.Type; // CORREGIDO: Type en vez de Name
+            string specialtyName = specialty.Type;
 
             return ProfessionalDTO.FromEntity(created, specialtyName);
         }

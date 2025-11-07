@@ -9,5 +9,8 @@ namespace Domain.Interfaces
 {
     public interface IProfessionalRepository : IRepositoryBase<Professional>
     {
+        Task<Professional?> GetByEmailAsync(string email);
+        Task<Professional?> GetByDniAsync(int dni);
+
     }
 }

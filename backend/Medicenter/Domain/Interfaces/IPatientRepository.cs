@@ -10,5 +10,7 @@ namespace Domain.Interfaces
     public interface IPatientRepository : IRepositoryBase<Patient>
     {
         Task<List<Appointment>> GetAppointmentByPatientIdAsync(int patientId);
+        Task<Patient?> GetByDniAsync(int dni);
+        Task<Patient?> GetByEmailAsync(string email);
     }
 }

@@ -42,12 +42,16 @@ namespace Application.Services
         // añadirEspecialidad()
         public async Task<SpecialtiesDTO> CreateSpecialtyAsync(CreationSpecialtiesDTO dto)
         {
-            // Validaciones de datos de entrada
             if (string.IsNullOrWhiteSpace(dto.Type))
                 throw new ValidationException("El tipo de especialidad es requerido.");
 
             if (string.IsNullOrWhiteSpace(dto.Description))
                 throw new ValidationException("La descripción de la especialidad es requerida.");
+
+            // 🔎 Verificar si ya existe una especialidad con el mismo nombre
+            var existing = await _specialtiesRepository.GetByNameAsync(dto.Type);
+            if (existing != null)
+                throw new DuplicateException($"Ya existe una especialidad con el tipo '{dto.Type}'.");
 
             var specialty = new Specialties
             {
@@ -62,19 +66,21 @@ namespace Application.Services
         // modificarEspecialidad()
         public async Task<SpecialtiesDTO> UpdateSpecialtyAsync(int id, CreationSpecialtiesDTO dto)
         {
-            // Validaciones de datos de entrada
             if (string.IsNullOrWhiteSpace(dto.Type))
                 throw new ValidationException("El tipo de especialidad es requerido.");
 
             if (string.IsNullOrWhiteSpace(dto.Description))
                 throw new ValidationException("La descripción de la especialidad es requerida.");
 
-            // Verificar que la especialidad existe
             var existing = await _specialtiesRepository.GetByIdAsync(id);
             if (existing == null)
                 throw new NotFoundException($"Especialidad con ID {id} no encontrada.");
 
-            // Actualizar propiedades
+            // 🔎 Verificar duplicados (excepto si es la misma especialidad)
+            var duplicate = await _specialtiesRepository.GetByNameAsync(dto.Type);
+            if (duplicate != null && duplicate.Id != id)
+                throw new DuplicateException($"Ya existe otra especialidad con el tipo '{dto.Type}'.");
+
             existing.Type = dto.Type;
             existing.Description = dto.Description;
 

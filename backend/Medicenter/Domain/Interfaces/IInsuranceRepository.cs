@@ -10,7 +10,10 @@ namespace Domain.Interfaces
 {
     public interface IInsuranceRepository : IRepositoryBase<Insurance>
     {
-        // Métodos según diagrama
-        Task ChangePatientCoverageAsync(int patientId, MedicalCoverageType newCoverage); // cambiarCobertura
+        // Cambiar cobertura de un paciente (ya existente)
+        Task ChangePatientCoverageAsync(int patientId, MedicalCoverageType newCoverage);
+
+        // 🆕 Buscar una obra social por nombre (para validar duplicados)
+        Task<Insurance?> GetByNameAsync(string name);
     }
 }

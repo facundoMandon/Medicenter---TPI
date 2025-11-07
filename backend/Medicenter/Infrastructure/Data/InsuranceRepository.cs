@@ -2,17 +2,16 @@
 using Domain.Enums;
 using Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Infrastructure.Data
 {
     public class InsuranceRepository : RepositoryBase<Insurance>, IInsuranceRepository
     {
-        public InsuranceRepository(ApplicationDbContext context) : base(context) { }
+        public InsuranceRepository(ApplicationDbContext context) : base(context)
+        {
+        }
 
         // cambiarCobertura
         public async Task ChangePatientCoverageAsync(int patientId, MedicalCoverageType newCoverage)
@@ -29,6 +28,13 @@ namespace Infrastructure.Data
                 patient.Insurance.MedicalCoverageType = newCoverage;
                 await _context.SaveChangesAsync();
             }
+        }
+
+        // Nuevo método para prevenir duplicados por nombre
+        public async Task<Insurance?> GetByNameAsync(string name)
+        {
+            return await _context.Set<Insurance>()
+                .FirstOrDefaultAsync(i => i.Name.ToLower() == name.ToLower());
         }
     }
 }

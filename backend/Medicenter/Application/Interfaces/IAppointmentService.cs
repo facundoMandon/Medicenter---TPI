@@ -19,6 +19,8 @@ namespace Application.Interfaces
         Task<AppointmentDTO> AssignAppointmentAsync(CreationAppointmentDTO dto); // asignarTurno()
         Task<AppointmentDTO> UpdateAppointmentAsync(int appointmentId, CreationAppointmentDTO dto); // modificarTurno()
         Task CancelAppointmentAsync(int appointmentId); // cancelarTurno()
+
+        //Añadir el DeleteAppointmentAsync
         Task<AppointmentDTO> ConfirmAppointmentAsync(int appointmentId); // confirmarTurno() - AGREGADO
     }
 }

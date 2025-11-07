@@ -1,10 +1,6 @@
 ﻿using Domain.Entities;
 using Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace Infrastructure.Data
@@ -15,8 +11,14 @@ namespace Infrastructure.Data
 
         public async Task<User?> GetByEmailAsync(string email)
         {
-            // Usa _context de RepositoryBase
-            return await _context.Set<User>().FirstOrDefaultAsync(u => u.Email == email);
+            return await _context.Set<User>()
+                                 .FirstOrDefaultAsync(u => u.Email == email);
+        }
+
+        public async Task<User?> GetByDniAsync(int dni)
+        {
+            return await _context.Set<User>()
+                                 .FirstOrDefaultAsync(u => u.DNI == dni);
         }
     }
 }

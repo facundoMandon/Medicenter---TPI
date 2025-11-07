@@ -9,6 +9,6 @@ namespace Domain.Interfaces
 {
     public interface ISpecialtiesRepository : IRepositoryBase<Specialties>
     {
-        // No necesita métodos adicionales porque la relación se maneja en ProfessionalRepository
+        Task<Specialties?> GetByNameAsync(string type);
     }
 }
