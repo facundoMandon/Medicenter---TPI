@@ -11,5 +11,6 @@ namespace Domain.Interfaces
     {
         Task<List<Appointment>> GetByPatientIdAsync(int patientId);
         Task<List<Appointment>> GetByProfessionalIdAsync(int professionalId);
+        Task<Appointment> AddAsync(Appointment appointment);
     }
 }

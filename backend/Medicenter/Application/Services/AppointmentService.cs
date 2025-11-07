@@ -109,7 +109,7 @@ namespace Application.Services
                 Status = AppointmentStatus.Requested
             };
 
-            var created = await _appointmentsRepository.CreateAsync(appointment);
+            var created = await _appointmentsRepository.AddAsync(appointment);
             return await MapToDtoAsync(created);
         }
 

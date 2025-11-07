@@ -32,5 +32,20 @@ namespace Infrastructure.Data
                 .Where(a => a.ProfessionalId == professionalId)
                 .ToListAsync();
         }
+
+        public async Task<Appointment> AddAsync(Appointment appointment)
+        {
+            _context.Set<Appointment>().Add(appointment);
+            await _context.SaveChangesAsync();
+
+            // Recargar el turno con los datos del profesional y la especialidad
+            await _context.Entry(appointment)
+                .Reference(a => a.Professional)
+                .Query()
+                .Include(p => p.Specialty)
+                .LoadAsync();
+
+            return appointment;
+        }
     }
 }
