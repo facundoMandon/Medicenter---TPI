@@ -82,7 +82,7 @@ namespace Application.Services
             // Validar fecha y feriados
             await ValidateDateAndHolidaysAsync(dto.Year, dto.Month, dto.Day);
 
-            // ✅ Verificar si ya existe un turno asignado al mismo profesional, fecha y hora
+            // Verificar si ya existe un turno asignado al mismo profesional, fecha y hora
             var existingAppointments = await _appointmentsRepository.GetAllAsync();
             bool isDuplicate = existingAppointments.Any(a =>
                 a.ProfessionalId == dto.ProfessionalId &&
@@ -190,10 +190,8 @@ namespace Application.Services
             await _appointmentsRepository.UpdateAsync(existing);
         }
 
-        /// <summary>
         /// Valida que la fecha sea válida y no sea feriado en Argentina
         /// Lanza ValidationException si la fecha es inválida, pasada o es feriado
-        /// </summary>
         private async Task ValidateDateAndHolidaysAsync(string year, string month, string day)
         {
             // Normalizar mes y día para consulta (agregar 0 si es necesario)

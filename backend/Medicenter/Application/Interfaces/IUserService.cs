@@ -17,7 +17,6 @@ namespace Application.Interfaces
         Task DeleteAsync(int id);
 
         // Métodos de cuenta (del diagrama)
-        Task RecoverPasswordAsync(string email); // recuperarContraseña()
         Task DeleteAccountAsync(int userId); // eliminarCuenta()
     }
 }

@@ -83,7 +83,7 @@ builder.Services.AddSwaggerGen(setupAction =>
     {
         Type = SecuritySchemeType.Http,
         Scheme = "Bearer",
-        Description = "Pega aquí el token generado al iniciar sesión"
+        Description = "Pega aqui el token generado al iniciar sesion"
     });
 
     setupAction.AddSecurityRequirement(new OpenApiSecurityRequirement

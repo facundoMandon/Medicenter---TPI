@@ -29,7 +29,7 @@ namespace Application.Services
 
         public async Task<PatientDTO> CreatePatientAsync(CreationPatientDTO dto)
         {
-            // ✅ Validaciones de datos de entrada
+            // Validaciones de datos de entrada
             if (string.IsNullOrWhiteSpace(dto.Name))
                 throw new ValidationException("El nombre es requerido.");
 
@@ -51,7 +51,7 @@ namespace Application.Services
             if (dto.InsuranceId <= 0)
                 throw new ValidationException("Debe especificar un ID de obra social válido.");
 
-            // ✅ Verificar duplicados (DNI y Email)
+            // Verificar duplicados (DNI y Email)
             var existingDni = await _patientsRepository.GetByDniAsync(dto.DNI);
             if (existingDni != null)
                 throw new DuplicateException($"Ya existe un paciente con el DNI {dto.DNI}.");
@@ -60,12 +60,12 @@ namespace Application.Services
             if (existingEmail != null)
                 throw new DuplicateException($"Ya existe un paciente con el email '{dto.Email}'.");
 
-            // ✅ Verificar que la obra social existe
+            // Verificar que la obra social existe
             var insurance = await _insuranceRepository.GetByIdAsync(dto.InsuranceId);
             if (insurance == null)
                 throw new NotFoundException($"No existe una obra social con el ID {dto.InsuranceId}.");
 
-            // ✅ Crear el paciente
+            // Crear el paciente
             var patient = new Patient
             {
                 Name = dto.Name,

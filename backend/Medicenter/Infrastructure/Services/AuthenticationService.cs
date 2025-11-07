@@ -1,5 +1,6 @@
 ﻿using Application.Interfaces;
 using Application.Models.Request;
+using Domain.Exceptions;
 using Domain.Interfaces;
 using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
@@ -24,11 +25,9 @@ namespace Infrastructure.Services
         private async Task<Domain.Entities.User?> ValidateUser(string email, string password)
         {
             var user = await _usersRepository.GetByEmailAsync(email);
-
             if (user is null)
                 return null;
 
-            // Comparación directa de contraseñas en texto plano
             if (user.Password != password)
                 return null;
 
@@ -37,16 +36,12 @@ namespace Infrastructure.Services
 
         public async Task<string> AuthenticateAsync(AuthenticationRequestDTO authenticationRequestDTO)
         {
-            // Validar credenciales
             var validatedUser = await ValidateUser(authenticationRequestDTO.Email, authenticationRequestDTO.Password);
-
             if (validatedUser is null)
                 throw new UnauthorizedAccessException("Credenciales inválidas");
 
-            // Crear token JWT
             var securityPassword = new SymmetricSecurityKey(
                 Encoding.ASCII.GetBytes(_options.SecretForKey));
-
             var signature = new SigningCredentials(securityPassword, SecurityAlgorithms.HmacSha256);
 
             var claimsForToken = new List<Claim>
@@ -64,12 +59,52 @@ namespace Infrastructure.Services
                 _options.Audience,
                 claimsForToken,
                 DateTime.UtcNow,
-                DateTime.UtcNow.AddHours(24), // Token válido por 24 horas
+                DateTime.UtcNow.AddHours(24),
                 signature
             );
 
             var tokenToReturn = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
             return tokenToReturn;
+        }
+
+        // Solo pide email y nueva contraseña
+        public async Task ResetPasswordAsync(ResetPasswordRequestDTO request)
+        {
+            // Validar email
+            if (string.IsNullOrWhiteSpace(request.Email))
+                throw new ValidationException("El email es requerido.");
+
+            if (!IsValidEmail(request.Email))
+                throw new ValidationException("El formato del email no es válido.");
+
+            // Validar contraseña
+            if (string.IsNullOrWhiteSpace(request.NewPassword))
+                throw new ValidationException("La nueva contraseña es requerida.");
+
+            if (request.NewPassword.Length < 8)
+                throw new ValidationException("La contraseña debe tener al menos 8 caracteres.");
+
+            // Buscar usuario por email
+            var user = await _usersRepository.GetByEmailAsync(request.Email);
+            if (user == null)
+                throw new NotFoundException("No existe un usuario con ese email.");
+
+            // Actualizar contraseña directamente
+            user.Password = request.NewPassword;
+            await _usersRepository.UpdateAsync(user);
+        }
+
+        private bool IsValidEmail(string email)
+        {
+            try
+            {
+                var addr = new System.Net.Mail.MailAddress(email);
+                return addr.Address == email;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 

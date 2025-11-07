@@ -43,7 +43,7 @@ namespace Application.Services
             if (string.IsNullOrWhiteSpace(dto.Description))
                 throw new ValidationException("La descripción de la obra social es requerida.");
 
-            // 🧠 Verificar duplicado por nombre antes de crear
+            // Verificar duplicado por nombre antes de crear
             var existing = await _insuranceRepository.GetByNameAsync(dto.Name);
             if (existing != null)
                 throw new DuplicateException($"Ya existe una obra social con el nombre '{dto.Name}'.");
@@ -71,7 +71,7 @@ namespace Application.Services
             if (insurance == null)
                 throw new NotFoundException($"Obra Social con ID {id} no encontrada.");
 
-            // 🧠 Verificar si ya existe otra obra social con el mismo nombre
+            // Verificar si ya existe otra obra social con el mismo nombre
             var duplicate = await _insuranceRepository.GetByNameAsync(dto.Name);
             if (duplicate != null && duplicate.Id != id)
                 throw new DuplicateException($"Ya existe otra obra social con el nombre '{dto.Name}'.");
